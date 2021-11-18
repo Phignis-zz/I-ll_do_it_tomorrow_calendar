@@ -1,0 +1,14 @@
+#img_titre {
+	width: 100px;
+}
+
+#titre {
+	display: flex;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+}
