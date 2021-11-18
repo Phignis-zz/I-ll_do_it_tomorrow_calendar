@@ -2,7 +2,9 @@
 
 ## Contexte du projet
 > Lors du semestre 3 de DUT Informatique (1er semestre de 2ème année), et dans le cadre du cours de `Programmation Web côté Serveur`, trois intitulés de projets, ayant pour but de mobiliser les connaissances acquises lors du cours en PHP, nous ont été proposé.
->Nous avons choisi de faire une ToDo List.
+> Chaque projet demande nottament de mettre en place le patron d'architecture MVC (modele view controller)
+>
+> Nous avons choisi de faire une ToDo List.
 
 ## Consigne encadrant le projet
 > ###### Projet A: ToDo List
@@ -40,3 +42,18 @@
 > *   HTML 5
 > *   CSS 3
 > *   PHP 7
+> *   PHPMyAdmin (et PDO) pour les manipulations de base de donnée
+> *   Wamp Server 3.2.3, avec une base de donnée MySQL 5.7.31, PHP 7.3.21 et PHPMyAdmin 5.0.2 a été utilisé lors du développement du projet
+
+## Arborescence du projets
+> *   doc : dossier contenant toute la documentation du projet (diagramme de conception, sketchs...)
+> *   src : dossier contenant tout le code source du projet du site
+> *   src/config : dossier contenant tout le code php permettant de définir des variables utiles a tout le site (le chemin vers toutes les images, ls CSS...)
+> *   src/controllers : dossier contenant tout les controlers (servant au controle de la validité des données saisies, redirections sur les vues adéquates...)
+> *   src/modeles : dossier contenant tout les modèles du projet (manipulant les données métiers, tel des Gateway)
+> *   src/ressources : dossier contenant tout les ressources de l'application (images, fichiers CSS3, parties html communes tel le header ou le footer)
+> *   src/vues : dossier contenant toutes les vues de l'application (contenu html visible directement par l'utilisateur, généré avec les données demandées aux controllers)
+
+## Conventions
+
+veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
