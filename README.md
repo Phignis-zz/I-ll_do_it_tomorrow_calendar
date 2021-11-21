@@ -45,7 +45,7 @@
 > *   PHPMyAdmin (et PDO) pour les manipulations de base de donnée
 > *   Wamp Server 3.2.3, avec une base de donnée MySQL 5.7.31, PHP 7.3.21 et PHPMyAdmin 5.0.2 a été utilisé lors du développement du projet
 
-## Arborescence du projets
+## Arborescence du projet
 > *   doc : dossier contenant toute la documentation du projet (diagramme de conception, sketchs...)
 > *   src : dossier contenant tout le code source du projet du site
 > *   src/config : dossier contenant tout le code php permettant de définir des variables utiles a tout le site (le chemin vers toutes les images, ls CSS...)
