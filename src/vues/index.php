@@ -9,14 +9,22 @@
         <link rel="stylesheet" href="../ressources/style/bootstrap.min.css">
         <link rel="stylesheet" href="index.css">
 
+   		<!-- Script nécessaire pour faire fonctionner la navbar (dropdown) -->
+   		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+   		<!-- Scripts pas encore utilisésr -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     	<title>Procrastinator Calendar</title>
  	</head>
  	<body>
- 		<header class="bg-dark">
- 			<div class="header">
+ 		<header>
  				<div id="titre">
- 					<img id="img_titre" src="ressources/images/logo.png" alt="o">
- 					<h1>Procrastinator</h1>
+ 					<div id="text_titre">
+ 						<img id="img_titre" src="ressources/images/logo.png" alt="o">
+ 						<h1>Procrastinator</h1>
+ 					</div>
  					<div id="account_buttons">
         				<button>
         					<p>Se Connecter</p>
@@ -26,39 +34,25 @@
         				</button>
         			</div>
         		</div>
- 					<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	            		<ul class="navbar-nav">
-	              		<li class="nav-item">
-	                		<a class="nav-link" href="#histoire">Histoire</a>
-	              		</li>
-
-	              		<li class="nav-item dropdown">
-	                		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Saisons</a>
-	                  		<div class="dropdown-menu">
-	                    		<a class="dropdown-item" href="#iphone2">Iphone 2G</a>
-	                    		<a class="dropdown-item" href="#iphone3">Iphone 3GS</a>
-	                    		<a class="dropdown-item" href="#iphone4">Iphone 4</a>
-	                    		<a class="dropdown-item" href="#iphone5">Iphone 5</a>
-	                    		<a class="dropdown-item" href="#iphone6">Iphone 6</a>
-	                    		<a class="dropdown-item" href="#iphone7">Iphone 7</a>
-	                    		<a class="dropdown-item" href="#iphone8">Iphone 8</a>
-	                    		<a class="dropdown-item" href="#iphone10">Iphone X</a>
-	                    		<a class="dropdown-item" href="#iphone11">Iphone 11</a>
-	                  		</div>
-	              		</li>
-	              		<li class="nav-item">
-	                		<a class="nav-link" href="#iphone12">iPhone 12</a>
-	              		</li>
-	              		<li class="nav-item">
-	                		<a class="nav-link" href="#ios">iOs</a>
-	              		</li>
-	              		<li class="nav-item">
-	                		<a class="nav-link" href="#formulaire">Contact</a>
-	              		</li>
-	            		</ul>
-          			</nav>
-      			
-    		</div>
+ 				<nav>
+	            	<ul>
+		              	<li>
+		                	<button href="">
+		                		<p>Calendrier</p>
+		                	</button>
+		              	</li>
+		              	<li>
+		                	<button href="">
+		                		<p>Listes de tâches publiques</p>
+		                	</button>
+		              	</li>
+		              	<li>
+		                	<button href="">
+		                		<p>Listes de tâches privées</p>
+		                	</button>
+		              	</li>
+	            	</ul>
+          		</nav>
  		</header>
                 
                 <?php
