@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="bootstrap.min.css">
-   		<link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../ressources/style/bootstrap.min.css">
+        <link rel="stylesheet" href="index.css">
 
     	<title>Procrastinator Calendar</title>
  	</head>
@@ -60,5 +60,9 @@
       			
     		</div>
  		</header>
+                
+                <?php
+                        include("../ressources/html_parts/footer.php");
+                ?>
  	</body>
  </html>
