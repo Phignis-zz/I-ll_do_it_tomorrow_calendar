@@ -31,9 +31,7 @@ header nav ul li button {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	background-color: #35363A;
-	border-top: 2px solid #808080;
-	border-left: 2px solid #808080;
-	border-right: 2px solid #808080;
+	border: 2px solid #808080;
 	padding-left: 20px;
 	padding-right: 20px;
 }
@@ -46,9 +44,7 @@ header nav ul li button p {
 
 header nav ul li button:hover {
 	background-color: #808080;
-	border-top: 2px solid #27282B;
-	border-left: 2px solid #27282B;
-	border-right: 2px solid #27282B;
+	border: 2px solid #27282B;
 }
 
 header nav ul li button:hover p {
