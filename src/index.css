@@ -1,9 +1,14 @@
 #img_titre {
-	width: 100px;
+	width: 50px;
 }
 
 #titre {
 	display: flex;
+	margin: 10px;
+}
+
+#account_button{
+	text-align: left;
 }
 
 header {
