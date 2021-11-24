@@ -1,18 +1,58 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!--
-        Le but de ce fichier est de proposer un header a inclure a chaque début de page html du site "I'll Do It Tomorrow Calendar"
-        Il n'a pas sens à être appelé seul, expliquant l'absance des balises html
--->
-        
-<header>
-        <?php
-                // intégration de la partie d'affichage du profil connecté, ou l'option de connexion
-                if(!isset($_SESSION("pseudo"))) {
-                        require();
-                }
-                else {
-                        require();
-                }
-                
-        ?> 
-</header>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../ressources/style/bootstrap.min.css">
+    <link rel="stylesheet" href="../ressources/style/index.css">
+
+    <!-- Script nécessaire pour faire fonctionner la navbar (dropdown) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- Scripts pas encore utilisésr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Procrastinator Calendar</title>
+  </head>
+  <body>
+    <header>
+        <div id="titre">
+          <div id="text_titre">
+            <h1>
+              The
+              <img id="img_titre" src="../ressources/images/logo.png" alt="o">
+              Calendar
+            </h1>
+          </div>
+          <div id="account_buttons">
+            <button>
+              <p>Se Connecter</p>
+            </button>
+            <button>
+              <p>S'Inscrire</p>
+            </button>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            
+            <li>
+              <button href="">
+                <p>Listes de tâches publiques</p>
+              </button>
+            </li>
+            <li>
+              <button href="">
+                <p>Listes de tâches privées</p>
+              </button>
+            </li>
+          </ul>
+        </nav>
+    </header>
+  </body>
+ </html>
+

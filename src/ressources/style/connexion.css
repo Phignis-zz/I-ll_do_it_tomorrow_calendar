@@ -1,0 +1,56 @@
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: #808080;
+	height: 50em;
+}
+section div{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	margin-top: 1em;
+}
+
+section div h1{
+	text-align: center;
+}
+
+section div div{
+
+	display: flex;
+	margin-left: auto;
+}
+
+section div div a{
+	color: #35363A;
+}
+section div div a:hover {
+	color: #27282B;
+}
+section div div button {
+	height: 3em;
+	width: 15em;
+	background-color: #808080;
+	border: 4px solid #35363A;
+	border-radius: 15px;
+}
+
+section div div button:hover {
+	background-color: #35363A;
+	border: 4px solid #27282B;
+	border-radius: 15px;
+	color: #808080;
+}
+
+section div textarea {
+	border: 2px solid #35363A;
+	border-radius: 15px;
+	max-height: 2em;
+	min-height: 2em;
+	background-color: #808080;
+}

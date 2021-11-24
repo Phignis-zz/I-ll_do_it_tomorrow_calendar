@@ -1,0 +1,20 @@
+footer {
+	display: flex;
+	justify-content: space-between;
+	min-height: 8em;
+	max-height: 8em;
+	background: #35363A;
+	padding: 1em;
+}
+
+#credits {
+	display: flex;
+	flex-direction: column;
+}
+
+footer div img {
+	max-height: 6em;
+}
+footer div p {
+	color: #808080;
+}
