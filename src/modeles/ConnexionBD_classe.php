@@ -2,12 +2,21 @@
 
         class ConnexionBD extends PDO {
                 
-                private $statement;
+                private $statement = NULL;
                 
-                public __construct(string $nomSourceDonnee, string $utilisateur, string $motDePasse) {
+                private static $singleton;
+                
+                private __construct(string $nomSourceDonnee, string $utilisateur, string $motDePasse) {
                         
                         parent::__construct($nomSourceDonnee, $utilisateur, $motDePasse);
                         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                }
+                
+                private static getInstance(string $nomSourceDonnee, string $utilisateur, string $motDePasse) : ConnexionBD {
+                        
+                        if($singleton == NULL) $singleton = new ConnexionBD($nomSourceDonnee, $utilisateur, $motDePasse);
+                        
+                        return $singleton;
                 }
                 
                 public executerQuery(string $query, array $parametres = []) : bool {
