@@ -6,20 +6,20 @@
                 
                 private static $singleton;
                 
-                private __construct(string $nomSourceDonnee, string $utilisateur, string $motDePasse) {
+                private function __construct(string $nomSourceDonnee, string $utilisateur, string $motDePasse) {
                         
                         parent::__construct($nomSourceDonnee, $utilisateur, $motDePasse);
                         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
                 
-                private static getInstance(string $nomSourceDonnee, string $utilisateur, string $motDePasse) : ConnexionBD {
+                private static function getInstance(string $nomSourceDonnee, string $utilisateur, string $motDePasse) : ConnexionBD {
                         
                         if($singleton == NULL) $singleton = new ConnexionBD($nomSourceDonnee, $utilisateur, $motDePasse);
                         
                         return $singleton;
                 }
                 
-                public executerQuery(string $query, array $parametres = []) : bool {
+                public function executerQuery(string $query, array $parametres = []) : bool {
                         
                         // préparation de la commande SQL
                         $this->$statement = parent::prepare($query);
@@ -35,7 +35,7 @@
                         return $this->statement->execute();
                 }
                 
-                public recupererResultatQuery() : array {
+                public function recupererResultatQuery() : array {
                         
                         return $this->statement->fetchall(PDO::FETCH_ASSOC); /* PDO::FETCH_ASSOC permet de ne récuperer les données que via la nom de colonne,
                         en abandonnant l'accès via index, qui génererait un doublon retourné pour chaque tuple */

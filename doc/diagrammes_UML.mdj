@@ -4865,7 +4865,8 @@
 									},
 									"name": "singleton",
 									"visibility": "private",
-									"isStatic": true
+									"isStatic": true,
+									"type": ""
 								}
 							],
 							"operations": [
@@ -5121,8 +5122,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 296,
-											"top": 472,
+											"left": 280,
+											"top": 456,
 											"height": 13
 										},
 										{
@@ -5132,8 +5133,8 @@
 												"$ref": "AAAAAAF9UsIAwLoSYIA="
 											},
 											"font": "Arial;13;1",
-											"left": 293,
-											"top": 207,
+											"left": 285,
+											"top": 199,
 											"width": 554.60107421875,
 											"height": 13,
 											"text": "ConnexionBD"
@@ -5146,8 +5147,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 296,
-											"top": 472,
+											"left": 280,
+											"top": 456,
 											"width": 153.87353515625,
 											"height": 13,
 											"text": "(from Persistance)"
@@ -5160,15 +5161,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 296,
-											"top": 472,
+											"left": 280,
+											"top": 456,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 288,
-									"top": 200,
+									"left": 280,
+									"top": 192,
 									"width": 564.60107421875,
 									"height": 25,
 									"stereotypeLabel": {
@@ -5204,8 +5205,8 @@
 												"$ref": "AAAAAAF9UsJiu7o6a80="
 											},
 											"font": "Arial;13;0",
-											"left": 293,
-											"top": 230,
+											"left": 285,
+											"top": 222,
 											"width": 554.60107421875,
 											"height": 13,
 											"underline": true,
@@ -5214,8 +5215,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 288,
-									"top": 225,
+									"left": 280,
+									"top": 217,
 									"width": 564.60107421875,
 									"height": 23
 								},
@@ -5239,8 +5240,8 @@
 												"$ref": "AAAAAAF9UsZEYLpiaiA="
 											},
 											"font": "Arial;13;0",
-											"left": 293,
-											"top": 253,
+											"left": 285,
+											"top": 245,
 											"width": 554.60107421875,
 											"height": 13,
 											"text": "+getInstance(nomSourceDonnee: string, utilisateur: string, motDePasse: string): ConnexionDB",
@@ -5256,8 +5257,8 @@
 												"$ref": "AAAAAAF9UsSxWLpRh4E="
 											},
 											"font": "Arial;13;0",
-											"left": 293,
-											"top": 268,
+											"left": 285,
+											"top": 260,
 											"width": 554.60107421875,
 											"height": 13,
 											"text": "+executerQuery(query: string, parametres: array): bool",
@@ -5273,8 +5274,8 @@
 												"$ref": "AAAAAAF9UsK3K7pDAYk="
 											},
 											"font": "Arial;13;0",
-											"left": 293,
-											"top": 283,
+											"left": 285,
+											"top": 275,
 											"width": 554.60107421875,
 											"height": 13,
 											"text": "+recupererResultatQuery(): array",
@@ -5282,8 +5283,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 288,
-									"top": 248,
+									"left": 280,
+									"top": 240,
 									"width": 564.60107421875,
 									"height": 53
 								},
@@ -5298,8 +5299,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 248,
-									"top": 416,
+									"left": 240,
+									"top": 408,
 									"width": 10,
 									"height": 10
 								},
@@ -5314,8 +5315,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 248,
-									"top": 416,
+									"left": 240,
+									"top": 408,
 									"width": 10,
 									"height": 10
 								}
@@ -5325,8 +5326,8 @@
 							},
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 288,
-							"top": 200,
+							"left": 280,
+							"top": 192,
 							"width": 564.60107421875,
 							"height": 101,
 							"nameCompartment": {

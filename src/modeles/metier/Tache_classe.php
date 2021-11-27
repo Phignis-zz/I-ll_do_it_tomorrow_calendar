@@ -3,14 +3,12 @@
         class Tache {
                 private $idTache;
                 private $intituleTache;
-                private $auteur;
                 private $dateTache;
                 private $description;
                 
-                public __construct(int $idTache, string $intituleTache, string $auteur, string $dateTache, string $description) {
+                public function __construct(int $idTache, string $intituleTache, string $auteur, string $dateTache, string $description) {
                         $this->idTache = $idTache;
                         $this->intituleTache = $intituleTache;
-                        $this->auteur = $auteur;
                         $this->dateTache = $dateTache;
                         $this->description = $description;
                 }
@@ -21,23 +19,19 @@
                 ///////////////////////////////////////////
                 
                 
-                public function GetIdTache() : int {
+                public function getIdTache() : int {
                         return $idTache;
                 }
                 
-                public function GetIntituleTache() : string {
+                public function getIntituleTache() : string {
                         return $intituleTache;
                 }
                 
-                public function GetAuteur() : string {
-                        return $auteur;
-                }
-                
-                public function GetDateTache() : string {
+                public function getDateTache() : string {
                         return $dateTache;
                 }
                 
-                public function GetDescription() : string {
+                public function getDescription() : string {
                         return $description;
                 }
                 
@@ -46,23 +40,19 @@
                 ///////////////////////////////////////////
                 
                 
-                public function SetIdTache(int $idTache) {
+                public function setIdTache(int $idTache) {
                         $this->idTache = $idTache;
                 }
                 
-                public function SetIntituleTache(string $intituleTache) {
+                public function setIntituleTache(string $intituleTache) {
                         $this->intituleTache = $intituleTache;
                 }
                 
-                public function SetAuteur(string $auteur) {
-                        $this->auteur = $auteur;
-                }
-                
-                public function SetDateTache(string $dateTache) {
+                public function setDateTache(string $dateTache) {
                         $this->dateTache = $dateTache;
                 }
                 
-                public function SetDescription(string $description) {
+                public function setDescription(string $description) {
                         $this->description = $description;
                 }
                 
