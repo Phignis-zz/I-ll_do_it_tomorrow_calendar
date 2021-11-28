@@ -57,4 +57,14 @@
                 }
                 
                 
+                ///////////////////////////////////////////
+                // METHODES
+                ///////////////////////////////////////////
+                
+                public function __toString() : string {
+                        return "tache n°" . $this->idTache . ", intitule: " . $this->intituleTache . ", date de création: " . $this->dateTache .
+                                "\n" . $this->description;
+                }
+                
+                
         }
