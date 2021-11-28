@@ -38,4 +38,18 @@
                         return $tachesTrouvees;
                 }
                 
+                public function ajouterTache(Tache $ajout) {
+                        $query = "INSERT INTO TACHE VALUES(:id, :intitule, :date, :description);";
+                        
+                        return $this->connexionBD->executeQuery($query, [":id" => [$ajout->idTache, PDO::PARAM_INT],
+                                                                                ":intitule" => [$ajout->intituleTache, PDO::PARAM_STR],
+                                                                                ":date" => [$ajout->dateTache, PDO::PARAM_STR],
+                                                                                ":description" => [$ajout->description, PDO::PARAM_STR]]);
+                }
+                
+                public function supprimerTache(Tache $suppression) {
+                        $query = "DELETE TACHE WHERE id = :i";
+                        return $this->connexionBD->executerQuery($query, [":i" => [$suppression->idTache, PDO::PARAM_INT]]);
+                }
+                
         }
