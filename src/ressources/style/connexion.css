@@ -7,7 +7,7 @@ section {
 	display: flex;
 	flex-direction: column;
 	background-color: #808080;
-	height: 50em;
+	min-height: 30em;
 }
 section div{
 	display: flex;
