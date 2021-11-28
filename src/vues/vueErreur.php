@@ -1,0 +1,41 @@
+<html>
+	<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="../ressources/style/vueErreur.css">
+
+    <title>Procrastinator Calendar</title>
+  </head>
+	<body>
+		<?php include("../ressources/html_parts/header.php") ?>
+		<section>
+			<h1>Erreur :</h1>
+			<div id="tableau">
+				<div id="Intitules">
+					<p>Numéro d'erreur :</p>
+					<p>Erreur :</p>
+				</div>
+				<?php
+					//Je récupère le tableau d'erreur
+					require_once("../config/config.php");
+					$erreurs[] = "test 1";
+					$erreurs[] = "test 2";
+					$erreurs[] = "test 3";
+					$i = 0;
+					foreach($erreurs as $row){
+					?>
+						<div id="rowError">
+							<p><?php echo $row ?></p>
+							<p><?php echo $i ?></p>
+						</div>
+					<?php 
+						$i++;
+					} 
+					?>
+			</div>
+		</section>
+		<?php include("../ressources/html_parts/footer.php") ?>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	text-align: center;
+}
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: #808080;
+	min-height: 30em;
+}
+
+#tableau {
+	display: flex;
+	flex-direction: column;
+	margin-left: 5%; 
+	margin-right: 5%; 
+	border: 3px solid #35363A;
+	border-radius: 15px;
+}
+
+#Intitules {
+	display: flex;
+	justify-content: space-around;
+}
+
+#rowError {
+	display: flex;
+	justify-content: space-around;
+}
