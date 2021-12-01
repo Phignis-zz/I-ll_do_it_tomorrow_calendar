@@ -13,7 +13,9 @@
                 }
                 
                 /**
-                 * trouverTache a pour but 
+                 * description:
+                 * trouverTache a pour but de trouver une tache répondant au critères de "colonneRestrictive",
+                 * si on a aucune restriction, on retourne la totalité de la table
                  * paramètres:
                  *      colonneRestrictive : la colonne sur lequel le where s'applique, sans where si vide
                  *      valeurColonne : la valeur souhaité pour la colonne où se base le where de la requete
@@ -35,10 +37,20 @@
                         foreach($connexionBD->recupererResultatQuery() as $row) {
                                 $tachesTrouvees[] = new Tache($row['idTache'], $row['intituleTache'], $row['auteur'], $row['dateTache'], $row['description']);
                         }
-                        
+           
                         return $tachesTrouvees;
                 }
                 
+                /**
+                 * description:
+                 * ajouterTache a pour but d'ajouter une tache passée en paramètre a la bd
+                 * paramètres:
+                 *      ajout : Instance de la tache à ajouter
+                 * return:
+                 *      Un boolean.
+                 * 		True: Commande exécutée avec succès
+                 * 		False: Erreur
+                 */
                 public function ajouterTache(Tache $ajout) {
                         $query = "INSERT INTO TACHE VALUES(:id, :intitule, :date, :description);";
                         
@@ -48,10 +60,20 @@
                                                                                 ":description" => [$ajout->description, PDO::PARAM_STR]]);
                 }
                 
+                /**
+                 * description:
+                 * supprimerTache a pour but de supprimer une tache passée en paramètre
+                 * paramètres:
+                 *      suppression: l'instance de la tâche que l'on doit supprimer
+                 * return:
+                 *      Un boolean.
+                 * 		True: Commande exécutée avec succès
+                 * 		False: Erreur
+                 */
                 public function supprimerTache(Tache $suppression) {
                         $query = "DELETE TACHE WHERE id = :i";
                         return $this->connexionBD->executerQuery($query, [":i" => [$suppression->idTache, PDO::PARAM_INT]]);
                 }
                 
         }
-?>
+
