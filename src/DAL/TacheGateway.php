@@ -12,13 +12,17 @@
                         $this->connexionBD = $bd;
                 }
                 
+                public setConnexionBD(ConnexionBD $bd) {
+                        $this->connexionBD = $bd;
+                }
+                
                 /**
                  * trouverTache a pour but 
                  * paramètres:
                  *      colonneRestrictive : la colonne sur lequel le where s'applique, sans where si vide
                  *      valeurColonne : la valeur souhaité pour la colonne où se base le where de la requete
                  * return:
-                 *      une array de Tache satisfaisant la potentielle condition de la colonne restrictive
+                 *      une array de row de Tache satisfaisant la potentielle condition de la colonne restrictive
                  */
                 public function trouverTache(string $colonneRestrictive = "", string $valeurColonne = "") : array {
                         $tachesTrouvees = [];
@@ -32,15 +36,12 @@
                         
                         
                         // la conversion en Tache devrait se faire avec TacheModele
-                        foreach($connexionBD->recupererResultatQuery() as $row) {
-                                $tachesTrouvees[] = new Tache($row['idTache'], $row['intituleTache'], $row['auteur'], $row['dateTache'], $row['description']);
-                        }
                         
                         return $tachesTrouvees;
                 }
                 
-                public function ajouterTache(Tache $ajout) {
-                        $query = "INSERT INTO TACHE VALUES(:id, :intitule, :date, :description);";
+                public function ajouterTache(Tache $ajout) : bool {
+                        $query = "INSERT INTO TACHE VALUES(:id, :intitule, :date, :description, NULL);";
                         
                         return $this->connexionBD->executeQuery($query, [":id" => [$ajout->idTache, PDO::PARAM_INT],
                                                                                 ":intitule" => [$ajout->intituleTache, PDO::PARAM_STR],
@@ -48,7 +49,7 @@
                                                                                 ":description" => [$ajout->description, PDO::PARAM_STR]]);
                 }
                 
-                public function supprimerTache(Tache $suppression) {
+                public function supprimerTache(int $idTacheSuppression) : bool {
                         $query = "DELETE TACHE WHERE id = :i";
                         return $this->connexionBD->executerQuery($query, [":i" => [$suppression->idTache, PDO::PARAM_INT]]);
                 }

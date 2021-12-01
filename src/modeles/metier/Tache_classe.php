@@ -6,7 +6,7 @@
                 private $dateTache;
                 private $description;
                 
-                public function __construct(int $idTache, string $intituleTache, string $auteur, string $dateTache, string $description) {
+                public function __construct(int $idTache, string $intituleTache, string $dateTache, string $description) {
                         $this->idTache = $idTache;
                         $this->intituleTache = $intituleTache;
                         $this->dateTache = $dateTache;

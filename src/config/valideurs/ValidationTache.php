@@ -21,5 +21,8 @@
                         }
                         
                         // voir si l'auteur est bien présent dans la BDD
+                        
+                        
+                        return true;
                 }
         }
