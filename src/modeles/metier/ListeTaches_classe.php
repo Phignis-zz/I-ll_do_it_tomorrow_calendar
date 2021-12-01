@@ -14,9 +14,9 @@
                  * 		listeTache : liste de tâches
                  */
                 public function __construct(int $idListe, string $nomListe, array $listeTache = []) {
-					$this->idListe = $idListe;
-					$this->nomListe = $nomListe;
-                    $this->listTask = $listeTache;
+                        $this->idListe = $idListe;
+                        $this->nomListe = $nomListe;
+                        $this->listeTache = $listeTache;
                 }
                 
                 /**

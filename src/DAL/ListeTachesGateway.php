@@ -3,7 +3,7 @@
         require_once("../modeles/metier/ListeTaches_classe.php");
         require_once("../modeles/ConnexionBD_classe.php");
         
-        class UtilisateurGateway {
+        class ListeTachesGateway {
                 
                 /** connexionBD est la référence a la classe permettant de contacter la BDD */
                 private $connexionBD;
@@ -14,34 +14,30 @@
                 
                  /**
                  * description:
-                 * trouverUtilisateur a pour but de trouver une tache répondant au critères de "colonneRestrictive",
+                 * trouverListeTache a pour but de trouver une liste répondant au critère de "colonneRestrictive",
                  * si on a aucune restriction, on retourne la totalité de la table
                  * paramètres:
                  *      colonneRestrictive : la colonne sur lequel le where s'applique, sans where si vide
                  *      valeurColonne : la valeur souhaité pour la colonne où se base le where de la requete
                  * return:
-                 *      une array de Utilisateur satisfaisant la potentielle condition de la colonne restrictive
+                 *      une array de résultat satisfaisant la potentielle condition de la colonne restrictive
                  */
-                public function trouverUtilisateur(string $colonneRestrictive = "", string $valeurColonne = "") : array {
-                        $utlTrouves = [];
+                public function trouverListeTache(string $colonneRestrictive = "", string $valeurColonne = "") : array {
+                        $listeTacheTrouvees = [];
                         
-                        if($colonneRestrictive == "") $query = "SELECT * FROM UTILISATEURS";
-                        else $query = "SELECT * FROM UTILISATEURS WHERE :nomColonne = :valeurColonne;";
+                        if($colonneRestrictive == "") $query = "SELECT * FROM LISTETACHE";
+                        else $query = "SELECT * FROM LISTETACHE WHERE :nomColonne = :valeurColonne;";
                         
                         $connexionBD->executerQuery($query, ["nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
                                                                 ":valeurColonne" => [$valeurColonne, PDO::PARAM_STR]
                                                         ]);
-                        
-                        foreach($connexionBD->recupererResultatQuery() as $row) {
-                                $utlTrouves[] = new Utilisateur($row['pseudo'], $row['email'], $row['dateNaissance'], $row['motDePasse']);
-                        }
-                        
-                        return $utlTrouves;
+                                                        
+                        return $connexionBD->recupererResultatQuery();
                 }
                 
                 /**
                  * description:
-                 * ajouterUtilisateur a pour but d'ajouter unn utilisateur passée en paramètre a la bd
+                 * ajouterListeTaches a pour but d'ajouter une liste de tache passée en paramètre a la bd
                  * paramètres:
                  *      ajout : Instance de la tache à ajouter
                  * return:
@@ -49,28 +45,26 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function ajouterUtilisateur(Utilisateur $ajout) {
-                        $query = "INSERT INTO UTILISATEURS VALUES(:pseudo, :email, :dateNaissance, :motDePasse);";
+                public function ajouterListeTaches(ListeTaches $ajout) {
+                        $query = "INSERT INTO LISTETACHE VALUES(:idListe, :nomListe);";
                         
-                        return $this->connexionBD->executeQuery($query, [":pseudo" => [$ajout->pseudo, PDO::PARAM_STR],
-                                                                                ":email" => [$ajout->email, PDO::PARAM_STR],
-                                                                                ":dateNaissance" => [$ajout->dateTache, PDO::PARAM_DATE],//pas sur ici
-                                                                                ":motDePasse" => [$ajout->motDePasse, PDO::PARAM_STR]]);
+                        return $this->connexionBD->executeQuery($query, [":idListe" => [$ajout->idListe, PDO::PARAM_INT],
+                                                                                ":nomListe" => [$ajout->nomListe, PDO::PARAM_STR]]);
                 }
                 
                 /**
                  * description:
-                 * supprimerUtilisateur a pour but de supprimer un utilisateur passée en paramètre
+                 * supprimerListeTaches a pour but de supprimer un utilisateur passé en paramètre
                  * paramètres:
-                 *      suppression: l'instance de la tâche que l'on doit supprimer
+                 *      idListeSuppression: l'id de la liste que l'on doit supprimer
                  * return:
                  *      Un boolean.
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function supprimerUtilisateur(Utilisateur $suppression) {
-                        $query = "DELETE UTILISATEURS WHERE pseudo = :pseudo";
-                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$suppression->pseudo, PDO::PARAM_STR]]);
+                public function supprimerListeTaches(int $idListeSuppression) {
+                        $query = "DELETE LISTETACHE WHERE idListe = :idListe";
+                        return $this->connexionBD->executerQuery($query, [":idListe" => [$suppression->pseudo, PDO::PARAM_INT]]);
                 }
                 
         }
