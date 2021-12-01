@@ -27,8 +27,8 @@
 					foreach($erreurs as $row){
 					?>
 						<div id="rowError">
-							<p><?php echo $row ?></p>
-							<p><?php echo $i ?></p>
+							<p><?= $row ?></p>
+							<p><?= $i ?></p>
 						</div>
 					<?php 
 						$i++;
