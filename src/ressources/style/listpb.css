@@ -1,0 +1,42 @@
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: #808080;
+	min-height: 30em;
+}
+
+section div{
+	display: flex;
+	flex-direction: column;
+	margin-top: 1em;
+}
+
+textarea {
+	max-width: 10em;
+	max-height: 5em;
+}
+
+#tableau {
+	display: flex;
+	flex-direction: column;
+}
+#titres-colones {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#titre1 {
+	min-width: 60%;
+}
+
+#ListeTaches div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
