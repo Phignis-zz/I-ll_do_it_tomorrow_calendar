@@ -1,6 +1,6 @@
 <?php
 
-        require_once("../DAL/TacheGateway");
+        require_once("../DAL/TacheGateway.php");
         
         class TacheModele {
                 
