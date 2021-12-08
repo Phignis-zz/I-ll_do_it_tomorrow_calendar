@@ -1,5 +1,7 @@
 <?php
 
+        namespace IllDoTomorrowCalendar\Modeles\Metier;
+        
         class Tache {
                 private $idTache;
                 private $intituleTache;
