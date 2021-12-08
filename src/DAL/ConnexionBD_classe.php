@@ -1,5 +1,7 @@
 <?php
 
+        namespace IllDoTomorrowCalendar\DAL;
+
         class ConnexionBD extends PDO {
                 
                 private $statement = NULL;
