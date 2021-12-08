@@ -1,13 +1,15 @@
 body {
 	display: flex;
 	flex-direction: column;
+	margin: 0;
+	background-color: #808080;
+	min-height:100vh;
 }
 
 section {
 	display: flex;
 	flex-direction: column;
-	background-color: #808080;
-	min-height: 30em;
+	flex: 1;
 }
 
 section div{
@@ -16,14 +18,11 @@ section div{
 	margin-top: 1em;
 }
 
-textarea {
-	max-width: 10em;
-	max-height: 5em;
-}
 
 #tableau {
 	display: flex;
 	flex-direction: column;
+	margin:5%;
 }
 #titres-colones {
 	display: flex;
@@ -35,7 +34,22 @@ textarea {
 	min-width: 60%;
 }
 
-#ListeTaches div{
+.ListeTaches{
+	border: 3px solid #35363A;
+	border-radius: 15px;
+	background-color: #808080;
+	margin-bottom: 1%;
+}
+	
+.ListeTaches:hover {
+	background-color: #505050;
+	border: 3px solid #27282B;
+}
+
+.ListeTaches:hover div p {
+	color: #808080;
+}
+.ListeTaches div{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
