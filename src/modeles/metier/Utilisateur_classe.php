@@ -1,4 +1,7 @@
 <?php
+
+        namespace IllDoTomorrowCalendar\Modeles\Metier;
+
         class Utilisateur {
                 
                 private $pseudo;
