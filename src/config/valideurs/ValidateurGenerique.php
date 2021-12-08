@@ -1,4 +1,7 @@
 <?php
+
+        namespace IllDoTomorrowCalendar\Config\Validateur;
+        
         class ValidateurGenerique {
                 /**
                  * validerStr:
