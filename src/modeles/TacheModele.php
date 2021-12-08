@@ -2,6 +2,8 @@
 
         require_once("../DAL/TacheGateway.php");
         
+        namespace IllDoTomorrowCalendar\Modeles;
+        
         class TacheModele {
                 
                 private $tacheGateway;
