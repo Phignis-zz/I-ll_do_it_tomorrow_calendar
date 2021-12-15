@@ -1,9 +1,9 @@
 <?php
+
+        namespace IllDoTomorrowCalendar\DAL;
         
         require_once("../modeles/metier/Utilisateur_classe.php");
         require_once("../modeles/ConnexionBD_classe.php");
-        
-        namespace IllDoTomorrowCalendar\DAL;
         
         class UtilisateurGateway {
                 

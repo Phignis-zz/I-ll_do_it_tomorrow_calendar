@@ -1,6 +1,12 @@
 <?php
+<<<<<<< HEAD
   
     namespace IllDoTomorrowCalendar\Modeles;
+=======
+
+        namespace IllDoTomorrowCalendar\Modeles;
+
+>>>>>>> 1178d90f39906522e51498d9251578a1c7a81104
 	require_once("../DAL/ListeTachesGateway.php");
 	require_once("../modeles/metier/ListeTaches_classe.php");
 
