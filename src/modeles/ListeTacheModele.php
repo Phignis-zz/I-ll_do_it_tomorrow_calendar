@@ -1,9 +1,9 @@
 <?php
 
+        namespace IllDoTomorrowCalendar\Modeles;
+
 	require_once("../DAL/ListeTachesGateway.php");
 	require_once("../modeles/metier/ListeTaches_classe.php");
-        
-        namespace IllDoTomorrowCalendar\Modeles;
 
 	class ListeTacheModele{
 
