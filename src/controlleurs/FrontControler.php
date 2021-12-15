@@ -1,13 +1,20 @@
 <?php
 
+        namespace IllDoTomorrowCalendar\Controlleurs;
+
 	require_once("../DAL/ConnexionBD_classe.php");
 	require_once("../DAL/UtilisateurGateway.php");
 	require_once("../config/validateurs/ValidateurGenerique.php");
+<<<<<<< HEAD:src/controlleurs/FrontControler.php
 	
         
 	namespace IllDoTomorrowCalendar\Controlleurs;
 		
 	class FrontControler {
+=======
+
+	class Controlleur {
+>>>>>>> 1178d90f39906522e51498d9251578a1c7a81104:src/controlleurs/controlleur.php
 		public function __construct(){
 			session_start();
 

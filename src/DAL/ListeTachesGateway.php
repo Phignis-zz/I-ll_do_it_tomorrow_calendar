@@ -1,7 +1,4 @@
 <?php
-        
-   
-        
         namespace IllDoTomorrowCalendar\DAL;
         
         require_once("../modeles/metier/ListeTaches_classe.php");
