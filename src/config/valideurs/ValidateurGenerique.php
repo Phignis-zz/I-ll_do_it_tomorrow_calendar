@@ -14,9 +14,9 @@
                  * 		False: paramètre invalide
                  */
                 
-                public static function validerStr(string $chaine) : bool {
-					if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return true;
-					return false;
+                public static function validerStr(string $chaine) : string {
+					if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
+					return null;
 				}
 				
 				/**
