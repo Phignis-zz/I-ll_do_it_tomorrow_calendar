@@ -30,7 +30,7 @@
                         if($colonneRestrictive == "") $query = "SELECT * FROM UTILISATEURS";
                         else $query = "SELECT * FROM UTILISATEURS WHERE :nomColonne = :valeurColonne;";
                         
-                        $connexionBD->executerQuery($query, ["nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
+                        $connexionBD->executerQuery($query, [":nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
                                                                 ":valeurColonne" => [$valeurColonne, PDO::PARAM_STR]
                                                         ]);
                         
@@ -40,6 +40,29 @@
                         
                         return $utlTrouves;
                 }
+                
+                public function trouverPseudoEtMdp(string $pseudo, string $mdp): array{
+					$utlTrouves = [];
+                        
+                    $query = "SELECT * FROM UTILISATEURS WHERE :pseudoColone = :pseudo AND :mdpColone = :mdp;";
+                       
+                    try{ 
+						$connexionBD->executerQuery($query, [":pseudoColone" => ['pseudo', PDO::PARAM_STR],
+																	":pseudo" => [$pseudo, PDO::PARAM_STR],
+																	":mdpColone" => ['motDePasse', PDO::PARAM_STR],
+																	":mdp" => [$mdp, PDO::PARAM_STR]
+															]);
+							
+						foreach($connexionBD->recupererResultatQuery() as $row) {
+							 $utlTrouves[] = new Utilisateur($row['pseudo'], $row['email'], $row['dateNaissance'], $row['motDePasse']);
+						}
+					}
+					catch(PDOException $e){
+						throw new Exception('Erreur PDO');
+					}
+					
+                    return $utlTrouves;
+				}
                 
                 /**
                  * description:

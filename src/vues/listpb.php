@@ -13,35 +13,35 @@
       <?php include("../ressources/html_parts/header.php") ?> 
       <section>
         <div>
-          <textarea title="Recherche : ">
-          </textarea>
+          
           <div id="tableau">
             <div id="titres-colones">
               <p id ="titre1">Titre de la tâche :</p>
               <p>Date :</p>
               <p>Auteur :</p>
             </div>
-            <button id="ListeTaches">
+            <button class="ListeTaches">
               <div>
                 <p id="titre1">Titre de test</p>
                 <p>99/99/9999</p>
                 <p>Public</p>
               </div>
             </button>
-            <button id="ListeTaches">
+            <button class="ListeTaches">
               <div>
                 <p id="titre1">Titre de test</p>
                 <p>99/99/9999</p>
                 <p>Public</p>
               </div>
             </button>
-            <button id="ListeTaches">
+            <button class="ListeTaches">
               <div>
                 <p id="titre1">Titre de test</p>
                 <p>99/99/9999</p>
                 <p>Public</p>
               </div>
             </button>
+            
           </div>
         </div>
       </section>

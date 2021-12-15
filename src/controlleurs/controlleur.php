@@ -7,17 +7,24 @@
 	require_once("../config/validateurs/ValidateurGenerique.php");
 
 	class Controlleur {
-		private $connexionBD;
-		private $utlGW;
-		private $validateur;
-		
 		public function __construct(){
-			$connexionBD = ConnexionBD.getInstance("dbmidubois1","midubois1","achanger");
-			$utlGW = new UtilisateurGateway($connexionBD);
-			$validateur = new ValidateurGenerique();
+			session_start();
+			try{
+				switch ($_REQUEST['action']){
+					case 'connexion':
+						$controlUtl = new ControlleurUtl();
+						$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
+					default:
+						//appel vue err
+				}
+			}
+			catch(Exception $e){
+				//ajout message exception a tab erreur
+				//appel vue erreur
+			}
 		}
-		
-		public getUtilisateur(string $pseudo){
+		/*
+		private getUtilisateur(string $pseudo){
 			if($validateur->validerStr($pseudo)){
 				return $utlGW->trouverUtilisateur("pseudo",$pseudo);
 			}
@@ -38,4 +45,5 @@
 				return;
 			}
 			//tab err
-		}
+		}*/
+	}
