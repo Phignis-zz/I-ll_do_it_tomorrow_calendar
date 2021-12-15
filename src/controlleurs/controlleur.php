@@ -1,10 +1,10 @@
 <?php
 
+        namespace IllDoTomorrowCalendar\Controlleurs;
+
 	require_once("../DAL/ConnexionBD_classe.php");
 	require_once("../DAL/UtilisateurGateway.php");
 	require_once("../config/validateurs/ValidateurGenerique.php");
-        
-        namespace IllDoTomorrowCalendar\Controlleurs;
 
 	class Controlleur {
 		private $connexionBD;

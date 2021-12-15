@@ -1,8 +1,8 @@
 <?php
-
-        require_once("../DAL/TacheGateway.php");
         
         namespace IllDoTomorrowCalendar\Modeles;
+        
+        require_once("../DAL/TacheGateway.php");
         
         class TacheModele {
                 
