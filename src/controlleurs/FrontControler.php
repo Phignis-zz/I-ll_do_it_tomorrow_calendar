@@ -3,19 +3,36 @@
 	require_once("../DAL/ConnexionBD_classe.php");
 	require_once("../DAL/UtilisateurGateway.php");
 	require_once("../config/validateurs/ValidateurGenerique.php");
+	
         
-        namespace IllDoTomorrowCalendar\Controlleurs;
-
-	class Controlleur {
+	namespace IllDoTomorrowCalendar\Controlleurs;
+		
+	class FrontControler {
 		public function __construct(){
 			session_start();
+
+			$_SESSION['user'] = null;
+			$listActions=['connexion', 'getListPv', 'getListPb', 'addListPb', 'addListPv', 'delListPb', 'delListPv', 'addTache', 'delTache'];
+
+
+			if (is_null($_REQUEST['action'])){
+				require("../vues/listpb.php");
+			}
 			try{
-				switch ($_REQUEST['action']){
-					case 'connexion':
-						$controlUtl = new ControlleurUtl();
-						$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
-					default:
-						//appel vue err
+				if (in_array($_REQUEST['action'], $listActions)){
+					switch ($_REQUEST['action']){
+						case 'connexion':
+							$controlUtl = new ControlleurUtl();
+							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
+						case 'getListPb':
+							$controlList = new ControlerList();
+							$controlList->getListPb($_REQUEST['numPage']);
+						case 'delListPb':
+							$controlList = new ControlerList();
+							$controlList->delListP
+						default:
+							//appel vue err
+					}
 				}
 			}
 			catch(Exception $e){
