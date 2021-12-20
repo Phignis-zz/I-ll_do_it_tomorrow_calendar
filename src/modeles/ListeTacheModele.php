@@ -1,41 +1,55 @@
 <?php
+<<<<<<< HEAD
+  
+    namespace IllDoTomorrowCalendar\Modeles;
+=======
 
         namespace IllDoTomorrowCalendar\Modeles;
 
+>>>>>>> 1178d90f39906522e51498d9251578a1c7a81104
 	require_once("../DAL/ListeTachesGateway.php");
 	require_once("../modeles/metier/ListeTaches_classe.php");
 
 	class ListeTacheModele{
 
-		private $ltacheGW;
+		private $ListTacheGW;
 
 		public function __constructor(ListeTachesGateway $ltacheGW){
-			this->$ltacheGW = $ltacheGW;
+			this.$ListTacheGW = $ListTacheGW;
 		}
 
+		public function getListPb(int $numPage) : array {
+			$results = $ListTacheGW->trouverListTache10($numPage);
+			$listes = [];
+			foreach ($results as $row){
+				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], null);
+			}
+			return $listes;
+		}
+		
 		public function trouverListeTacheParID(string $valeurColonne = "") : array {
-			$results = ltacheGW->trouverListeTache('idListe', $valeurColonne);
+			$results = $ListTacheGW->trouverListeTache('idListe', $valeurColonne);
 			$array = [];
-			for ($results as $row){
-				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null)
+			foreach ($results as $row){
+				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null);
 			}
 			return $array;
 		}
 
 		public function trouverListeTacheParPseudoUtl(string $valeurColonne = "") : array{
-			$results = ltacheGW->trouverListeTache('pseudo', $valeurColonne);
+			$results = $ListTacheGW->trouverListeTache('pseudo', $valeurColonne);
 			$array = [];
-			for ($results as $row){
-				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null)
+			foreach ($results as $row){
+				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null);
 			}
 			return $array;
 		}
 
 		public function ajouterListeTache(Tache $ajout) : bool {
-            return $ltacheGW->ajouterListeTache($ajout);
+            return $ListTacheGW->ajouterListeTache($ajout);
         }
                 
         public function supprimerListeTache(int $idListeTacheSuppression) : bool {
-            return $ltacheGW->supprimerListeTache($idListeTacheSuppression);
+            return $ListTacheGW->supprimerListeTache($idListeTacheSuppression);
         }
 	}

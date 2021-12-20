@@ -11,21 +11,27 @@
 		}
 		
 		public function connexionUtl(string $pseudo, string $mdp): boolean {
+			if($pseudo == null){
+				$erreurs[] = "Veuillez entrer un pseudo";
+			}
 			$pseudo = $validateur->validerStr($pseudo);
 			if ($pseudo == null){
-				//erreur validation
+				$erreurs[] = "Pseudo invalide";
 			}
-			
+
+			if ($mdp == null){
+				$erreurs[] = "Veuillez entrer un mot de passe";
+			}
 			$mdp = $validateur6->validerStr($mdp);
 			if ($mdp == null){
-				//erreur validation
+				$erreurs[] = "Mot de passe invalide";
 			}
 			
 			$Utl = $utlGw->trouverPseudoEtMdp($pseudo, $mdp);
 			if ($Utl == null){
-				//utl pas trouve
+				$erreurs[] = "Pseudo et/ou mot de passe invalide";
 			}
 			
-			$_SESSION['pseudo']=$pseudo;
+			$_SESSION['user']=$pseudo;
 		}
-			
+	}
