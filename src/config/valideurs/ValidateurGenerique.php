@@ -17,9 +17,8 @@
                 public static function validerStr(string $chaine) : string {
 					if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
 					return null;
-				}
-				
-				/**
+                        }
+                /**
                  * validerInt:
                  * vérifie que la valeur donnée en paramètre est bien un entier.
                  * paramètres:
@@ -29,12 +28,12 @@
                  * 		True: paramètre vérifié
                  * 		False: paramètre invalide
                  */
-				public static function validerInt(int $val) : bool {
-					if($val = filter_var($val, FILTER_VALIDATE_INT)) return true;
-					return false;
-				}
-				
-				/**
+                public static function validerInt(int $val) : bool {
+                        if($val = filter_var($val, FILTER_VALIDATE_INT)) return true;
+                        return false;
+                }
+                
+                /**
                  * estExistante:
                  * vérifie que la valeur donnée en paramètre existe bien.
                  * paramètres:
@@ -44,10 +43,10 @@
                  * 		True: paramètre vérifié
                  * 		False: paramètre invalide
                  */
-				public static function estExistante($val) : bool {
-					if (isset($val)) return true;
-					return false;
-				}
-				
-				//utiliser DateTime (createFromFormat)
+                public static function estExistante($val) : bool {
+                        if (isset($val)) return true;
+                        return false;
+                }
+                
+                //utiliser DateTime (createFromFormat)
         }
