@@ -1,10 +1,8 @@
 <?php
-
         namespace IllDoTomorrowCalendar\DAL;
         
         require_once("../modeles/metier/ListeTaches_classe.php");
         require_once("../modeles/ConnexionBD_classe.php");
-        
         class ListeTachesGateway {
                 
                 /** connexionBD est la référence a la classe permettant de contacter la BDD */
@@ -12,6 +10,20 @@
                 
                 public function __construct(ConnexionBD $bd = NULL) {
                         $this->connexionBD = $bd;
+                }
+
+                public function trouverListTache10(int $numPage, string $utl = ""){
+                        $listeTacheTrouvees = [];
+                        if ($utl == ""){
+                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET (:numPage-1)*10;";
+                                $connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT]]);    
+                        }
+                        else {
+                                $query = "SELECT * FROM LISTETACHE WHERE nomUtl=:utl LIMIT 10 OFFSET (:numPage-1)*10;";
+                                $connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT],
+                                                                        ":utl" => [$utl, PDO::PARAM_STR]]);
+                        }                               
+                        return $connexionBD->recupererResultatQuery();
                 }
                 
                  /**
