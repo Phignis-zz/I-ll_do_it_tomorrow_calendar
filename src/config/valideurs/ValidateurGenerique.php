@@ -15,9 +15,10 @@
                  */
                 
                 public static function validerStr(string $chaine) : string {
-					if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
+                    if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
 					return null;
-                        }
+                }
+                
                 /**
                  * validerInt:
                  * vérifie que la valeur donnée en paramètre est bien un entier.
@@ -29,8 +30,8 @@
                  * 		False: paramètre invalide
                  */
                 public static function validerInt(int $val) : bool {
-                        if($val = filter_var($val, FILTER_VALIDATE_INT)) return true;
-                        return false;
+                    if($val = filter_var($val, FILTER_VALIDATE_INT)) return true;
+                    return false;
                 }
                 
                 /**
@@ -44,8 +45,8 @@
                  * 		False: paramètre invalide
                  */
                 public static function estExistante($val) : bool {
-                        if (isset($val)) return true;
-                        return false;
+                    if (isset($val)) return true;
+                    return false;
                 }
                 
                 //utiliser DateTime (createFromFormat)
