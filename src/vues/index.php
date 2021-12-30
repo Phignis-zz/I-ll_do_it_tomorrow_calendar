@@ -1,4 +1,6 @@
 <?php
     require_once("../config/config.php");
-    new FrontControler();
+    require_once("../config/autoloader.php");
+    Autoloader::charger();
+    new \Controlleurs\FrontControler();
 ?>
