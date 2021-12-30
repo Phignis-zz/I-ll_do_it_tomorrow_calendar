@@ -60,10 +60,11 @@
                  * 		False: Erreur
                  */
                 public function ajouterListeTaches(ListeTaches $ajout) {
-                        $query = "INSERT INTO LISTETACHE VALUES(:idListe, :nomListe);";
+                        $query = "INSERT INTO LISTETACHE VALUES(:idListe, :nomListe, :proprietaire);";
                         
                         return $this->connexionBD->executeQuery($query, [":idListe" => [$ajout->idListe, PDO::PARAM_INT],
-                                                                                ":nomListe" => [$ajout->nomListe, PDO::PARAM_STR]]);
+                                                                                ":nomListe" => [$ajout->nomListe, PDO::PARAM_STR],
+                                                                                ":proprietaire" => [$ajout->proprietaire, PDO::PARAM_STR]]);
                 }
                 
                 /**
