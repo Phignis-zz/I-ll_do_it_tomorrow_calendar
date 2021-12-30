@@ -1,28 +1,26 @@
 <?php
-<<<<<<< HEAD
-  
-    namespace IllDoTomorrowCalendar\Modeles;
-=======
 
         namespace IllDoTomorrowCalendar\Modeles;
 
->>>>>>> 1178d90f39906522e51498d9251578a1c7a81104
 	require_once("../DAL/ListeTachesGateway.php");
 	require_once("../modeles/metier/ListeTaches_classe.php");
 
 	class ListeTacheModele{
 
 		private $ListTacheGW;
+		private $tachesMdl;
 
-		public function __constructor(ListeTachesGateway $ltacheGW){
+		public function __constructor(ListeTachesGateway $ltacheGW, TacheModele $tachesMdl){
 			this.$ListTacheGW = $ListTacheGW;
+			this.$tachesMdl = $tachesMdl;
 		}
 
 		public function getListPb(int $numPage) : array {
 			$results = $ListTacheGW->trouverListTache10($numPage);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], null);
+				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'],
+				 $tachesMdl->trouverTacheParId($row['idListe']));
 			}
 			return $listes;
 		}

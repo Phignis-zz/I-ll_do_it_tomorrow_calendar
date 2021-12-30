@@ -6,7 +6,8 @@
 			session_start();
 
 			$_SESSION['user'] = null;
-			$listActions=['connexion', 'getListPv', 'getListPb', 'addListPb', 'addListPv', 'delListPb', 'delListPv', 'addTache', 'delTache'];
+			$listActions=['connexion', 'getListPv', 'getListPb', 'addListPv', 'addListPb',
+			 'delListPv', 'delListPb', 'addTache', 'delTache'];
 
 
 			if (is_null($_REQUEST['action'])){
@@ -17,14 +18,25 @@
 					switch ($_REQUEST['action']){
 						case 'connexion':
 							$controlUtl = new ControlleurUtl();
-							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
+							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);	
+						case 'getListPv':		
 						case 'getListPb':
 							$controlList = new ControlerList();
 							$controlList->getListPb($_REQUEST['numPage']);
+						case 'addListPv':
+							$controlList = new ControlerList();
+							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe'], $_REQUEST['proprietaire']);
+						case 'addListPb':
+							$controlList = new ControlerList();
+							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe']);
 						case 'delListPb':
 							$controlList = new ControlerList();
-							$controlList->delListP
+							$controlList->delListP;
+						case 'delListPv':
+						case 'addTache':
+						case 'delTache':
 						default:
+							require("../vues/vueErreur.php");
 							//appel vue err
 					}
 				}

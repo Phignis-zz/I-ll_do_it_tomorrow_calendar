@@ -15,10 +15,11 @@
                  *      nomListe : nom de la liste
                  * 		listeTache : liste de tâches
                  */
-                public function __construct(int $idListe, string $nomListe, array $listeTache = []) {
-                        $this->idListe = $idListe;
-                        $this->nomListe = $nomListe;
-                        $this->listeTache = $listeTache;
+                public function __construct(int $idListe, string $nomListe, string $proprietaire = "", array $listeTache = []){
+                        $this->$idListe = $idListe;
+                        $this->$nomListe = $nomListe;
+                        $this->$listeTache = $listeTache;
+                        $this->$proprietaire = $proprietaire;
                 }
                 
                 /**
@@ -43,6 +44,6 @@
                 }
                 
                 public function setListeTache(array $listeTache) {
-					this->listeTache = $listeTache;
+			this->$listeTache = $listeTache;
                 }
         }

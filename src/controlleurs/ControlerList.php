@@ -14,4 +14,12 @@
         public function getListPb(int $numPage){
             return $ListMod->getListPb($numPage);
         }
+
+        public function addListPb(int $idListe, string $nomListe){
+            $ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
+        }
+
+        public function addListPv(int $idListe, string $nomListe, string $proprietaire){
+            $ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, $proprietaire, null));
+        }
     }
