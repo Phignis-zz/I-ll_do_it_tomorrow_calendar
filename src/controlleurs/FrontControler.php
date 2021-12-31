@@ -10,9 +10,14 @@
 			$listActions=['connexion', 'getListPv', 'getListPb', 'addListPv', 'addListPb',
 			 'delListPv', 'delListPb', 'addTache', 'delTache'];
 
+			if(!isset($_REQUEST['action'])) {
+				require("vues/connexion.php");
+				return;
+			}
 
-			if (is_null($_REQUEST['action'])){
-				require("../vues/listpb.php");
+
+			if (is_null($_REQUEST['action'])) {
+				require("vues/listpb.php");
 			}
 			try{
 				if (in_array($_REQUEST['action'], $listActions)){
@@ -37,7 +42,7 @@
 						case 'addTache':
 						case 'delTache':
 						default:
-							require("../vues/vueErreur.php");
+							require("vues/vueErreur.php");
 							//appel vue err
 					}
 				}

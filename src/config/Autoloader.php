@@ -29,7 +29,7 @@
                  */
                 public static function _autoload($nomClasse) {
                         
-                        $folder = '..' . DIRECTORY_SEPARATOR; // dossier racine du projet
+                        $folder = '.' . DIRECTORY_SEPARATOR; // dossier racine du projet
                         $nomClasse = ltrim($nomClasse, '\\'); // permet d'enlever les \ a droite du nom de la classe donnée
                         $nomFichier  = ''; // nom du fichier contenant la classe
                         $namespace = '';
