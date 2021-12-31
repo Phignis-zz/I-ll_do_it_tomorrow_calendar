@@ -20,7 +20,7 @@
       <ul>
         
         <li>
-          <a href="../../vues/listpb.php">
+          <a href="index.php?action=accueil">
             <button>
               <p>Listes de tâches publiques</p>
             </button>
@@ -32,9 +32,6 @@
               <p>Listes de tâches privées</p>
             </button>
           </a>
-          <button href="">
-            <p>Listes de tâches privées</p>
-          </button>
         </li>
       </ul>
     </nav>
