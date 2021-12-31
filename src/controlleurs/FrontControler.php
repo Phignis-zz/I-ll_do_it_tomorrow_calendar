@@ -4,27 +4,27 @@
 		
 	class FrontControler {
 		public function __construct(){
+
+			global $ROOT_PATH, $erreurs, $listActions;
+
 			session_start();
 
 			$_SESSION['user'] = null;
-			$listActions=['connexion', 'getListPv', 'getListPb', 'addListPv', 'addListPb',
-			 'delListPv', 'delListPb', 'addTache', 'delTache'];
 
-			if(!isset($_REQUEST['action'])) {
-				require("vues/connexion.php");
+			if(!isset($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
+				require("vues/listpb.php");
 				return;
 			}
 
-
-			if (is_null($_REQUEST['action'])) {
-				require("vues/listpb.php");
-			}
 			try{
 				if (in_array($_REQUEST['action'], $listActions)){
 					switch ($_REQUEST['action']){
+						case 'accueil' :
+							require("vues/listpb.php");
+							break;
 						case 'connexion':
 							$controlUtl = new ControlleurUtl();
-							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);	
+							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
 						case 'getListPv':		
 						case 'getListPb':
 							$controlList = new ControlerList();

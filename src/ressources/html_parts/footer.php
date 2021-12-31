@@ -12,7 +12,7 @@
         </div>
         <div id="credits">
                 <p>By:</p>
-                <p>FOUCRAS Baptiste</p>
-                <p>DUBOIS Mickaël</p>        
+                <p>DUBOIS Mickaël</p>
+                <p>FOUCRAS Baptiste</p>     
         </div>
 </footer>
