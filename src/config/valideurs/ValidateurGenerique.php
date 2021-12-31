@@ -1,6 +1,6 @@
 <?php
 
-        namespace IllDoTomorrowCalendar\Config\Validateur;
+        namespace IllDoTomorrowCalendar\config\valideurs;
         
         class ValidateurGenerique {
                 /**

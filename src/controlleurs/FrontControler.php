@@ -1,5 +1,6 @@
 <?php
-	namespace IllDoTomorrowCalendar\Controlleurs;
+
+	namespace IllDoTomorrowCalendar\controlleurs;
 		
 	class FrontControler {
 		public function __construct(){
