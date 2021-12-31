@@ -1,6 +1,6 @@
 <?php
 
-        namespace IllDoTomorrowCalendar\Modeles\Metier;
+        namespace IllDoTomorrowCalendar\modeles\metier;
 
         class Utilisateur {
                 

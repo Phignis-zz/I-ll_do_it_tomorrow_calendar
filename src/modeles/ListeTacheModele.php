@@ -1,6 +1,6 @@
 <?php
 
-        namespace IllDoTomorrowCalendar\Modeles;
+        namespace IllDoTomorrowCalendar\modeles;
 
 	require_once("../DAL/ListeTachesGateway.php");
 	require_once("../modeles/metier/ListeTaches_classe.php");
