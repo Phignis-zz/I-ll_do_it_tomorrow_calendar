@@ -18,7 +18,7 @@
         <div>
           <div id="tableau">
             <div id="titres-colones">
-              <p id ="titre1">Titre de la tâche :</p>
+              <p id ="titre1">Titre de la liste de tâches :</p>
               <p>Date :</p>
               <p>Auteur :</p>
             </div>
