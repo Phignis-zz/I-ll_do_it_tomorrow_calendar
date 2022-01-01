@@ -17,7 +17,7 @@
     <section>
       <h1>Connexion : </h1>
     
-      <FORM METHOD="POST" ACTION="../controlleurs/controlleur.php">
+      <FORM METHOD="POST" ACTION="index.php?action=connexion">
         <label for="pseudo">Pseudo :</label>
         <INPUT TYPE="TEXT" NAME="pseudo" id="pseudo">
 			  <label for="mdp">Mot de passe :</label>

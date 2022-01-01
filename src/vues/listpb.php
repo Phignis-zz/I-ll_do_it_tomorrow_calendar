@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="ressources/style/bootstrap.min.css">
     <link rel="stylesheet" href="ressources/style/index.css">
-    <link rel="stylesheet" href="../ressources/style/listpb.css">
+    <link rel="stylesheet" href="ressources/style/listpb.css">
     <link rel="stylesheet" href="ressources/style/footer.css">
 
     <title>Procrastinator Calendar</title>
@@ -16,7 +16,6 @@
       <?php include("ressources/html_parts/header.php") ?> 
       <section>
         <div>
-          
           <div id="tableau">
             <div id="titres-colones">
               <p id ="titre1">Titre de la tâche :</p>
@@ -44,7 +43,6 @@
                 <p>Public</p>
               </div>
             </button>
-            
           </div>
         </div>
       </section>

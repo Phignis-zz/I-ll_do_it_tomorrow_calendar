@@ -22,25 +22,44 @@
 						case 'accueil' :
 							require("vues/listpb.php");
 							break;
+						case 'goConnecter':
+							require("vues/connexion.php");
+							break;
 						case 'connexion':
 							$controlUtl = new ControlleurUtl();
 							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
-						case 'getListPv':		
+							break;
+						case 'goInscription':
+							require("vues/inscription.php");
+							break;
+						case 'inscription':
+							$controlUtl = new ControlleurUtl();
+							$controlUtl->createUtl($_REQUEST['pseudo'], $_REQUEST['mdp'], $_REQUEST['ddn'], $_REQUEST['email']);
+							break;
+						case 'getListPv':	
+							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
 							$controlList->getListPb($_REQUEST['numPage']);
+							break;
 						case 'addListPv':
 							$controlList = new ControlerList();
 							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe'], $_REQUEST['proprietaire']);
+							break;
 						case 'addListPb':
 							$controlList = new ControlerList();
 							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe']);
+							break;
 						case 'delListPb':
 							$controlList = new ControlerList();
 							$controlList->delListP;
+							break;
 						case 'delListPv':
+							break;
 						case 'addTache':
+							break;
 						case 'delTache':
+							break;
 						default:
 							require("vues/vueErreur.php");
 							//appel vue err
