@@ -5,7 +5,7 @@
 -->
 <footer>
         <div>
-                <img src="../ressources/images/logo.png" alt="o">
+                <img src="ressources/images/logo.png" alt="o">
         </div>
         <div>
                 <p>- Anonymous -</p>

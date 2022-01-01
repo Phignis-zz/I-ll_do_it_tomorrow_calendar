@@ -7,7 +7,7 @@
     
 	<link rel="stylesheet" href="ressources/style/bootstrap.min.css">
     <link rel="stylesheet" href="ressources/style/index.css">
-    <link rel="stylesheet" href="../ressources/style/inscription.css">
+    <link rel="stylesheet" href="ressources/style/inscription.css">
 	<link rel="stylesheet" href="ressources/style/footer.css">
 
     <title>Procrastinator Calendar</title>
@@ -17,7 +17,7 @@
 		<section>
 		<h1>Inscription : </h1>
 		
-		<FORM METHOD="POST" ACTION="../controlleurs/controlleur.php">
+		<FORM METHOD="POST" ACTION="index.php?action=inscription">
 			<label for="pseudo">Pseudo :</label>
 			<INPUT TYPE="TEXT" NAME="pseudo" id="pseudo">
 			<label for="mdp">Mot de passe :</label>
@@ -27,7 +27,7 @@
 			<label for="email">Email :</label>
 			<INPUT TYPE="TEXT" NAME="email" id="email">
 			<INPUT TYPE="HIDDEN" NAME="action" VALUE="inscription">
-			<INPUT TYPE="SUBMIT" VALUE="Connexion">
+			<INPUT TYPE="SUBMIT" VALUE="S'inscrire">
 		</FORM>
 		</section>
       

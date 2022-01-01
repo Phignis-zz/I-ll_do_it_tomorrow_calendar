@@ -6,7 +6,7 @@
     
 	<link rel="stylesheet" href="ressources/style/bootstrap.min.css">
     <link rel="stylesheet" href="ressources/style/index.css">
-    <link rel="stylesheet" href="../ressources/style/vueErreur.css">
+    <link rel="stylesheet" href="ressources/style/vueErreur.css">
 	<link rel="stylesheet" href="ressources/style/footer.css">
 
     <title>Procrastinator Calendar</title>
@@ -21,8 +21,6 @@
 					<p>Erreur :</p>
 				</div>
 				<?php
-					//Je récupère le tableau d'erreur
-					require_once("../config/config.php");
 					$erreurs[] = "test 1";
 					$erreurs[] = "test 2";
 					$erreurs[] = "test 3";

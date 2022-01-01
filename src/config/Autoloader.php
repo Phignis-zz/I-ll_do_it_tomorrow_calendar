@@ -39,7 +39,7 @@
                                 $nomClasse = substr($nomClasse, $lastNsPos + 1);
 
                                 // on enlève le nom de l'application du namespace, pour retrouver l'arborescence
-                                $namespace = ltrim(strstr($namespace, "IllDoTomorrowCalendar"), "IllDoTomorrowCalendar");
+                                $namespace = ltrim(strstr($namespace, "IllDoTomorrowCalendar\\"), "IllDoTomorrowCalendar\\");
 
                                 $nomFichier  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
                         }
