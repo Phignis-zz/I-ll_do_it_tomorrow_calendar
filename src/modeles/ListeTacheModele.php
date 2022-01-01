@@ -9,8 +9,7 @@
 
 		public function __construct(\IllDoTomorrowCalendar\DAL\ListeTachesGateway $listTacheGW, TacheModele $tachesMdl) {
 			$this->listTacheGW = $listTacheGW;
-			$temp = $tachesMdl;
-			$this->$tachesMdl = $temp;
+			$this->tachesMdl = $tachesMdl;
 		}
 
 		public function getListPb(int $numPage) : array {

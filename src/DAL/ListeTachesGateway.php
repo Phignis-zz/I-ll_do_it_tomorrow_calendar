@@ -18,15 +18,15 @@
 
                         $listeTacheTrouvees = [];
                         if ($utl == ""){
-                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET (:numPage-1)*10;";
-                                $connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT]]);    
+                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET (:numPage - 1) * 10;";
+                                $this->connexionBD->executerQuery($query, [":numPage" => [$numPage, \PDO::PARAM_INT]]);    
                         }
                         else {
                                 $query = "SELECT * FROM LISTETACHE WHERE nomUtl=:utl LIMIT 10 OFFSET (:numPage-1)*10;";
-                                $connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT],
+                                $this->connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT],
                                                                         ":utl" => [$utl, PDO::PARAM_STR]]);
                         }                               
-                        return $connexionBD->recupererResultatQuery();
+                        return $this->connexionBD->recupererResultatQuery();
                 }
                 
                  /**
