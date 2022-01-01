@@ -12,6 +12,9 @@
 			$_SESSION['user'] = null;
 
 			if(!isset($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
+				$controlList = new ControlerList();
+				echo $contenuPage;
+				$contenuPage = $controlList->getListPb(0);
 				require("vues/listpb.php");
 				return;
 			}
@@ -20,7 +23,6 @@
 				if (in_array($_REQUEST['action'], $listActions)){
 					switch ($_REQUEST['action']){
 						case 'accueil' :
-							require("vues/listpb.php");
 							break;
 						case 'goConnecter':
 							require("vues/connexion.php");
@@ -40,7 +42,10 @@
 							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
-							$controlList->getListPb($_REQUEST['numPage']);
+							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+							else $numPage = 0;
+							$contenuPage = $controlList->getListPb($numPage);
+							require("vues/listpb.php");
 							break;
 						case 'addListPv':
 							$controlList = new ControlerList();

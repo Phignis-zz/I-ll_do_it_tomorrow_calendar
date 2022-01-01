@@ -22,27 +22,15 @@
               <p>Date :</p>
               <p>Auteur :</p>
             </div>
-            <button class="ListeTaches">
-              <div>
-                <p id="titre1">Titre de test</p>
-                <p>99/99/9999</p>
-                <p>Public</p>
-              </div>
-            </button>
-            <button class="ListeTaches">
-              <div>
-                <p id="titre1">Titre de test</p>
-                <p>99/99/9999</p>
-                <p>Public</p>
-              </div>
-            </button>
-            <button class="ListeTaches">
-              <div>
-                <p id="titre1">Titre de test</p>
-                <p>99/99/9999</p>
-                <p>Public</p>
-              </div>
-            </button>
+            <?php foreach($contenuPage as $row){?>
+              <button class="ListeTaches">
+                <div>
+                  <p id="titre1"><?php $row->$nomListe ?> </p>
+                  <p><?php $row->$idListe ?></p>
+                  <p>Publique</p>
+                </div>
+              </button>
+            <?php } ?> 
           </div>
         </div>
       </section>

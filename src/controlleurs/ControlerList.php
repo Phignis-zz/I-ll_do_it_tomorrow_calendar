@@ -8,6 +8,7 @@
 		private $validateur;
 		
 		public function __construct(){
+            require_once("DAL/ConnexionBD.php");
 			$connexionBD = ConnexionBD.getInstance("dbmidubois1","midubois1","achanger");
             $ListMod = new ListeTachesModele(new ListTachesGateway($connexionBD));
 			$validateur = new ValidateurGenerique();
