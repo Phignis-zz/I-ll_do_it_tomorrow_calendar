@@ -7,6 +7,7 @@
                 private $idListe;
                 private $nomListe;
                 private $listeTache;
+                private $proprietaire;
                 
                 /**
                  * description: constructeur de ListeTaches.

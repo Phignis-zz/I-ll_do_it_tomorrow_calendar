@@ -27,8 +27,18 @@
 		}
         //passer par modele
 
-        public function getListPb(int $numPage){
+        public function getListPb(int $numPage) : array{
             return $ListMod->getListPb($numPage);
+        }
+
+        /**
+         * getListPv : Retourne 10 listes privées (correspondant au numéro de page indiqué)
+         * appartenant a l'utilisateur connecté
+         * Si l'utilisateur n'esp pas connecté renvoie null
+         */
+        public function getListPv(int $numPage) : array{
+            if ($_SESSION['user'] == null) return null;
+            else return $ListMod->getListPv($numPage);
         }
 
         public function addListPb(int $idListe, string $nomListe){

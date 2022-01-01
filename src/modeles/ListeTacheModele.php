@@ -16,8 +16,16 @@
 			$results = $ListTacheGW->trouverListTache10($numPage);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'],
-				 $tachesMdl->trouverTacheParId($row['idListe']));
+				$listes[] = new ListeTaches($row['idListe'], $row['nomListe']);
+			}
+			return $listes;
+		}
+
+		public function getListPv(int $numPage) : array {
+			$results = $ListTacheGW->trouverListTache10($numPage, $_SESSION['user']);
+			$listes = [];
+			foreach ($results as $row){
+				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], $_SESSION['user'], null);
 			}
 			return $listes;
 		}
