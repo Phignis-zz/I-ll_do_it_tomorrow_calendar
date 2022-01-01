@@ -1,6 +1,6 @@
 <?php
         namespace IllDoTomorrowCalendar\DAL;
-        
+
         class ListeTachesGateway {
                 
                 /** connexionBD est la référence a la classe permettant de contacter la BDD */
@@ -11,6 +11,11 @@
                 }
 
                 public function trouverListTache10(int $numPage, string $utl = ""){
+                        
+                        if(is_null($this->connexionBD)) {
+                                throw new \Exception("Pas de connexion à une base de donnée pour retrouver les taches");
+                        }
+
                         $listeTacheTrouvees = [];
                         if ($utl == ""){
                                 $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET (:numPage-1)*10;";

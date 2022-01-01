@@ -13,7 +13,6 @@
 
 			if(!isset($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 				$controlList = new ControlerList();
-				echo $contenuPage;
 				$contenuPage = $controlList->getListPb(0);
 				require("vues/listpb.php");
 				return;

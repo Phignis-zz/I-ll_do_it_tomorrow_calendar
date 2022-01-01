@@ -2,13 +2,11 @@
         
         namespace IllDoTomorrowCalendar\modeles;
         
-        require_once("../DAL/TacheGateway.php");
-        
         class TacheModele {
                 
                 private $tacheGateway;
                 
-                public function __construct(TacheGateway $tacheGateway) {
+                public function __construct(\IllDoTomorrowCalendar\DAL\TacheGateway $tacheGateway) {
                         $this->tacheGateway = $tacheGateway;
                 }
                 
