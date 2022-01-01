@@ -7,11 +7,23 @@
 		private $ListMod;
 		private $validateur;
 		
-		public function __construct(){
+		public function __construct() {
             require_once("DAL/ConnexionBD.php");
-			$connexionBD = ConnexionBD.getInstance("dbmidubois1","midubois1","achanger");
-            $ListMod = new ListeTachesModele(new ListTachesGateway($connexionBD));
-			$validateur = new ValidateurGenerique();
+            global $base;
+            global $login;
+            global $mdp;
+            try {
+                $connexionBD = \IllDoTomorrowCalendar\DAL\ConnexionBD::getInstance("$base","$login","$mdp");
+            } catch(\Exception $e) {
+                global $erreurs;
+                $erreurs[] = $e->getMessage();
+                include("vues/vueErreur.php");
+                exit(1);
+            }
+			
+            $ListMod = new \IllDoTomorrowCalendar\modeles\ListeTacheModele(
+                                new \IllDoTomorrowCalendar\DAL\ListeTachesGateway($connexionBD));
+			$validateur = new \IllDoTomorrowCalendar\config\valideurs\ValidateurGenerique();
 		}
         //passer par modele
 

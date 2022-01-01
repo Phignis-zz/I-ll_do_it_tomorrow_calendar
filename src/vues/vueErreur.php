@@ -21,10 +21,7 @@
 					<p>Erreur :</p>
 				</div>
 				<?php
-					$erreurs[] = "test 1";
-					$erreurs[] = "test 2";
-					$erreurs[] = "test 3";
-					$i = 0;
+					$i = 1;
 					foreach($erreurs as $row){
 					?>
 						<div id="rowError">

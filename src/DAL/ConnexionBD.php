@@ -2,23 +2,27 @@
 
         namespace IllDoTomorrowCalendar\DAL;
 
-        class ConnexionBD extends PDO {
+        class ConnexionBD extends \PDO {
                 
                 private $statement = NULL;
                 
-                private static $singleton;
+                private static $singleton = NULL;
                 
                 private function __construct(string $nomSourceDonnee, string $utilisateur, string $motDePasse) {
-                        
-                        parent::__construct($nomSourceDonnee, $utilisateur, $motDePasse);
-                        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        try {
+                                // a ce niveau, peut throw une PDOException car mauvais crédits pour se login
+                                parent::__construct($nomSourceDonnee, $utilisateur, $motDePasse);
+                                $this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                        } catch (\PDOException $p) {
+                                throw new \Exception("les informations pour se connecter à la base de donnée sont erronées.");
+                                // ValueError meilleur pour le sens, mais on code en PHP 7
+                        }
                 }
                 
-                private static function getInstance(string $nomSourceDonnee, string $utilisateur, string $motDePasse) : ConnexionBD {
+                public static function getInstance(string $nomSourceDonnee, string $utilisateur, string $motDePasse) : ConnexionBD {
+                        if(is_null(self::$singleton)) self::$singleton = new ConnexionBD($nomSourceDonnee, $utilisateur, $motDePasse);
                         
-                        if($singleton == NULL) $singleton = new ConnexionBD($nomSourceDonnee, $utilisateur, $motDePasse);
-                        
-                        return $singleton;
+                        return self::$singleton;
                 }
                 
                 public function executerQuery(string $query, array $parametres = []) : bool {

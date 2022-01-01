@@ -8,6 +8,9 @@
 		private $validateur;
 		
 		public function __construct(){
+			echo "hello";
+			require_once("./DAL/ConnexionBD.php");
+			echo "coucou";
 			$connexionBD = ConnexionBD::getInstance("dbmidubois1","midubois1","achanger");
 			$utlGW = new UtilisateurGateway($connexionBD);
 			$validateur = new ValidateurGenerique();
