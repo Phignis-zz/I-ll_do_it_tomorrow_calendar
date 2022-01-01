@@ -28,6 +28,8 @@
                  * Méthode permettant le include a partir du nom de la classe, comprenant le nom lui même et son namespace
                  */
                 public static function _autoload($nomClasse) {
+
+                        echo $nomClasse . "<br />";
                         
                         $folder = '.' . DIRECTORY_SEPARATOR; // dossier racine du projet
                         $nomClasse = ltrim($nomClasse, '\\'); // permet d'enlever les \ a droite du nom de la classe donnée
@@ -39,7 +41,8 @@
                                 $nomClasse = substr($nomClasse, $lastNsPos + 1);
 
                                 // on enlève le nom de l'application du namespace, pour retrouver l'arborescence
-                                $namespace = ltrim(strstr($namespace, "IllDoTomorrowCalendar\\"), "IllDoTomorrowCalendar\\");
+                                $namespace = ltrim(ltrim(strstr($namespace, "IllDoTomorrowCalendar\\"), "IllDoTomorrowCalendar"), "\\");
+                                //$namespace = ltrim(strstr($namespace, "IllDoTomorrowCalendar\\"), "IllDoTomorrowCalendar\\");
 
                                 $nomFichier  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
                         }
