@@ -28,12 +28,15 @@
                 public function executerQuery(string $query, array $parametres = []) : bool {
                         
                         // préparation de la commande SQL
-                        $this->$statement = parent::prepare($query);
+                        $this->statement = parent::prepare($query);
+
+                        echo "$query";
                         
                         
                         // binding des paramètres à la commande
                         foreach($parametres as $nomParametreRequete => $valeurParametreRequete) {
                                 // valeurParametreRequete est un tableau contenant la valeur, et son type PDO
+                                echo "<br /> $nomParametreRequete $valeurParametreRequete[0] $valeurParametreRequete[1] <br />";
                                 $this->statement->bindValue($nomParametreRequete, $valeurParametreRequete[0], $valeurParametreRequete[1]);
                         }
                         
