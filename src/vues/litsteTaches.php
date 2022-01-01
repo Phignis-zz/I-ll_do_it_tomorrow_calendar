@@ -18,16 +18,16 @@
         <div>
           <div id="tableau">
             <div id="titres-colones">
-              <p id ="titre1">Titre de la liste de tâches :</p>
+              <p id ="titre1">Titre de la tâche :</p>
               <p>Date :</p>
-              <p>Auteur :</p>
+              <p>Description :</p>
             </div>
             <?php foreach($contenuPage as $row){?>
               <button class="ListeTaches">
                 <div>
-                  <p id="titre1"><?php $row->$nomListe ?> </p>
-                  <p><?php $row->$idListe ?></p>
-                  <p><?php $row->$proprietaire ?></p>
+                  <p id="titre1"><?php $row->$intituleTache ?> </p>
+                  <p><?php $row->$dateTache ?></p>
+                  <p><?php $row->$description ?></p>
                 </div>
               </button>
             <?php } ?> 

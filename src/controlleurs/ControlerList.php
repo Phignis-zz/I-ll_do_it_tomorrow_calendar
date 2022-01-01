@@ -31,12 +31,22 @@
 		}
         //passer par modele
 
-        public function getListPb(int $numPage) {
+        public function getListPb(int $numPage) : array {
             return $this->listMod->getListPb($numPage);
         }
 
-        public function addListPb(int $idListe, string $nomListe) {
-            $this->ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
+        /**
+         * getListPv : Retourne 10 listes privées (correspondant au numéro de page indiqué)
+         * appartenant a l'utilisateur connecté
+         * Si l'utilisateur n'est pas connecté renvoie null
+         */
+        public function getListPv(int $numPage) : array{
+            if ($_SESSION['user'] == null) return null;
+            else return $this->listMod->getListPv($numPage);
+        }
+
+        public function addListPb(int $idListe, string $nomListe){
+            $ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
         }
 
         public function addListPv(int $idListe, string $nomListe, string $proprietaire) {

@@ -37,7 +37,13 @@
 							$controlUtl = new ControlleurUtl();
 							$controlUtl->createUtl($_REQUEST['pseudo'], $_REQUEST['mdp'], $_REQUEST['ddn'], $_REQUEST['email']);
 							break;
-						case 'getListPv':	
+						case 'getListPv':
+							$controlList = new ControlerList();
+							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+							else $numPage = 0;
+							$contenuPage = $controlList->getListPv($numPage);
+							if ($contenuPage == null) require("vues/connexion.php");
+							else require("vues/listpv.php");
 							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
