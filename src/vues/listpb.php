@@ -25,8 +25,8 @@
             <?php foreach($contenuPage as $row){?>
               <button class="ListeTaches">
                 <div>
-                  <p id="titre1"><?php $row->$nomListe ?> </p>
-                  <p><?php $row->$idListe ?></p>
+                  <p id="titre1"><?= $row->getNomListe(); ?> </p>
+                  <p><?= $row->getIdListe(); ?></p>
                   <p>Publique</p>
                 </div>
               </button>

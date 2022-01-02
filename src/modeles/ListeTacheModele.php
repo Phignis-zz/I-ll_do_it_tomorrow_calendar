@@ -16,7 +16,7 @@
 			$results = $this->listTacheGW->trouverListTache10($numPage);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new ListeTaches($row['idListe'], $row['nomListe']);
+				$listes[] = new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['idListe'], $row['nomListe']);
 			}
 			return $listes;
 		}
