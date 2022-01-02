@@ -25,7 +25,7 @@
 			$results = $this->ListTacheGW->trouverListTache10($numPage, $_SESSION['user']);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], $_SESSION['user'], null);
+				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], $row["proprietaire"], null);
 			}
 			return $listes;
 		}
