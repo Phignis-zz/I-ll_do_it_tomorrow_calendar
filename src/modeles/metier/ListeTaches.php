@@ -17,10 +17,18 @@
                  * 		listeTache : liste de tâches
                  */
                 public function __construct(int $idListe, string $nomListe, string $proprietaire = "", array $listeTache = []){
-                        $this->$idListe = $idListe;
-                        $this->$nomListe = $nomListe;
-                        $this->$listeTache = $listeTache;
-                        $this->$proprietaire = $proprietaire;
+                        $this->idListe = $idListe;
+                        $this->nomListe = $nomListe;
+                        $this->listeTache = $listeTache;
+                        $this->proprietaire = $proprietaire;
+                }
+
+                public function getNomListe() : string {
+                        return $this->nomListe;
+                }
+
+                public function getIdListe() : int {
+                        return $this->idListe;
                 }
                 
                 /**
@@ -30,7 +38,7 @@
                  *      ajout : tache a ajouter
                  */
                 public function ajoutTache(Tache $ajout) {
-                        $listTask[] = $ajout;
+                        $this->listeTache[] = $ajout;
                 }
                 
                 /**
@@ -40,11 +48,11 @@
                  *      suppression : liste des taches a retirer
                  */
                 public function supprimerTache(array $suppression = []) {
-                        array_diff($listTask, $suppression); // enleve tout éléments de suppression présent dans listTask
+                        array_diff($this->listeTache, $suppression); // enleve tout éléments de suppression présent dans listTask
                         // a besoin du __toString pour fonctionner
                 }
                 
                 public function setListeTache(array $listeTache) {
-			this->$listeTache = $listeTache;
+			$this->listeTache = $listeTache;
                 }
         }
