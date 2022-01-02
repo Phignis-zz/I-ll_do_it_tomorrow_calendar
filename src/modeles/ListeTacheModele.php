@@ -34,7 +34,7 @@
 			$results = $listTacheGW->trouverListeTache('idListe', $valeurColonne);
 			$array = [];
 			foreach ($results as $row){
-				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null);
+				$array[] = new ListeTaches($row['idListe'],$row['nomListe'], null);
 			}
 			return $array;
 		}
