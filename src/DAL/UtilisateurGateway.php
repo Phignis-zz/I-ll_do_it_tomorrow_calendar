@@ -39,18 +39,11 @@
                 }
                 
                 public function trouverPseudoEtMdp(string $pseudo, string $mdp): array{                     
-                        $query = "SELECT * FROM UTILISATEURS WHERE :pseudoColone = :pseudo AND :mdpColone = :mdp;";
-                        try{ 
-			        $connexionBD->executerQuery($query, [":pseudoColone" => ['pseudo', PDO::PARAM_STR],
-								":pseudo" => [$pseudo, PDO::PARAM_STR],
-								":mdpColone" => ['motDePasse', PDO::PARAM_STR],
-								":mdp" => [$mdp, PDO::PARAM_STR]
-								]);
-				}
-			catch(PDOException $e){
-				throw new Exception('Erreur PDO');
-			}
-			return $connexionBD->recupererResultatQuery();
+                        $query = "SELECT * FROM UTILISATEUR WHERE pseudo = :pseudo AND password = :mdp;";
+			$this->connexionBD->executerQuery($query, [":pseudo" => [$pseudo, \PDO::PARAM_STR],
+							        ":mdp" => [$mdp, \PDO::PARAM_STR]
+							        ]);
+			return $this->connexionBD->recupererResultatQuery();
 		}
                 
                 /**
