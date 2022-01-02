@@ -65,7 +65,7 @@
 			try{
 				$this->utlGW->ajouterUtilisateur(new \IllDoTomorrowCalendar\modeles\metier\Utilisateur($pseudo, $email, $dateDeNaissance, $password));
 			}
-			catch(PDOException $e){
+			catch(\Exception $e){
 				$erreurs[] = "Le pseudo est déjà utilisé";
 				require("vues/vueErreur.php");
 			}

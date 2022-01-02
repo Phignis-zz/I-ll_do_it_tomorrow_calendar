@@ -17,19 +17,15 @@
 			<h1>Erreur :</h1>
 			<div id="tableau">
 				<div id="Intitules">
-					<p>Numéro d'erreur :</p>
 					<p>Erreur :</p>
 				</div>
 				<?php
-					$i = 1;
 					foreach($erreurs as $row){
 					?>
 						<div id="rowError">
 							<p><?= $row ?></p>
-							<p><?= $i ?></p>
 						</div>
 					<?php 
-						$i++;
 					} 
 					?>
 			</div>
