@@ -38,7 +38,10 @@
                         }
                         
                         // true si succès de la commande, false sinon
+                        
                         return $this->statement->execute();
+                
+                        
                 }
                 
                 public function recupererResultatQuery() : array {
