@@ -47,9 +47,8 @@
 							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
-							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
-							else $numPage = 0;
-							$contenuPage = $controlList->getListPb($numPage);
+							if (isset($_REQUEST['numPage'])) $contenuPage = $controlList->getListPb($_REQUEST['numPage']);
+							else $contenuPage = $controlList->getListPb(1);
 							require("vues/listpb.php");
 							break;
 						case 'addListPv':

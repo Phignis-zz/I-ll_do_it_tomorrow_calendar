@@ -38,7 +38,12 @@
                         }
                         
                         // true si succès de la commande, false sinon
-                        return $this->statement->execute();
+                        try {
+                                return $this->statement->execute();
+                        } catch (\PDOException $p) {
+                                throw new \Exception("Etat des arguments de la querry à executer illégal");
+                        }
+                        
                 }
                 
                 public function recupererResultatQuery() : array {
