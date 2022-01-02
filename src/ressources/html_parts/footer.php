@@ -8,7 +8,9 @@
                 <img src="ressources/images/logo.png" alt="o">
         </div>
         <div>
-                <p>- Anonymous -</p>
+                <p>
+                        <?php echo (isset($_SESSION["user"]) && !empty($_SESSION["user"])) ? $_SESSION["user"] : "Anonymous"; ?>
+                </p>
         </div>
         <div id="credits">
                 <p>By:</p>
