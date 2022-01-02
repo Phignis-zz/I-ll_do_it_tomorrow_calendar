@@ -41,6 +41,7 @@
                         try {
                                 return $this->statement->execute();
                         } catch (\PDOException $p) {
+                                echo $p;
                                 throw new \Exception("Etat des arguments de la querry à executer illégal");
                         }                        
                 }

@@ -24,29 +24,40 @@
 			$this->validateur = new \IllDoTomorrowCalendar\config\valideurs\ValidateurGenerique();
 		}
 		
-		public function connexionUtl(string $pseudo, string $mdp): boolean {
+		public function connexionUtl(string $pseudo, string $mdp){
 			if($pseudo == null){
 				$erreurs[] = "Veuillez entrer un pseudo";
+				require("vues/vueErreur.php");
+				return;
 			}
 			$pseudo = $this->validateur->validerStr($pseudo);
 			if ($pseudo == null){
 				$erreurs[] = "Pseudo invalide";
+				require("vues/vueErreur.php");
+				return;
 			}
 
 			if ($mdp == null){
 				$erreurs[] = "Veuillez entrer un mot de passe";
+				require("vues/vueErreur.php");
+				return;
 			}
 			$mdp = $this->validateur->validerStr($mdp);
 			if ($mdp == null){
 				$erreurs[] = "Mot de passe invalide";
+				require("vues/vueErreur.php");
+				return;
 			}
 			
 			$Utl = $this->utlGW->trouverPseudoEtMdp($pseudo, $mdp);
 			if ($Utl == null){
 				$erreurs[] = "Pseudo et/ou mot de passe invalide";
+				require("vues/vueErreur.php");
+				return;
 			}
 			
 			$_SESSION['user']=$pseudo;
+			
 		}
 
 		public function createUtl(string $pseudo, string $password, string $dateDeNaissance = "", string $email = ""){

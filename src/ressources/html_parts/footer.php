@@ -9,7 +9,7 @@
         </div>
         <div>
                 <p>
-                        <?php echo (isset($_SESSION["user"]) && !empty($_SESSION["user"])) ? $_SESSION["user"] : "Anonymous"; ?>
+                        <?php echo (isset($_SESSION["user"]) && !empty($_SESSION["user"])) ? "-".$_SESSION["user"]."-" : "-Anonymous-"; ?>
                 </p>
         </div>
         <div id="credits">
