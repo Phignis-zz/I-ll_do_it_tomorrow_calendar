@@ -66,10 +66,12 @@
                 public function ajouterUtilisateur(\IllDoTomorrowCalendar\modeles\metier\Utilisateur $ajout){
                         $query = "INSERT INTO UTILISATEUR VALUES(:pseudo, :email, :dateNaissance, :motDePasse);";
                         
-                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$ajout->getPseudo(), \PDO::PARAM_STR],
+                                return $this->connexionBD->executerQuery($query, [":pseudo" => [$ajout->getPseudo(), \PDO::PARAM_STR],
                                                                                 ":email" => [$ajout->getEmail(), \PDO::PARAM_STR],
                                                                                 ":dateNaissance" => [$ajout->getDateNaissance(), \PDO::PARAM_STR],//pas sur ici
                                                                                 ":motDePasse" => [$ajout->getMotDePasse(), \PDO::PARAM_STR]]);
+                        
+                        
                 }
                 
                 /**

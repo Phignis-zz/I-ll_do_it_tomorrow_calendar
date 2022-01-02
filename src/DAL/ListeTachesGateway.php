@@ -16,7 +16,7 @@
                                 throw new \Exception("Pas de connexion à une base de donnée pour retrouver les taches");
                         }
                         // calcul du numéro de tache a partir duquel afficher pour OFFSET qui ne permet pas les calculs
-                        $numTache = ($numPage) * 10; // 
+                        $numTache = ($numPage -1) * 10; // 
                         $listeTacheTrouvees = [];
                         if ($utl == ""){
                                 $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET :numTache;";

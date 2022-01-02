@@ -42,7 +42,7 @@
 						case 'getListPv':
 							$controlList = new ControlerList();
 							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
-							else $numPage = 0;
+							else $numPage = 1;
 							$contenuPage = $controlList->getListPv($numPage);
 							if ($contenuPage == null) require("vues/connexion.php");
 							else require("vues/listpv.php");
@@ -85,7 +85,7 @@
 		private function affichListPb(){
 			$controlList = new ControlerList();
 			if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
-			else $numPage = 0;
+			else $numPage = 1;
 			$contenuPage = $controlList->getListPb($numPage);
 			require("vues/listpb.php");
 		}
