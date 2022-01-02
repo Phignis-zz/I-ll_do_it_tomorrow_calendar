@@ -36,7 +36,7 @@
                         // binding des paramètres à la commande
                         foreach($parametres as $nomParametreRequete => $valeurParametreRequete) {
                                 // valeurParametreRequete est un tableau contenant la valeur, et son type PDO
-                                echo "<br /> $nomParametreRequete $valeurParametreRequete[0] $valeurParametreRequete[1] <br />";
+                                echo "<br /> nom: |$nomParametreRequete| valeur: $valeurParametreRequete[0] type: $valeurParametreRequete[1] <br />";
                                 $this->statement->bindValue($nomParametreRequete, $valeurParametreRequete[0], $valeurParametreRequete[1]);
                         }
                         
