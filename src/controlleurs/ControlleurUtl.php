@@ -28,32 +28,32 @@
 			if($pseudo == null){
 				$erreurs[] = "Veuillez entrer un pseudo";
 				require("vues/vueErreur.php");
-				return;
+				exit(2);
 			}
 			$pseudo = $this->validateur->validerStr($pseudo);
 			if ($pseudo == null){
 				$erreurs[] = "Pseudo invalide";
 				require("vues/vueErreur.php");
-				return;
+				exit(3);
 			}
 
 			if ($mdp == null){
 				$erreurs[] = "Veuillez entrer un mot de passe";
 				require("vues/vueErreur.php");
-				return;
+				exit(2);
 			}
 			$mdp = $this->validateur->validerStr($mdp);
 			if ($mdp == null){
 				$erreurs[] = "Mot de passe invalide";
 				require("vues/vueErreur.php");
-				return;
+				exit(3);
 			}
 			
 			$Utl = $this->utlGW->trouverPseudoEtMdp($pseudo, $mdp);
 			if ($Utl == null){
 				$erreurs[] = "Pseudo et/ou mot de passe invalide";
 				require("vues/vueErreur.php");
-				return;
+				exit(4);
 			}
 			
 			$_SESSION['user']=$pseudo;
