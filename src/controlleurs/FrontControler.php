@@ -9,8 +9,6 @@
 
 			session_start();
 
-			$_SESSION['user'] = null;
-
 			if(!isset($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 				$controlList = new ControlerList();
 				$contenuPage = $controlList->getListPb(1);
@@ -29,6 +27,8 @@
 						case 'connexion':
 							$controlUtl = new ControlleurUtl();
 							$controlUtl->connexionUtl($_REQUEST['pseudo'], $_REQUEST['mdp']);
+
+							$this->affichListPb();
 							break;
 						case 'goInscription':
 							require("vues/inscription.php");
