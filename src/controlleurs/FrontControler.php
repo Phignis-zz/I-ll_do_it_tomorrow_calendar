@@ -71,6 +71,16 @@
 							break;
 						case 'delTache':
 							break;
+						case 'voirListeTache':
+							// on veut voir le détail d'une liste de tache, identifié par son id unique
+							if(!isset($_GET["idTache"])) { // on ne sait sur quelle tache rediriger
+								$erreurs[] = "La tache a afficher n'est pas connu";
+								require("vues/vueErreur.php");
+							} else {
+								// on connait la liste de tache a afficher
+								new ControlerList();
+							}
+							break;
 						default:
 							require("vues/vueErreur.php");
 							//appel vue err

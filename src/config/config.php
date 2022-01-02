@@ -5,7 +5,7 @@
         $erreurs = [];
 
         $listActions=['accueil', 'connexion', 'goConnecter', 'inscription', 'goInscription',
-         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb', 'addTache', 'delTache'];
+         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb', 'addTache', 'delTache', 'voirListeTache'];
         
         $base="mysql:host=localhost;dbname=ill_do_it_tomorrow";
         $login="admin";

@@ -45,6 +45,10 @@
             else return $this->listMod->getListPv($numPage);
         }
 
+        public function getListDetail(int $idListe) {
+
+        }
+
         public function addListPb(int $idListe, string $nomListe){
             $ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
         }
