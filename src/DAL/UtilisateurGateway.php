@@ -2,9 +2,6 @@
 
         namespace IllDoTomorrowCalendar\DAL;
         
-        require_once("../modeles/metier/Utilisateur_classe.php");
-        require_once("../modeles/ConnexionBD_classe.php");
-        
         class UtilisateurGateway {
                 
                 /** connexionBD est la référence a la classe permettant de contacter la BDD */
@@ -41,28 +38,20 @@
                         return $utlTrouves;
                 }
                 
-                public function trouverPseudoEtMdp(string $pseudo, string $mdp): array{
-					$utlTrouves = [];
-                        
-                    $query = "SELECT * FROM UTILISATEURS WHERE :pseudoColone = :pseudo AND :mdpColone = :mdp;";
-                       
-                    try{ 
-						$connexionBD->executerQuery($query, [":pseudoColone" => ['pseudo', PDO::PARAM_STR],
-																	":pseudo" => [$pseudo, PDO::PARAM_STR],
-																	":mdpColone" => ['motDePasse', PDO::PARAM_STR],
-																	":mdp" => [$mdp, PDO::PARAM_STR]
-															]);
-							
-						foreach($connexionBD->recupererResultatQuery() as $row) {
-							 $utlTrouves[] = new Utilisateur($row['pseudo'], $row['email'], $row['dateNaissance'], $row['motDePasse']);
-						}
-					}
-					catch(PDOException $e){
-						throw new Exception('Erreur PDO');
-					}
-					
-                    return $utlTrouves;
+                public function trouverPseudoEtMdp(string $pseudo, string $mdp): array{                     
+                        $query = "SELECT * FROM UTILISATEURS WHERE :pseudoColone = :pseudo AND :mdpColone = :mdp;";
+                        try{ 
+			        $connexionBD->executerQuery($query, [":pseudoColone" => ['pseudo', PDO::PARAM_STR],
+								":pseudo" => [$pseudo, PDO::PARAM_STR],
+								":mdpColone" => ['motDePasse', PDO::PARAM_STR],
+								":mdp" => [$mdp, PDO::PARAM_STR]
+								]);
 				}
+			catch(PDOException $e){
+				throw new Exception('Erreur PDO');
+			}
+			return $connexionBD->recupererResultatQuery();
+		}
                 
                 /**
                  * description:
@@ -74,13 +63,13 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function ajouterUtilisateur(Utilisateur $ajout) {
-                        $query = "INSERT INTO UTILISATEURS VALUES(:pseudo, :email, :dateNaissance, :motDePasse);";
+                public function ajouterUtilisateur(\IllDoTomorrowCalendar\modeles\metier\Utilisateur $ajout){
+                        $query = "INSERT INTO UTILISATEUR VALUES(:pseudo, :email, :dateNaissance, :motDePasse);";
                         
-                        return $this->connexionBD->executeQuery($query, [":pseudo" => [$ajout->pseudo, PDO::PARAM_STR],
-                                                                                ":email" => [$ajout->email, PDO::PARAM_STR],
-                                                                                ":dateNaissance" => [$ajout->dateTache, PDO::PARAM_DATE],//pas sur ici
-                                                                                ":motDePasse" => [$ajout->motDePasse, PDO::PARAM_STR]]);
+                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$ajout->getPseudo(), \PDO::PARAM_STR],
+                                                                                ":email" => [$ajout->getEmail(), \PDO::PARAM_STR],
+                                                                                ":dateNaissance" => [$ajout->getDateNaissance(), \PDO::PARAM_STR],//pas sur ici
+                                                                                ":motDePasse" => [$ajout->getMotDePasse(), \PDO::PARAM_STR]]);
                 }
                 
                 /**
@@ -93,9 +82,9 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function supprimerUtilisateur(Utilisateur $suppression) {
+                public function supprimerUtilisateur(\IllDoTomorrowCalendar\modeles\metier\Utilisateur $suppression) {
                         $query = "DELETE UTILISATEURS WHERE pseudo = :pseudo";
-                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$suppression->pseudo, PDO::PARAM_STR]]);
+                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$suppression->pseudo, \PDO::PARAM_STR]]);
                 }
                 
         }

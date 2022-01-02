@@ -16,7 +16,7 @@
                 
                 public static function validerStr(string $chaine) : string {
                     if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
-					return null;
+					return "INVALIDE";
                 }
                 
                 /**

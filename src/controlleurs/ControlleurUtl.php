@@ -8,19 +8,27 @@
 		private $validateur;
 		
 		public function __construct(){
-			echo "hello";
-			require_once("./DAL/ConnexionBD.php");
-			echo "coucou";
-			$connexionBD = ConnexionBD::getInstance("dbmidubois1","midubois1","achanger");
-			$utlGW = new UtilisateurGateway($connexionBD);
-			$validateur = new ValidateurGenerique();
+			require_once("DAL/ConnexionBD.php");
+            global $base;
+            global $login;
+            global $mdp;
+			global $erreurs;
+			try {
+                $this->connexionBD = \IllDoTomorrowCalendar\DAL\ConnexionBD::getInstance("$base","$login","$mdp");
+            } catch(\Exception $e) { 
+                $erreurs[] = $e->getMessage();
+                include("vues/vueErreur.php");
+                exit(1);
+            }
+			$this->utlGW = new \IllDoTomorrowCalendar\DAL\UtilisateurGateway($this->connexionBD);
+			$this->validateur = new \IllDoTomorrowCalendar\config\valideurs\ValidateurGenerique();
 		}
 		
 		public function connexionUtl(string $pseudo, string $mdp): boolean {
 			if($pseudo == null){
 				$erreurs[] = "Veuillez entrer un pseudo";
 			}
-			$pseudo = $validateur->validerStr($pseudo);
+			$pseudo = $this->validateur->validerStr($pseudo);
 			if ($pseudo == null){
 				$erreurs[] = "Pseudo invalide";
 			}
@@ -28,12 +36,12 @@
 			if ($mdp == null){
 				$erreurs[] = "Veuillez entrer un mot de passe";
 			}
-			$mdp = $validateur6->validerStr($mdp);
+			$mdp = $this->validateur->validerStr($mdp);
 			if ($mdp == null){
 				$erreurs[] = "Mot de passe invalide";
 			}
 			
-			$Utl = $utlGw->trouverPseudoEtMdp($pseudo, $mdp);
+			$Utl = $this->utlGW->trouverPseudoEtMdp($pseudo, $mdp);
 			if ($Utl == null){
 				$erreurs[] = "Pseudo et/ou mot de passe invalide";
 			}
@@ -46,15 +54,21 @@
 				$erreurs[] = "Le pseudo et le mot de passe sont obligatoires";
 				return; 
 			} 
-			$pseudo = $validateur->validerStr($pseudo);
+			$pseudo = $this->validateur->validerStr($pseudo);
 			if ($pseudo == null) $erreurs[] = "pseudo invalide";
-			$email = $validateur->validerStr($email);
+			$email = $this->validateur->validerStr($email);
 			if ($email == null) $erreurs[] = "email invalide";
-			$dateDeNaissance = $validateur->validerStr($dateDeNaissance);
+			$dateDeNaissance = $this->validateur->validerStr($dateDeNaissance);
 			if ($dateDeNaissance == null) $erreurs[] = "date de naissance invalide";
-			$password = $password->validerStr($password);
+			$password = $this->validateur->validerStr($password);
 			if ($password == null) $erreurs[] = "mot de passe invalide";
-
-			$utlGW->ajouterUtilisateur(new Utilisateur($pseudo, $email, $dateDeNaissance, $password));
+			try{
+				$this->utlGW->ajouterUtilisateur(new \IllDoTomorrowCalendar\modeles\metier\Utilisateur($pseudo, $email, $dateDeNaissance, $password));
+			}
+			catch(PDOException $e){
+				$erreurs[] = "Le pseudo est déjà utilisé";
+				require("vues/vueErreur.php");
+			}
+			
 		} 
 	}

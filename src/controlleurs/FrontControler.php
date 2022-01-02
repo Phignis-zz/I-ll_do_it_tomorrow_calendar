@@ -36,6 +36,8 @@
 						case 'inscription':
 							$controlUtl = new ControlleurUtl();
 							$controlUtl->createUtl($_REQUEST['pseudo'], $_REQUEST['mdp'], $_REQUEST['ddn'], $_REQUEST['email']);
+
+							$this->affichListPb();
 							break;
 						case 'getListPv':
 							$controlList = new ControlerList();
@@ -81,27 +83,11 @@
 				//appel vue erreur
 			}
 		}
-		/*
-		private getUtilisateur(string $pseudo){
-			if($validateur->validerStr($pseudo)){
-				return $utlGW->trouverUtilisateur("pseudo",$pseudo);
-			}
-			//tab err
+		private function affichListPb(){
+			$controlList = new ControlerList();
+			if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+			else $numPage = 0;
+			$contenuPage = $controlList->getListPb($numPage);
+			require("vues/listpb.php");
 		}
-		
-		public addUtilisateur(string $pseudo, string $email, string $ddn, string $mdp){
-			if (validateur->validerStr($pseudo) && validateur->validerStr($email) && validateur->validerStr($ddn) && validateur->validerStr($mdp)){
-				$utlGW->ajouterUtilisateur(new Utilisateur($pseudo, $email, $ddn, $mdp));
-				return;
-			}
-			//tab err
-		}
-		
-		public delUtilisateur(string $pseudo, string $email, string $ddn, string $mdp){
-			if (validateur->validerStr($pseudo) && validateur->validerStr($email) && validateur->validerStr($ddn) && validateur->validerStr($mdp)){
-				$utlGW->supprimerUtilisateur(new Utilisateur($pseudo, $email, $ddn, $mdp));
-				return;
-			}
-			//tab err
-		}*/
 	}
