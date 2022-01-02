@@ -29,14 +29,11 @@
                         
                         // préparation de la commande SQL
                         $this->statement = parent::prepare($query);
-
-                        echo "$query";
                         
                         
                         // binding des paramètres à la commande
                         foreach($parametres as $nomParametreRequete => $valeurParametreRequete) {
                                 // valeurParametreRequete est un tableau contenant la valeur, et son type PDO
-                                echo "<br /> nom: |$nomParametreRequete| valeur: $valeurParametreRequete[0] type: $valeurParametreRequete[1] <br />";
                                 $this->statement->bindValue($nomParametreRequete, $valeurParametreRequete[0], $valeurParametreRequete[1]);
                         }
                         
@@ -46,7 +43,7 @@
                 
                 public function recupererResultatQuery() : array {
                         
-                        return $this->statement->fetchall(PDO::FETCH_ASSOC); /* PDO::FETCH_ASSOC permet de ne récuperer les données que via la nom de colonne,
+                        return $this->statement->fetchall(\PDO::FETCH_ASSOC); /* PDO::FETCH_ASSOC permet de ne récuperer les données que via la nom de colonne,
                         en abandonnant l'accès via index, qui génererait un doublon retourné pour chaque tuple */
                 }
         }

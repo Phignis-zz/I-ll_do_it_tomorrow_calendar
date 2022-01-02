@@ -15,15 +15,16 @@
                         if(is_null($this->connexionBD)) {
                                 throw new \Exception("Pas de connexion à une base de donnée pour retrouver les taches");
                         }
-
+                        // calcul du numéro de tache a partir duquel afficher pour OFFSET qui ne permet pas les calculs
+                        $numTache = ($numPage - 1) * 10; // 
                         $listeTacheTrouvees = [];
                         if ($utl == ""){
-                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET (:numPage - 1) * 10;";
-                                $this->connexionBD->executerQuery($query, [":numPage" => [$numPage, \PDO::PARAM_INT]]);    
+                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET :numTache;";
+                                $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, \PDO::PARAM_INT]]);    
                         }
                         else {
-                                $query = "SELECT * FROM LISTETACHE WHERE nomUtl=:utl LIMIT 10 OFFSET (:numPage-1)*10;";
-                                $this->connexionBD->executerQuery($query, [":numPage" => [$numPage, PDO::PARAM_INT],
+                                $query = "SELECT * FROM LISTETACHE WHERE nomUtl=:utl LIMIT 10 OFFSET :numTache";
+                                $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, PDO::PARAM_INT],
                                                                         ":utl" => [$utl, PDO::PARAM_STR]]);
                         }                               
                         return $this->connexionBD->recupererResultatQuery();

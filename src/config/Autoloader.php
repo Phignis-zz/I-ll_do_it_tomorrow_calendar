@@ -29,7 +29,7 @@
                  */
                 public static function _autoload($nomClasse) {
 
-                        //echo $nomClasse . "<br />";
+                        echo $nomClasse . "<br />";
                         
                         $folder = '.' . DIRECTORY_SEPARATOR; // dossier racine du projet
                         $nomClasse = ltrim($nomClasse, '\\'); // permet d'enlever les \ a droite du nom de la classe donnée
@@ -39,8 +39,6 @@
                         if ($lastNsPos = strripos($nomClasse, '\\')) { // recupère la position de la dernière occurence de \ dans className
                                 $namespace = substr($nomClasse, 0, $lastNsPos);
                                 $nomClasse = substr($nomClasse, $lastNsPos + 1);
-
-                                echo "$nomClasse <br />";
 
                                 // on enlève le nom de l'application du namespace, pour retrouver l'arborescence
                                 // pareil : $namespace = ltrim(ltrim(strstr($namespace, "IllDoTomorrowCalendar\\"), "IllDoTomorrowCalendar"), "\\");
