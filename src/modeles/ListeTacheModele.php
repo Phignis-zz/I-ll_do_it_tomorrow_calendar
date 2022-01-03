@@ -16,7 +16,7 @@
 			$results = $this->listTacheGW->trouverListTache10($numPage);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['idListe'], $row['nomListe']);
+				$listes[] = new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe']);
 			}
 			return $listes;
 		}
@@ -25,7 +25,7 @@
 			$results = $this->listTacheGW->trouverListTache10($numPage, $_SESSION['user']);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new metier\ListeTaches($row['idListe'], $row['nomListe'], $row["proprietaire"], []);
+				$listes[] = new metier\ListeTaches($row['nomListe'], $row['idListe'], $row["proprietaire"]);
 			}
 			return $listes;
 		}
@@ -54,11 +54,11 @@
 			return $array;
 		}
 
-		public function ajouterListeTache(Tache $ajout) : bool {
-            return $listTacheGW->ajouterListeTache($ajout);
+		public function ajouterListeTache(\IllDoTomorrowCalendar\modeles\metier\ListeTaches $ajout) : bool {
+            return $this->listTacheGW->ajouterListeTaches($ajout);
         }
                 
         public function supprimerListeTache(int $idListeTacheSuppression) : bool {
-            return $listTacheGW->supprimerListeTache($idListeTacheSuppression);
+            return $this->listTacheGW->supprimerListeTache($idListeTacheSuppression);
         }
 	}

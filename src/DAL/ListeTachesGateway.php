@@ -86,12 +86,16 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function ajouterListeTaches(ListeTaches $ajout) {
+                public function ajouterListeTaches(\IllDoTomorrowCalendar\modeles\metier\ListeTaches $ajout) {
                         $query = "INSERT INTO LISTETACHE VALUES(:idListe, :nomListe, :proprietaire);";
                         
-                        return $this->connexionBD->executeQuery($query, [":idListe" => [$ajout->idListe, PDO::PARAM_INT],
-                                                                                ":nomListe" => [$ajout->nomListe, PDO::PARAM_STR],
-                                                                                ":proprietaire" => [$ajout->proprietaire, PDO::PARAM_STR]]);
+                        if ($ajout->getIdListe() == -1) $idList = NULL;
+                        else $idList = $ajout->getIdListe();
+                        if ($ajout->getProprietaire() == "") $proprietaire = NULL;
+                        else $proprietaire = $ajout->getProprietaire();
+                        return $this->connexionBD->executerQuery($query, [":idListe" => [$idList, \PDO::PARAM_INT],
+                                                                                ":nomListe" => [$ajout->getNomListe(), \PDO::PARAM_STR],
+                                                                                ":proprietaire" => [$proprietaire, \PDO::PARAM_STR]]);
                 }
                 
                 /**

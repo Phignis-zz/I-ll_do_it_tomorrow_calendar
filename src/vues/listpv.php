@@ -17,33 +17,39 @@
       <section>
         <div>
           <div id="tableau">
-            <div id="titres-colones">
-              <p id ="titre1">Titre de la liste de tâches :</p>
-              <p>Id Unique :</p>
-              <p>Appartenance :</p>
-            </div>
-            <?php foreach($contenuPage as $row){?>
-              <a href = "index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>" class="ListeTachesLien" >
-                <button class="ListeTaches">
-                  <div>
-                    <p id="titre1"><?= $row->getNomListe(); ?> </p>
-                    <p><?= $row->getIdListe(); ?></p>
-                    <p><?= $row->getProprietaire(); ?></p>
+              <div id="titres-colones">
+                <p id ="titre1">Titre de la liste de tâches :</p>
+                <p>Id Unique :</p>
+                <p id="titre3">Appartenance :</p>
+              </div>
+                <?php foreach($contenuPage as $row){?>
+                  <div id="orgaButtonsList">
+                    <button class="ListeTaches" 
+                    onclick="window.location.href='index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>';">
+                      <div>
+                        <p id="titre1"><?= $row->getNomListe(); ?> </p>
+                        <p><?= $row->getIdListe(); ?></p>
+                        <p><?= $row->getProprietaire(); ?></p>
+                      </div>
+                    </button>
+                    <button class="ListeTaches" id="delete"
+                    onclick="window.location.href='index.php?action=delListPb&idTache=<?= $row->getIdListe(); ?>';">
+                      X
+                    </button>
                   </div>
-                </button>
-              </a>
-            <?php } ?> 
+                <?php } ?> 
+            </div>
           </div>
         </div>
-        <p id="titreFormAdd">Ajouter une nouvelle liste de tâches publique :</p>
-        <FORM METHOD="POST" ACTION="index.php?action=addListPb">
+        <p id="titreFormAdd">Ajouter une nouvelle liste de tâches privée :</p>
+        <FORM METHOD="POST" ACTION="index.php?action=addListPv">
           <div>
             <div>
               <label for="titre">Titre :</label>
               <INPUT TYPE="TEXT" NAME="titre" id="titre">
             </div>
-            <INPUT TYPE="HIDDEN" NAME="action" VALUE="addListPb">
-            <INPUT TYPE="SUBMIT" VALUE="Créer la liste Publique" id="addButton">
+            <INPUT TYPE="HIDDEN" NAME="action" VALUE="addListPv">
+            <INPUT TYPE="SUBMIT" VALUE="Créer la liste Privée" id="addButton">
           </div>
         </FORM>
       </section>
