@@ -12,6 +12,7 @@
             global $base;
             global $login;
             global $mdp;
+            global $erreurs;
             try {
                 $this->connexionBD = \IllDoTomorrowCalendar\DAL\ConnexionBD::getInstance("$base","$login","$mdp");
             } catch(\Exception $e) {
@@ -34,13 +35,12 @@
         }
 
         /**
-         * getListPv : Retourne 10 listes privées (correspondant au numéro de page indiqué)
+         * getListPv : Retourne les listes privées par 10 (correspondant au numéro de page indiqué)
          * appartenant a l'utilisateur connecté
-         * Si l'utilisateur n'est pas connecté renvoie null
+         * /!\ Si l'utilisateur n'est pas connecté, comportement indéterminé
          */
         public function getListPv(int $numPage) : array{
-            if ($_SESSION['user'] == null) return null;
-            else return $this->listMod->getListPv($numPage);
+            return $this->listMod->getListPv($numPage);
         }
 
         public function getListDetail(int $idListe) {

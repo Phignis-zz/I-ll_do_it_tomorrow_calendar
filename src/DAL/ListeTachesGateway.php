@@ -11,7 +11,7 @@
                 }
 
                 public function trouverListTache10(int $numPage, string $utl = ""){
-                        
+                        echo $utl;
                         if(is_null($this->connexionBD)) {
                                 throw new \Exception("Pas de connexion à une base de donnée pour retrouver les taches");
                         }
@@ -19,13 +19,13 @@
                         $numTache = ($numPage -1) * 10; // 
                         $listeTacheTrouvees = [];
                         if ($utl == ""){
-                                $query = "SELECT * FROM LISTETACHE LIMIT 10 OFFSET :numTache;";
+                                $query = "SELECT * FROM LISTETACHE WHERE proprietaire IS NULL LIMIT 10 OFFSET :numTache;";
                                 $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, \PDO::PARAM_INT]]);    
                         }
                         else {
-                                $query = "SELECT * FROM LISTETACHE WHERE nomUtl=:utl LIMIT 10 OFFSET :numTache";
-                                $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, PDO::PARAM_INT],
-                                                                        ":utl" => [$utl, PDO::PARAM_STR]]);
+                                $query = "SELECT * FROM LISTETACHE WHERE proprietaire=:utl LIMIT 10 OFFSET :numTache";
+                                $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, \PDO::PARAM_INT],
+                                                                        ":utl" => [$utl, \PDO::PARAM_STR]]);
                         }                               
                         return $this->connexionBD->recupererResultatQuery();
                 }

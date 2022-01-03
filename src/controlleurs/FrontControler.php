@@ -49,9 +49,12 @@
 							$controlList = new ControlerList();
 							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
 							else $numPage = 1;
+							if (!isset($_SESSION['user']) || $_SESSION['user'] == null){
+								require("vues/connexion.php");
+								break;
+							}
 							$contenuPage = $controlList->getListPv($numPage);
-							if ($contenuPage == null) require("vues/connexion.php");
-							else require("vues/listpv.php");
+							require("vues/listpv.php");
 							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
@@ -62,6 +65,9 @@
 						case 'addListPv':
 							$controlList = new ControlerList();
 							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe'], $_REQUEST['proprietaire']);
+							break;
+						case 'goAddListPb':
+							require("vues/addListPb.php");
 							break;
 						case 'addListPb':
 							$controlList = new ControlerList();
