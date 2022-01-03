@@ -22,9 +22,7 @@
             }
 
             $tmp = new \IllDoTomorrowCalendar\DAL\ListeTachesGateway($this->connexionBD);
-            if(!isset($tmp)) echo "chelou <br />";
             $tmp1 = new \IllDoTomorrowCalendar\modeles\TacheModele(new \IllDoTomorrowCalendar\DAL\TacheGateway($this->connexionBD));
-            if(!isset($tmp)) echo "chelou1 <br />";
 			
             $this->listMod = new \IllDoTomorrowCalendar\modeles\ListeTacheModele($tmp, $tmp1);
 			$this->validateur = new \IllDoTomorrowCalendar\config\valideurs\ValidateurGenerique();
@@ -46,14 +44,15 @@
         }
 
         public function getListDetail(int $idListe) {
-
+            $listeTacheAAfficher = $this->listMod->trouverListeTacheParID($idListe);
+            include("vues/listeTachesVue.php");
         }
 
         public function addListPb(int $idListe, string $nomListe){
-            $ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
+            $listMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
         }
 
         public function addListPv(int $idListe, string $nomListe, string $proprietaire) {
-            $this->ListMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, $proprietaire, null));
+            $this->listMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, $proprietaire, null));
         }
     }

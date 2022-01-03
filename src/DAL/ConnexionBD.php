@@ -47,8 +47,9 @@
                 }
                 
                 public function recupererResultatQuery() : array {
-                        
-                        return $this->statement->fetchall(\PDO::FETCH_ASSOC); /* PDO::FETCH_ASSOC permet de ne récuperer les données que via la nom de colonne,
+                        $result = $this->statement->fetchall(\PDO::FETCH_ASSOC);
+                        //var_dump($result);
+                        return $result; /* PDO::FETCH_ASSOC permet de ne récuperer les données que via la nom de colonne,
                         en abandonnant l'accès via index, qui génererait un doublon retourné pour chaque tuple */
                 }
         }
