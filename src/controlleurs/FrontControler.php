@@ -30,6 +30,12 @@
 
 							$this->affichListPb();
 							break;
+						case 'deconnexion':
+							unset($_SESSION["user"]); // deconnexion
+							// relancer le home
+							$contenuPage = (new ControlerList())->getListPb(1);
+							require("vues/listpb.php");
+							break;
 						case 'goInscription':
 							require("vues/inscription.php");
 							break;
