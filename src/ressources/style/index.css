@@ -82,10 +82,10 @@ header nav ul li button:hover p {
 	background-color: #35363A;
 }
 
-#account_buttons p {
+#nomUtilisateur {
 	color:aliceblue;
 	margin-top : auto;
-	margin-right: 2%;
+	margin-right: 5%;
 }
 
 #account_buttons button p {
