@@ -9,6 +9,13 @@
       </div>
       <div id="account_buttons">
         <!-- le but ici est d'afficher se deco si jamais on est co -->
+
+        <?php if(isset($_SESSION["user"]) && !empty($_SESSION["user"])) { ?>
+          <p>
+            <?= "-" . $_SESSION["user"] . "-" ?>
+          </p> 
+        <?php } ?>
+
         <?php if(!isset($_SESSION["user"]) || empty($_SESSION["user"])) { ?>
           <a href="index.php?action=goConnecter">
             <button>
@@ -22,12 +29,13 @@
             </button>
           </a>
         <?php } ?>
-
-        <a href="index.php?action=goInscription">
-          <button>
-            <p>S'Inscrire</p>
-          </button>
-        </a>
+        <?php if(!isset($_SESSION["user"]) || empty($_SESSION["user"])) { ?>
+          <a href="index.php?action=goInscription">
+            <button>
+              <p>S'Inscrire</p>
+            </button>
+          </a>
+        <?php } ?>
       </div>
     </div>
     <nav>
