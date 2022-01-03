@@ -48,11 +48,11 @@
             include("vues/listeTachesVue.php");
         }
 
-        public function addListPb(int $idListe, string $nomListe){
-            $listMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, "", null));
+        public function addListPb(string $nomListe){
+            $this->listMod->ajouterListeTache(new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($nomListe));
         }
 
-        public function addListPv(int $idListe, string $nomListe, string $proprietaire) {
-            $this->listMod->ajouterListeTache(new ListeTaches($idListe, $nomListe, $proprietaire, null));
+        public function addListPv(string $nomListe) {
+            $this->listMod->ajouterListeTache(new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($nomListe, -1, $_SESSION['user']));
         }
     }

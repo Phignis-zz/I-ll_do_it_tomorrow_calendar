@@ -64,14 +64,19 @@
 							break;
 						case 'addListPv':
 							$controlList = new ControlerList();
-							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe'], $_REQUEST['proprietaire']);
-							break;
-						case 'goAddListPb':
-							require("vues/addListPb.php");
+							if (!isset($_SESSION['user']) || $_SESSION['user'] == null){
+								require("vues/connexion.php");
+								break;
+							}
+							$controlList->addListPv($_REQUEST['titre']);
+							$contenuPage = $controlList->getListPv(1);
+							require("vues/listpv.php");
 							break;
 						case 'addListPb':
 							$controlList = new ControlerList();
-							$controlList->addListPb($_REQUEST['idListe'], $_REQUEST['nomListe']);
+							$controlList->addListPb($_REQUEST['titre']);
+							$contenuPage = $controlList->getListPb(1);
+							require("vues/listpb.php");
 							break;
 						case 'delListPb':
 							$controlList = new ControlerList();

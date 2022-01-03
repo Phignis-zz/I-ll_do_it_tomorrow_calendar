@@ -20,19 +20,25 @@
             <div id="titres-colones">
               <p id ="titre1">Titre de la liste de tâches :</p>
               <p>Id Unique :</p>
-              <p>Appartenance :</p>
+              <p id="titre3">Appartenance :</p>
             </div>
-            <?php foreach($contenuPage as $row){?>
-              <a href = "index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>" class="ListeTachesLien" >
-                <button class="ListeTaches">
-                  <div>
-                    <p id="titre1"><?= $row->getNomListe(); ?> </p>
-                    <p><?= $row->getIdListe(); ?></p>
-                    <p>Publique</p>
-                  </div>
-                </button>
-              </a>
-            <?php } ?> 
+              <?php foreach($contenuPage as $row){?>
+                <div id="orgaButtonsList">
+                  <button class="ListeTaches" 
+                  onclick="window.location.href='index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>';">
+                    <div>
+                      <p id="titre1"><?= $row->getNomListe(); ?> </p>
+                      <p><?= $row->getIdListe(); ?></p>
+                      <p>Publique</p>
+                    </div>
+                  </button>
+                  <button class="ListeTaches" id="delete"
+                  onclick="window.location.href='index.php?action=delListPb&idTache=<?= $row->getIdListe(); ?>';">
+                    X
+                  </button>
+                </div>
+              <?php } ?> 
+            
           </div>
         </div>
         <p id="titreFormAdd">Ajouter une nouvelle liste de tâches publique :</p>
