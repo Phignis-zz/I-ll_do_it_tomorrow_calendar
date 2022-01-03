@@ -27,17 +27,41 @@
                  */
                 public function trouverTache(string $colonneRestrictive = "", string $valeurColonne = "") : array {
                         
-                        if($colonneRestrictive == "") $query = "SELECT * FROM TACHE";
-                        else $query = "SELECT * FROM TACHE WHERE :nomColonne = :valeurColonne;";
+                        if($colonneRestrictive == "") {
+                                $query = "SELECT * FROM TACHE";
+                                $this->connexionBD->executerQuery($query);
+                        }
+                        else {
+                                $query = "SELECT * FROM TACHE WHERE :nomColonne = :valeurColonne;";
                         
-                        $connexionBD->executerQuery($query, ["nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
-                                                                ":valeurColonne" => [$valeurColonne, PDO::PARAM_STR]
-                                                        ]);
+                                if($colonneRestrictive == "idListe") {
+                                        $valeurColonne = (int) $valeurColonne;
+                                        $this->connexionBD->executerQuery($query, [":nomColonne" => [$colonneRestrictive, \PDO::PARAM_STR],
+                                                                        ":valeurColonne" => [4, \PDO::PARAM_INT]
+                                                                ]);
+                                }
+                                else {
+                                        $this->connexionBD->executerQuery($query, [":nomColonne" => [$colonneRestrictive, \PDO::PARAM_STR],
+                                                                        ":valeurColonne" => [$valeurColonne, \PDO::PARAM_STR]
+                                                                ]);
+                                }
+                        }
                         
                         
                         // la conversion en Tache doit se faire avec TacheModele
-                        return $connexionBD->recupererResultatQuery();
+                        return $this->connexionBD->recupererResultatQuery();
                 }
+
+                public function trouverTacheByIdListe(int $valeurColonne = null) : array {
+                        
+                        $query = "SELECT * FROM TACHE WHERE idListe = :valeurColonne;";
+                        $this->connexionBD->executerQuery($query, [":valeurColonne" => [$valeurColonne, \PDO::PARAM_INT]]);
+                        
+                        
+                        // la conversion en Tache doit se faire avec TacheModele
+                        return $this->connexionBD->recupererResultatQuery();
+                }
+                
                 
                 /**
                  * description:

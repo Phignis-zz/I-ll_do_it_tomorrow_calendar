@@ -8,16 +8,34 @@
         </h1>
       </div>
       <div id="account_buttons">
-        <a href="index.php?action=goConnecter">
-          <button>
-            <p>Se Connecter</p>
-          </button>
-        </a>
-        <a href="index.php?action=goInscription">
-          <button>
-            <p>S'Inscrire</p>
-          </button>
-        </a>
+        <!-- le but ici est d'afficher se deco si jamais on est co -->
+
+        <?php if(isset($_SESSION["user"]) && !empty($_SESSION["user"])) { ?>
+          <p id="nomUtilisateur">
+            <?= $_SESSION["user"] ?>
+          </p> 
+        <?php } ?>
+
+        <?php if(!isset($_SESSION["user"]) || empty($_SESSION["user"])) { ?>
+          <a href="index.php?action=goConnecter">
+            <button>
+              <p>Se Connecter</p>
+            </button>
+          </a>
+        <?php } else  { ?>
+          <a href="index.php?action=deconnexion">
+            <button>
+              <p>Se Déconnecter</p>
+            </button>
+          </a>
+        <?php } ?>
+        <?php if(!isset($_SESSION["user"]) || empty($_SESSION["user"])) { ?>
+          <a href="index.php?action=goInscription">
+            <button>
+              <p>S'Inscrire</p>
+            </button>
+          </a>
+        <?php } ?>
       </div>
     </div>
     <nav>

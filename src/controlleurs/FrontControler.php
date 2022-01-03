@@ -30,6 +30,12 @@
 
 							$this->affichListPb();
 							break;
+						case 'deconnexion':
+							unset($_SESSION["user"]); // deconnexion
+							// relancer le home
+							$contenuPage = (new ControlerList())->getListPb(1);
+							require("vues/listpb.php");
+							break;
 						case 'goInscription':
 							require("vues/inscription.php");
 							break;
@@ -70,6 +76,16 @@
 						case 'addTache':
 							break;
 						case 'delTache':
+							break;
+						case 'voirListeTache':
+							// on veut voir le détail d'une liste de tache, identifié par son id unique
+							if(!isset($_GET["idTache"])) { // on ne sait sur quelle tache rediriger
+								$erreurs[] = "La tache a afficher n'est pas connu";
+								require("vues/vueErreur.php");
+							} else {
+								// on connait la liste de tache a afficher, on la recupère donc
+								(new ControlerList())->getListDetail($_GET["idTache"]);
+							}
 							break;
 						default:
 							require("vues/vueErreur.php");
