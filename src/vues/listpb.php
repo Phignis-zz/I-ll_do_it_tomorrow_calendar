@@ -31,6 +31,18 @@
                 </div>
               </button>
             <?php } ?> 
+            <div class="form">
+              <FORM METHOD="POST" ACTION="index.php?action=addListPb">
+                  <div>
+                    <label for="titre">Titre de la liste de tâche :</label>
+                    <INPUT TYPE="TEXT" NAME="titre" id="titre">
+                  </div>
+                  <div>
+                    <INPUT TYPE="HIDDEN" NAME="action" VALUE="addListPb">
+                    <INPUT TYPE="SUBMIT" VALUE="Créer la liste publique">
+                  </div>
+              </FORM>
+            </div>
           </div>
         </div>
       </section>
