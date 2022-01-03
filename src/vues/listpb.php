@@ -20,7 +20,7 @@
             <div id="titres-colones">
               <p id ="titre1">Titre de la liste de tâches :</p>
               <p>Id Unique :</p>
-              <p>Confidentialitée :</p>
+              <p>Appartenance :</p>
             </div>
             <?php foreach($contenuPage as $row){?>
               <a href = "index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>" class="ListeTachesLien" >
@@ -33,20 +33,19 @@
                 </button>
               </a>
             <?php } ?> 
-            <div class="form">
-              <FORM METHOD="POST" ACTION="index.php?action=addListPb">
-                  <div>
-                    <label for="titre">Titre de la liste de tâche :</label>
-                    <INPUT TYPE="TEXT" NAME="titre" id="titre">
-                  </div>
-                  <div>
-                    <INPUT TYPE="HIDDEN" NAME="action" VALUE="addListPb">
-                    <INPUT TYPE="SUBMIT" VALUE="Créer la liste publique">
-                  </div>
-              </FORM>
-            </div>
           </div>
         </div>
+        <p id="titreFormAdd">Ajouter une nouvelle liste de tâches publique :</p>
+        <FORM METHOD="POST" ACTION="index.php?action=addListPb">
+          <div>
+            <div>
+              <label for="titre">Titre :</label>
+              <INPUT TYPE="TEXT" NAME="titre" id="titre">
+            </div>
+            <INPUT TYPE="HIDDEN" NAME="action" VALUE="addListPb">
+            <INPUT TYPE="SUBMIT" VALUE="Créer la liste Publique" id="addButton">
+          </div>
+        </FORM>
       </section>
       <?php include("ressources/html_parts/footer.php") ?>
   </body>

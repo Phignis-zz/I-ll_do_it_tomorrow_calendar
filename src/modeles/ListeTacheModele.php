@@ -22,10 +22,10 @@
 		}
 
 		public function getListPv(int $numPage) : array {
-			$results = $this->ListTacheGW->trouverListTache10($numPage, $_SESSION['user']);
+			$results = $this->listTacheGW->trouverListTache10($numPage, $_SESSION['user']);
 			$listes = [];
 			foreach ($results as $row){
-				$listes[] = new ListeTaches($row['idListe'], $row['nomListe'], $row["proprietaire"], null);
+				$listes[] = new metier\ListeTaches($row['idListe'], $row['nomListe'], $row["proprietaire"], []);
 			}
 			return $listes;
 		}
