@@ -11,8 +11,8 @@
         <!-- le but ici est d'afficher se deco si jamais on est co -->
 
         <?php if(isset($_SESSION["user"]) && !empty($_SESSION["user"])) { ?>
-          <p>
-            <?= "-" . $_SESSION["user"] . "-" ?>
+          <p id="nomUtilisateur">
+            <?= $_SESSION["user"] ?>
           </p> 
         <?php } ?>
 
