@@ -4,8 +4,8 @@
         $ROOT_PATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
         $erreurs = [];
 
-        $listActions=['accueil', 'connexion', 'goConnecter', 'inscription', 'goInscription',
-         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb', 'addTache', 'delTache'];
+        $listActions=['accueil', 'connexion', 'goConnecter', 'deconnexion', 'inscription', 'goInscription',
+         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb', 'addTache', 'delTache', 'voirListeTache'];
         
         $base="mysql:host=localhost;dbname=ill_do_it_tomorrow";
         $login="admin";

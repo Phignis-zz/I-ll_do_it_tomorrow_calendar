@@ -17,17 +17,24 @@
       <section>
         <div>
           <div id="tableau">
+            <div id="description_tache">
+              <p>id de la liste: <?= $listeTacheAAfficher->getIdListe(); ?></p>
+              <p>nom de la liste : <?= $listeTacheAAfficher->getNomListe(); ?></p>
+              <?php if(!is_null($listeTacheAAfficher->getProprietaire())) { ?>
+                  <p>idListe: <?= $listeTacheAAfficher->getProprietaire(); ?></p>
+              <?php } ?>
+            </div>
             <div id="titres-colones">
               <p id ="titre1">Titre de la tâche :</p>
               <p>Date :</p>
               <p>Description :</p>
             </div>
-            <?php foreach($contenuPage as $row){?>
+            <?php foreach($listeTacheAAfficher->getListeTache() as $tache) { ?>
               <button class="ListeTaches">
                 <div>
-                  <p id="titre1"><?php $row->$intituleTache ?> </p>
-                  <p><?php $row->$dateTache ?></p>
-                  <p><?php $row->$description ?></p>
+                  <p id="titre1"><?= $tache->getIntituleTache(); ?> </p>
+                  <p><?= $tache->getDateTache(); ?></p>
+                  <p><?= $tache->getDescriptionTache(); ?></p>
                 </div>
               </button>
             <?php } ?> 
