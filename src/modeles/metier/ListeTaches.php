@@ -16,19 +16,27 @@
                  *      nomListe : nom de la liste
                  * 		listeTache : liste de tâches
                  */
-                public function __construct(int $idListe, string $nomListe, string $proprietaire = "", array $listeTache = []){
+                public function __construct(int $idListe, string $nomListe, ?string $proprietaire = "", array $listeTache = []){
                         $this->idListe = $idListe;
                         $this->nomListe = $nomListe;
                         $this->listeTache = $listeTache;
                         $this->proprietaire = $proprietaire;
                 }
 
-                public function getNomListe() : string {
+                public function getNomListe() : ?string {
                         return $this->nomListe;
                 }
 
-                public function getIdListe() : int {
+                public function getIdListe() : ?int {
                         return $this->idListe;
+                }
+
+                public function getListeTache() : ?array {
+                        return $this->listeTache;
+                }
+
+                public function getProprietaire() : ?string {
+                        return $this->proprietaire;
                 }
                 
                 /**

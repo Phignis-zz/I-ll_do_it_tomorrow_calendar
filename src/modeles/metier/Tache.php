@@ -22,19 +22,19 @@
                 
                 
                 public function getIdTache() : int {
-                        return $idTache;
+                        return $this->idTache;
                 }
                 
                 public function getIntituleTache() : string {
-                        return $intituleTache;
+                        return $this->intituleTache;
                 }
                 
                 public function getDateTache() : string {
-                        return $dateTache;
+                        return $this->dateTache;
                 }
                 
-                public function getDescription() : string {
-                        return $description;
+                public function getDescriptionTache() : string {
+                        return $this->description;
                 }
                 
                 ///////////////////////////////////////////

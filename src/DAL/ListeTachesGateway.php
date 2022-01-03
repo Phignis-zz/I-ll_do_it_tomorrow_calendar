@@ -43,14 +43,37 @@
                 public function trouverListeTache(string $colonneRestrictive = "", string $valeurColonne = "") : array {
                         $listeTacheTrouvees = [];
                         
-                        if($colonneRestrictive == "") $query = "SELECT * FROM LISTETACHE";
-                        else $query = "SELECT * FROM LISTETACHE WHERE :nomColonne = :valeurColonne;";
-                        
-                        $connexionBD->executerQuery($query, ["nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
-                                                                ":valeurColonne" => [$valeurColonne, PDO::PARAM_STR]
-                                                        ]);
+                        if($colonneRestrictive == "") {
+                                $query = "SELECT * FROM LISTETACHE";
+                                $this->connexionBD->executerQuery($query);
+                        }
+                        else {
+                                $query = "SELECT * FROM LISTETACHE WHERE :nomColonne = :valeurColonne;";
+
+                                if($colonneRestrictive == "idListe") {
+                                        $valeurColonne = (int) $valeurColonne;
+                                        if(!$this->connexionBD->executerQuery($query, [":nomColonne" => ["idListe", \PDO::PARAM_STR],
+                                                                        ":valeurColonne" => [$valeurColonne, \PDO::PARAM_INT]
+                                                                ])) echo "l'execution s'est mal passé";
+                                }
+                                else {
+                                        $this->connexionBD->executerQuery($query, [":nomColonne" => [$colonneRestrictive, \PDO::PARAM_STR],
+                                                                        ":valeurColonne" => [$valeurColonne, \PDO::PARAM_STR]
+                                                                ]);
+                                }
+                        }
+
                                                         
-                        return $connexionBD->recupererResultatQuery();
+                        return $this->connexionBD->recupererResultatQuery();
+                }
+
+                public function trouverListeTacheByID(int $valeurColonne) : array {
+                        $listeTacheTrouvees = [];
+
+                        $query = "SELECT * FROM listetache WHERE idListe = :valeurColonne";
+                        $this->connexionBD->executerQuery($query, [":valeurColonne" => [$valeurColonne, \PDO::PARAM_INT]]);
+                                                        
+                        return $this->connexionBD->recupererResultatQuery();
                 }
                 
                 /**

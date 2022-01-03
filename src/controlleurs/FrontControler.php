@@ -77,8 +77,8 @@
 								$erreurs[] = "La tache a afficher n'est pas connu";
 								require("vues/vueErreur.php");
 							} else {
-								// on connait la liste de tache a afficher
-								new ControlerList();
+								// on connait la liste de tache a afficher, on la recupère donc
+								(new ControlerList())->getListDetail($_GET["idTache"]);
 							}
 							break;
 						default:

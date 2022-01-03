@@ -30,20 +30,26 @@
 			return $listes;
 		}
 		
-		public function trouverListeTacheParID(string $valeurColonne = "") : array {
-			$results = $listTacheGW->trouverListeTache('idListe', $valeurColonne);
-			$array = [];
+		public function trouverListeTacheParID(int $valeurColonne = 0) : metier\ListeTaches {
+			$results = $this->listTacheGW->trouverListeTacheByID($valeurColonne);
+			$listeTrouve = null;
+			// on recupere d'abord les infos de la liste
 			foreach ($results as $row){
-				$array[] = new ListeTaches($row['idListe'],$row['nomListe'], null);
+				$listeTrouve = new metier\ListeTaches($row['idListe'],$row['nomListe'], null);
 			}
-			return $array;
+			//ensuite ceux des taches assossiées
+			$tachesAssociees = $this->tachesMdl->trouverTacheParIdListe($valeurColonne);
+			foreach ($tachesAssociees as $tache){
+				$listeTrouve->ajoutTache($tache);
+			}
+			return $listeTrouve;
 		}
 
 		public function trouverListeTacheParPseudoUtl(string $valeurColonne = "") : array{
 			$results = $listTacheGW->trouverListeTache('pseudo', $valeurColonne);
 			$array = [];
 			foreach ($results as $row){
-				$array[] = new ListeTaches($row['idListe'],$row['nomListe'],null);
+				$array[] = new ListeTaches($row['idListe'],$row['nomListe'], null);
 			}
 			return $array;
 		}

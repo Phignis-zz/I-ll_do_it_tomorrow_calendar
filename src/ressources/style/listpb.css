@@ -67,3 +67,9 @@ section div{
 	flex-direction: row;
 	justify-content: space-around;
 }
+
+#description_tache {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
