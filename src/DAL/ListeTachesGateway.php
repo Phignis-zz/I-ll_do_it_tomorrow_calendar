@@ -11,7 +11,6 @@
                 }
 
                 public function trouverListTache10(int $numPage, string $utl = ""){
-                        echo $utl;
                         if(is_null($this->connexionBD)) {
                                 throw new \Exception("Pas de connexion à une base de donnée pour retrouver les taches");
                         }
@@ -108,9 +107,9 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function supprimerListeTaches(int $idListeSuppression) {
-                        $query = "DELETE LISTETACHE WHERE idListe = :idListe";
-                        return $this->connexionBD->executerQuery($query, [":idListe" => [$suppression->pseudo, PDO::PARAM_INT]]);
+                public function supprimerListeTaches(int $idList) {
+                        $query = "DELETE FROM LISTETACHE WHERE idListe = :idListe;";
+                        $this->connexionBD->executerQuery($query, [":idListe" => [$idList, \PDO::PARAM_INT]]);
                 }
                 
         }

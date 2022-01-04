@@ -58,7 +58,20 @@
             return $this->listTacheGW->ajouterListeTaches($ajout);
         }
                 
-        public function supprimerListeTache(int $idListeTacheSuppression) : bool {
-            return $this->listTacheGW->supprimerListeTache($idListeTacheSuppression);
+        public function supprimerListeTache(int $idListe){
+            $this->listTacheGW->supprimerListeTaches($idListe);
         }
+
+		public function getSpeficList(int $idList) : \IllDoTomorrowCalendar\modeles\metier\ListeTaches {
+			$result = $this->listTacheGW->trouverListeTacheByID($idList);
+			if ($result == NULL){
+				throw new \Exception("La liste spécifiée n'existe pas");
+			}
+			foreach ($result as $row){
+				if ($row['proprietaire'] == NULL){
+					return new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe']);
+				}
+				return new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe'], $row['proprietaire']);
+			}
+		}
 	}

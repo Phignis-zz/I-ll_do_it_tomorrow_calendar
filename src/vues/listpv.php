@@ -33,7 +33,7 @@
                       </div>
                     </button>
                     <button class="ListeTaches" id="delete"
-                    onclick="window.location.href='index.php?action=delListPb&idTache=<?= $row->getIdListe(); ?>';">
+                    onclick="window.location.href='index.php?action=delListPv&idTache=<?= $row->getIdListe(); ?>';">
                       X
                     </button>
                   </div>

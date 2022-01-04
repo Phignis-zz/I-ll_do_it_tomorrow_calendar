@@ -34,6 +34,18 @@
             return $this->listMod->getListPb($numPage);
         }
 
+        public function getSpeficList(int $idList) : \IllDoTomorrowCalendar\modeles\metier\ListeTaches {
+            try{
+                $result = $this->listMod->getSpeficList($idList);
+                return $result;
+            }
+            catch (\Exception $e){
+                $erreurs[]=$e->getMessage();
+                require("vues/vueErreur.php");
+                exit(1);
+            }
+        }
+
         /**
          * getListPv : Retourne les listes privées par 10 (correspondant au numéro de page indiqué)
          * appartenant a l'utilisateur connecté
@@ -54,5 +66,9 @@
 
         public function addListPv(string $nomListe) {
             $this->listMod->ajouterListeTache(new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($nomListe, -1, $_SESSION['user']));
+        }
+
+        public function delListPb(int $idListe) {
+            $this->listMod->supprimerListeTache($idListe);
         }
     }
