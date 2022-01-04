@@ -42,10 +42,12 @@
             <?php } ?>  
           </div>
         </div>
-        <button class="ListeTaches" id="valider"
-          onclick="window.location.href='index.php?action=delContenuList&idTache=<?= $tache->getIdTache(); ?>';">
-          Valider les checks
-        </button>
+        <?php if(isset($contenuPage) && count($contenuPage) > 0) { ?>
+          <button class="ListeTaches" id="valider"
+            onclick="window.location.href='index.php?action';">
+            Valider les checks
+          </button> 
+        <?php } ?>
         <p id="titreFormAdd">Ajouter une nouvelle tâche :</p>
         <FORM METHOD="POST" ACTION="index.php?action=addContenuList">
           <div>

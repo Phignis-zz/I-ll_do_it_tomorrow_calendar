@@ -190,7 +190,6 @@
 		private function affichTaches(){
 			if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
 			else $numPage = 1;
-							
 			//verif confidencialité (pb/user et si c bien le bon user)
 			$controlList = new ControlerList();
 			$contenuPage = $controlList->getContenuListe($_SESSION['currentList'], $numPage);
