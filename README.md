@@ -57,3 +57,7 @@
 ## Conventions
 
 veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
+
+## Premier lancement
+
+Assurez vous d'avoir lancer un serveur pour executer le PHP, et d'avoir une BDD. Le script de création des tables se trouve (ici)[./doc/ill_do_it_tomorrow.sql]. la BDD doit se nommer ill_do_it_tomorrow, avec un utilisateur pouvant y accéder en lecture et écriture, nommé admin avec mot de passe admin&63.
