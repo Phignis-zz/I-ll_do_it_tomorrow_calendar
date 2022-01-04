@@ -57,9 +57,7 @@
 				require("vues/vueErreur.php");
 				exit(4);
 			}
-			
 			$_SESSION['user']=$pseudo;
-			
 		}
 
 		public function createUtl(string $pseudo, string $password, string $dateDeNaissance = "", string $email = ""){

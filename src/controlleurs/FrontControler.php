@@ -136,9 +136,11 @@
 										break;
 									}
 								}
-								$erreurs[] = "Vous ne pouvez pas supprimer une tâche contenue dans une liste qui ne vous appartient pas !";
-								require("vues/vueErreur.php");
-								break;
+								else {
+									$erreurs[] = "Vous ne pouvez pas supprimer une tâche contenue dans une liste qui ne vous appartient pas ! Veuillez vous connecter";
+									require("vues/vueErreur.php");
+									break;
+								}
 							}
 							$controlList->delTache($_REQUEST['idTache']);
 							$this->affichTaches();
