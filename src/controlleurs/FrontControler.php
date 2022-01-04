@@ -124,13 +124,14 @@
 								require("vues/vueErreur.php");
 								break;
 							}
-							if (!isset($_SESSION['titre']) || !isset($_SESSION['date'] || !isset($_SESSION['description']))){
+							if (!isset($_SESSION['titre']) || !isset($_SESSION['date']) || !isset($_SESSION['description'])) {
 								$erreurs[] = "Champs manquants";
 								require("vues/vueErreur.php");
 								break;
 							}
 							$controlList = new ControlerList();
-							$controlList->ajouterTacheAListe($_SESSION['currentList'], )
+							//$controlList->ajouterTacheAListe($_SESSION['currentList'], )
+							break;
 						default:
 							require("vues/vueErreur.php");
 							//appel vue err

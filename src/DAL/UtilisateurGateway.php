@@ -13,38 +13,21 @@
                 
                  /**
                  * description:
-                 * trouverUtilisateur a pour but de trouver une tache répondant au critères de "colonneRestrictive",
-                 * si on a aucune restriction, on retourne la totalité de la table
+                 * trouverUtilisateurByPseudo a pour but de trouver une tache répondant au critère de pseudo
                  * paramètres:
-                 *      colonneRestrictive : la colonne sur lequel le where s'applique, sans where si vide
                  *      valeurColonne : la valeur souhaité pour la colonne où se base le where de la requete
                  * return:
-                 *      une array de Utilisateur satisfaisant la potentielle condition de la colonne restrictive
+                 *      une array de Utilisateur satisfaisant la condition de pseudo
                  */
-                public function trouverUtilisateur(string $colonneRestrictive = "", string $valeurColonne = "") : array {
+                public function trouverUtilisateurByPseudo(string $valeurColonne = "") : array {
                         $utlTrouves = [];
                         
-                        if($colonneRestrictive == "") $query = "SELECT * FROM UTILISATEURS";
-                        else $query = "SELECT * FROM UTILISATEURS WHERE :nomColonne = :valeurColonne;";
+                        $query = "SELECT * FROM utilisateur WHERE pseudo = :valeurColonne;";
                         
-                        $connexionBD->executerQuery($query, [":nomColonne" => [$colonneRestrictive, PDO::PARAM_STR],
-                                                                ":valeurColonne" => [$valeurColonne, PDO::PARAM_STR]
-                                                        ]);
+                        $this->connexionBD->executerQuery($query, [":valeurColonne" => [$valeurColonne, \PDO::PARAM_STR]]);
                         
-                        foreach($connexionBD->recupererResultatQuery() as $row) {
-                                $utlTrouves[] = new Utilisateur($row['pseudo'], $row['email'], $row['dateNaissance'], $row['motDePasse']);
-                        }
-                        
-                        return $utlTrouves;
+                        return $this->connexionBD->recupererResultatQuery();
                 }
-                
-                public function trouverPseudoEtMdp(string $pseudo, string $mdp): array{                     
-                        $query = "SELECT * FROM UTILISATEUR WHERE pseudo = :pseudo AND password = :mdp;";
-			$this->connexionBD->executerQuery($query, [":pseudo" => [$pseudo, \PDO::PARAM_STR],
-							        ":mdp" => [$mdp, \PDO::PARAM_STR]
-							        ]);
-			return $this->connexionBD->recupererResultatQuery();
-		}
                 
                 /**
                  * description:
@@ -59,10 +42,10 @@
                 public function ajouterUtilisateur(\IllDoTomorrowCalendar\modeles\metier\Utilisateur $ajout){
                         $query = "INSERT INTO UTILISATEUR VALUES(:pseudo, :email, :dateNaissance, :motDePasse);";
                         
-                                return $this->connexionBD->executerQuery($query, [":pseudo" => [$ajout->getPseudo(), \PDO::PARAM_STR],
-                                                                                ":email" => [$ajout->getEmail(), \PDO::PARAM_STR],
-                                                                                ":dateNaissance" => [$ajout->getDateNaissance(), \PDO::PARAM_STR],//pas sur ici
-                                                                                ":motDePasse" => [$ajout->getMotDePasse(), \PDO::PARAM_STR]]);
+                        return $this->connexionBD->executerQuery($query, [":pseudo" => [$ajout->getPseudo(), \PDO::PARAM_STR],
+                                                                        ":email" => [$ajout->getEmail(), \PDO::PARAM_STR],
+                                                                        ":dateNaissance" => [$ajout->getDateNaissance(), \PDO::PARAM_STR],//pas sur ici
+                                                                        ":motDePasse" => [$ajout->getMotDePasse(), \PDO::PARAM_STR]]);
                         
                         
                 }

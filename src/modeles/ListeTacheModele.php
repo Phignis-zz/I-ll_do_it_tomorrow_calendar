@@ -2,7 +2,7 @@
 
     namespace IllDoTomorrowCalendar\modeles;
 
-	class ListeTacheModele{
+	class ListeTacheModele {
 
 		private $listTacheGW;
 
