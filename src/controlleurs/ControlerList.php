@@ -73,7 +73,7 @@
         }
 
         public function ajouterTacheAListe(int $idListe, string $titre, string $date, string $description){
-            $this->tacheMod->ajouterTacheAListe($idListe, new \IllDoTomorrowCalendar\modeles\metier\Tache($titre, $date, $description));
+            $this->tacheMod->ajouterTacheAListe($idListe, new \IllDoTomorrowCalendar\modeles\metier\Tache($titre, $date, $description, false));
         }
 
         public function delTache(int $idTache){
