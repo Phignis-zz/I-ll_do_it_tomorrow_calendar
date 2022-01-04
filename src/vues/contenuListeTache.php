@@ -27,7 +27,7 @@
               <div id="orgaButtonsList">
                 <button class="ListeTaches">
                   <div>
-                    <input type="checkbox" id="termine" checked="checked">
+                    <input type="checkbox" id="termine">
                     <p class="autresContenus"><?= $tache->getIntituleTache(); ?> </p>
                     <p class="autresContenus"><?= $tache->getDateTache(); ?></p>
                     <p class="autresContenus"><?= $tache->getIdTache(); ?></p>
@@ -44,7 +44,7 @@
         </div>
         <?php if(isset($contenuPage) && count($contenuPage) > 0) { ?>
           <button class="ListeTaches" id="valider"
-            onclick="window.location.href='index.php?action';">
+            onclick="window.location.href='index.php';">
             Valider les checks
           </button> 
         <?php } ?>

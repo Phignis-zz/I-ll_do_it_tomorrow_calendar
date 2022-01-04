@@ -29,7 +29,7 @@
                  */
                 public static function _autoload($nomClasse) {
 
-                        echo $nomClasse . " : ";
+                        // echo $nomClasse . " : ";
                         
                         $folder = '.' . DIRECTORY_SEPARATOR; // dossier racine du projet
                         $nomClasse = ltrim($nomClasse, '\\'); // permet d'enlever les \ a droite du nom de la classe donnée
@@ -48,7 +48,7 @@
                         }
                         $nomFichier .= str_replace('_', DIRECTORY_SEPARATOR, $nomClasse) . '.php';
 
-                        echo "$folder$nomFichier<br />";
+                        // echo "$folder$nomFichier<br />";
                         
                         include $folder . $nomFichier;
                 }
