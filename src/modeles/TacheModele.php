@@ -48,17 +48,23 @@
                         $temp = $this->tacheGateway->trouverTacheParIdListe10($idListe, $numPage);
                         
                         foreach($temp as $row) {
-                                $tachesTrouvees[] = new metier\Tache($row['idTache'], $row['intituleTache'], $row['date'], $row['description']);
+                                if ($row['intituleTache'] == null) $intituleTache = "";
+                                else $intituleTache = $row['intituleTache'];
+                                if ($row['date'] == null) $date = "";
+                                else $date = $row['date'];
+                                if ($row['description'] == null) $description = "";
+                                else $description = $row['description'];
+                                $tachesTrouvees[] = new metier\Tache($intituleTache, $date, $description, $row['idTache']);
                         }
                         return $tachesTrouvees;
                 }
                 
-                public function ajouterTache(Tache $ajout) : bool {
-                        return $this->tacheGateway->ajouterTache($ajout);
+                public function ajouterTacheAListe(int $idListe, metier\Tache $ajout){
+                        $this->tacheGateway->ajouterTache($ajout, $idListe);
                 }
                 
-                public function supprimerTache(int $idTacheSuppression) : bool {
-                        return $this->tacheGateway->supprimerTache($idTacheSuppression);
+                public function delTache(int $idTache){
+                        $this->tacheGateway->supprimerTache($idTache);
                 }
         
         }
