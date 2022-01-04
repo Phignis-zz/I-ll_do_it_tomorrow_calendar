@@ -68,11 +68,14 @@
                  *      ajout : Instance de la tache à ajouter
                  */
                 public function ajouterTache(\IllDoTomorrowCalendar\modeles\metier\Tache $ajout, int $idListe) {
-                        $query = "INSERT INTO TACHE VALUES(NULL, :intitule, :date, :description, :idListe);";
+                        $query = "INSERT INTO TACHE VALUES(NULL, :intitule, :date, :description, :estTermine, :idListe);";
                         
+                        $estTermine = ($ajout->estTacheTermine()) ? 1 : 0;
+
                         $this->connexionBD->executerQuery($query, [":intitule" => [$ajout->getIntituleTache(), \PDO::PARAM_STR],
                                                                         ":date" => [$ajout->getDateTache(), \PDO::PARAM_STR],
                                                                         ":description" => [$ajout->getDescriptionTache(), \PDO::PARAM_STR],
+                                                                        ":estTermine" => [$estTermine, \PDO::PARAM_INT],
                                                                         ":idListe" => [$idListe, \PDO::PARAM_INT]]);
                 }
                 
