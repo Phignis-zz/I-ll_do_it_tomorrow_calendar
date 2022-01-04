@@ -7,12 +7,14 @@
                 private $intituleTache;
                 private $dateTache;
                 private $description;
+                private $estTermine;
                 
-                public function __construct(string $intituleTache, string $dateTache, string $description, int $idTache = -1) {
+                public function __construct(string $intituleTache, string $dateTache, string $description, int $idTache = -1, bool $estTermine = false) {
                         $this->idTache = $idTache;
                         $this->intituleTache = $intituleTache;
                         $this->dateTache = $dateTache;
                         $this->description = $description;
+                        $this->estTermine = $estTermine;
                 }
                 
                 
@@ -36,6 +38,10 @@
                 public function getDescriptionTache() : string {
                         return $this->description;
                 }
+
+                public function estTacheTermine() : bool {
+                        return $this->estTermine;
+                }
                 
                 ///////////////////////////////////////////
                 // SETTER
@@ -56,6 +62,10 @@
                 
                 public function setDescription(string $description) {
                         $this->description = $description;
+                }
+
+                public function setTacheTermine(bool $estTermine) {
+                        $this->estTermine = $estTermine;
                 }
                 
                 

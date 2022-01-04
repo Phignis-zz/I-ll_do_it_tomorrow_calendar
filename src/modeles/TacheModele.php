@@ -54,12 +54,13 @@
                                 else $date = $row['date'];
                                 if ($row['description'] == null) $description = "";
                                 else $description = $row['description'];
-                                $tachesTrouvees[] = new metier\Tache($intituleTache, $date, $description, $row['idTache']);
+                                $estTermine = (isset($row['estTermine']) && !empty($row['estTermine']) && $row['estTermine'] != 0) ? true : false;
+                                $tachesTrouvees[] = new metier\Tache($intituleTache, $date, $description, $row['idTache'], $estTermine);
                         }
                         return $tachesTrouvees;
                 }
                 
-                public function ajouterTacheAListe(int $idListe, metier\Tache $ajout){
+                public function ajouterTacheAListe(int $idListe, metier\Tache $ajout) {
                         $this->tacheGateway->ajouterTache($ajout, $idListe);
                 }
                 
