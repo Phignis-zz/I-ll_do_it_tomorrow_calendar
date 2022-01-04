@@ -83,4 +83,10 @@
         public function getListDeLaTacheDonee(int $idTache) : \IllDoTomorrowCalendar\modeles\metier\ListeTaches{
             return $this->listMod->getListDeLaTacheDonee($idTache);
         }
+
+        public function setTermineListeTache(\IllDoTomorrowCalendar\modeles\metier\ListeTaches $liste) {
+            foreach($liste->getListeTache() as $tache) {
+                $this->tacheMod->setTermine($tache);
+            }
+        }
     }
