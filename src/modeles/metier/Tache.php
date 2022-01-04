@@ -8,7 +8,7 @@
                 private $dateTache;
                 private $description;
                 
-                public function __construct(int $idTache, string $intituleTache, string $dateTache, string $description) {
+                public function __construct(string $intituleTache, string $dateTache, string $description, int $idTache = -1) {
                         $this->idTache = $idTache;
                         $this->intituleTache = $intituleTache;
                         $this->dateTache = $dateTache;
