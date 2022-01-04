@@ -66,18 +66,14 @@
                  * ajouterTache a pour but d'ajouter une tache passée en paramètre a la bd
                  * paramètres:
                  *      ajout : Instance de la tache à ajouter
-                 * return:
-                 *      Un boolean.
-                 * 		True: Commande exécutée avec succès
-                 * 		False: Erreur
                  */
-                public function ajouterTache(Tache $ajout) : bool {
-                        $query = "INSERT INTO TACHE VALUES(:id, :intitule, :date, :description, NULL);";
+                public function ajouterTache(\IllDoTomorrowCalendar\modeles\metier\Tache $ajout, int $idListe) {
+                        $query = "INSERT INTO TACHE VALUES(NULL, :intitule, :date, :description, :idListe);";
                         
-                        return $this->connexionBD->executeQuery($query, [":id" => [$ajout->idTache, PDO::PARAM_INT],
-                                                                                ":intitule" => [$ajout->intituleTache, PDO::PARAM_STR],
-                                                                                ":date" => [$ajout->dateTache, PDO::PARAM_STR],
-                                                                                ":description" => [$ajout->description, PDO::PARAM_STR]]);
+                        $this->connexionBD->executerQuery($query, [":intitule" => [$ajout->getIntituleTache(), \PDO::PARAM_STR],
+                                                                        ":date" => [$ajout->getDateTache(), \PDO::PARAM_STR],
+                                                                        ":description" => [$ajout->getDescriptionTache(), \PDO::PARAM_STR],
+                                                                        ":idListe" => [$idListe, \PDO::PARAM_INT]]);
                 }
                 
                 /**
@@ -90,9 +86,9 @@
                  * 		True: Commande exécutée avec succès
                  * 		False: Erreur
                  */
-                public function supprimerTache(Tache $suppression) : bool {
-                        $query = "DELETE TACHE WHERE id = :i";
-                        return $this->connexionBD->executerQuery($query, [":i" => [$suppression->idTache, PDO::PARAM_INT]]);
+                public function supprimerTache(int $idTache){
+                        $query = "DELETE FROM TACHE WHERE idTache = :i";
+                        $this->connexionBD->executerQuery($query, [":i" => [$idTache, \PDO::PARAM_INT]]);
                 }
                 
         }

@@ -16,6 +16,7 @@
                         }
                         // calcul du numéro de tache a partir duquel afficher pour OFFSET qui ne permet pas les calculs
                         $numTache = ($numPage -1) * 10; // 
+
                         if ($utl == ""){
                                 $query = "SELECT * FROM LISTETACHE WHERE proprietaire IS NULL LIMIT 10 OFFSET :numTache;";
                                 $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, \PDO::PARAM_INT]]);    
@@ -109,6 +110,12 @@
                 public function supprimerListeTaches(int $idList) {
                         $query = "DELETE FROM LISTETACHE WHERE idListe = :idListe;";
                         $this->connexionBD->executerQuery($query, [":idListe" => [$idList, \PDO::PARAM_INT]]);
+                }
+
+                public function getListDeLaTacheDonee(int $idTache) : array {
+                        $query = "SELECT * FROM listetache lt, tache t WHERE t.idListe = lt.idListe AND t.idTache = :idTache;";
+                        $this->connexionBD->executerQuery($query, [":idTache" => [$idTache, \PDO::PARAM_INT]]);
+                        return $this->connexionBD->recupererResultatQuery();
                 }
                 
         }

@@ -71,4 +71,16 @@
         public function getContenuListe(int $idListe, int $numPage = 1) : array {
             return $this->tacheMod->trouverTacheParIdListe10($idListe, $numPage);
         }
+
+        public function ajouterTacheAListe(int $idListe, string $titre, string $date, string $description){
+            $this->tacheMod->ajouterTacheAListe($idListe, new \IllDoTomorrowCalendar\modeles\metier\Tache($titre, $date, $description));
+        }
+
+        public function delTache(int $idTache){
+            $this->tacheMod->delTache($idTache);
+        }
+
+        public function getListDeLaTacheDonee(int $idTache) : \IllDoTomorrowCalendar\modeles\metier\ListeTaches{
+            return $this->listMod->getListDeLaTacheDonee($idTache);
+        }
     }

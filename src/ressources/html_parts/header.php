@@ -40,17 +40,36 @@
     </div>
     <nav>
       <ul>
-        
         <li>
           <a href="index.php?action=getListPb">
-            <button>
+            <button 
+              <?php
+                if (isset($_SESSION['onglet'])){
+                  if ($_SESSION['onglet'] == "pb"){
+                    echo 'id="selected"';
+                  }
+                }
+                else{
+                  $_SESSION['onglet'] = "pb";
+                  echo 'id="selected"';
+                } 
+              ?>
+            >
               <p>Listes de tâches publiques</p>
             </button>
           </a>
         </li>
         <li>
           <a href="index.php?action=getListPv">
-            <button>
+            <button
+              <?php
+                if (isset($_SESSION['onglet'])){
+                  if ($_SESSION['onglet'] == "pv"){
+                    echo 'id="selected"';
+                  }
+                }
+              ?>
+            >
               <p>Listes de tâches privées</p>
             </button>
           </a>

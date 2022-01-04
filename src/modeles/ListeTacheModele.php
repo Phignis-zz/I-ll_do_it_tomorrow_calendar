@@ -72,4 +72,17 @@
 				return new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe'], $row['proprietaire']);
 			}
 		}
+
+		public function getListDeLaTacheDonee(int $idTache) : \IllDoTomorrowCalendar\modeles\metier\ListeTaches {
+			$result = $this->listTacheGW->getListDeLaTacheDonee($idTache);
+			if ($result == NULL){
+				throw new \Exception("Cette tâche n'appartient a aucune liste, elle ne devrait pas exister");
+			}
+			foreach ($result as $row){
+				if ($row['proprietaire'] == NULL){
+					return new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe']);
+				}
+				return new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($row['nomListe'], $row['idListe'], $row['proprietaire']);
+			}
+		}
 	}

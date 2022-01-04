@@ -34,7 +34,7 @@
                   </div>
                 </button>
                 <button class="ListeTaches" id="delete"
-                onclick="window.location.href='index.php?action=delListPb&idTache='1';">
+                onclick="window.location.href='index.php?action=delContenuList&idTache=<?php echo $tache->getIdTache(); ?>';">
                   X
                 </button>
               </div>
@@ -46,7 +46,7 @@
           <div>
             <div>
               <label for="titre">Titre :</label>
-              <INPUT TYPE="TEXT" NAME="titre" id="titre">
+              <INPUT TYPE="TEXT" NAME="titre" id="titre" >
             </div>
             <div>
               <label for="date">Date :</label>
@@ -56,8 +56,10 @@
               <label for="description">Description :</label>
               <INPUT TYPE="TEXT" NAME="description" id="description">
             </div>
-            <INPUT TYPE="HIDDEN" NAME="action" VALUE="addContenuList">
-            <INPUT TYPE="SUBMIT" VALUE="Créer la Tâche" id="addButton">
+            <div id="placeButton">
+              <INPUT TYPE="HIDDEN" NAME="action" VALUE="addContenuList">
+              <INPUT TYPE="SUBMIT" VALUE="Créer la Tâche" id="addButton">
+            </div>
           </div>
         </FORM>
       </section>

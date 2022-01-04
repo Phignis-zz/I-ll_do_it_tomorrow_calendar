@@ -25,7 +25,7 @@
                 <?php foreach($contenuPage as $row){?>
                   <div id="orgaButtonsList">
                     <button class="ListeTaches" 
-                    onclick="window.location.href='index.php?action=voirListeTache&idTache=<?= $row->getIdListe(); ?>';">
+                    onclick="window.location.href='index.php?action=goContenuListeTache&idListe=<?= $row->getIdListe(); ?>';">
                       <div>
                         <p id="titre1"><?= $row->getNomListe(); ?> </p>
                         <p><?= $row->getIdListe(); ?></p>
