@@ -34,7 +34,7 @@
                   </div>
                 </button>
                 <button class="ListeTaches" id="delete"
-                onclick="window.location.href='index.php?action=delContenuList&idTache=<?php echo $tache->getIdTache(); ?>';">
+                onclick="window.location.href='index.php?action=delContenuList&idTache=<?= $tache->getIdTache(); ?>';">
                   X
                 </button>
               </div>
