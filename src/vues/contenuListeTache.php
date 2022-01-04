@@ -27,6 +27,7 @@
               <div id="orgaButtonsList">
                 <button class="ListeTaches">
                   <div>
+                    <input type="checkbox" id="termine" checked="checked">
                     <p class="autresContenus"><?= $tache->getIntituleTache(); ?> </p>
                     <p class="autresContenus"><?= $tache->getDateTache(); ?></p>
                     <p class="autresContenus"><?= $tache->getIdTache(); ?></p>
@@ -46,19 +47,19 @@
           <div>
             <div>
               <label for="titre">Titre :</label>
-              <INPUT TYPE="TEXT" NAME="titre" id="titre" >
+              <INPUT TYPE="TEXT" NAME="titre" id="titre" class="elargir">
             </div>
             <div>
               <label for="date">Date :</label>
-              <INPUT TYPE="TEXT" NAME="date" id="date">
+              <INPUT TYPE="TEXT" NAME="date" id="date" class="elargir">
             </div>
             <div>
               <label for="description">Description :</label>
-              <INPUT TYPE="TEXT" NAME="description" id="description">
+              <INPUT TYPE="TEXT" NAME="description" id="description" class="elargir">
             </div>
             <div id="placeButton">
               <INPUT TYPE="HIDDEN" NAME="action" VALUE="addContenuList">
-              <INPUT TYPE="SUBMIT" VALUE="Créer la Tâche" id="addButton">
+              <INPUT TYPE="SUBMIT" VALUE="Créer la Tâche" id="addButton" class="elargir">
             </div>
           </div>
         </FORM>
