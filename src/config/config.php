@@ -5,8 +5,8 @@
         $erreurs = [];
 
         $listActions=['accueil', 'connexion', 'goConnecter', 'deconnexion', 'inscription', 'goInscription',
-         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb', 'addTache', 'delTache',
-          'goContenuListeTache', 'goAddListPb', 'addContenuList'];
+         'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb',
+          'goContenuListeTache', 'goAddListPb', 'addContenuList', 'delContenuList'];
         
         $base="mysql:host=localhost;dbname=ill_do_it_tomorrow";
         $login="admin";
