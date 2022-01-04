@@ -49,5 +49,27 @@
                     return false;
                 }
                 
-                //utiliser DateTime (createFromFormat)
+                /**
+                 * filtrerDate:
+                 * vérifie que la date donnée en paramètre est valide, et la purifie
+                 * paramètres:
+                 *      chaine : valeur a filtrer
+                 * return:
+                 *      Un string, soit le string tel que donné (DD/MM/YYYY DD/MM/YY), soit la date 01/01/1970
+                 */
+                public static function filtrerDate(string $chaine) : string {
+                    $chaine = rtrim(ltrim($chaine)); // j'enlève tout les espaces potentiels
+
+                    if(strlen($chaine) == 8 || strlen($chaine) == 10) { // date valide si au format 14/12/2021 ou 12/12/02
+                        if(\DateTime::createFromFormat('d/m/Y', $chaine) !== false || \DateTime::createFromFormat('d/m/y', $chaine) !== false) {
+                            // date valide
+                            return $chaine;
+                        }
+                        else {
+                            return "01/01/1970";
+                        }
+                    } else {
+                        return "01/01/1970";
+                    }
+                }
         }
