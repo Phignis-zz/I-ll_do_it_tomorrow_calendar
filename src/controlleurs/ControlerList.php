@@ -5,6 +5,7 @@
     class ControlerList{
         private $connexionBD;
 		private $listMod;
+        private $tacheMod;
 		private $validateur;
 		
 		public function __construct() {
@@ -22,10 +23,10 @@
                 exit(1);
             }
 
-            $tmp = new \IllDoTomorrowCalendar\DAL\ListeTachesGateway($this->connexionBD);
-            $tmp1 = new \IllDoTomorrowCalendar\modeles\TacheModele(new \IllDoTomorrowCalendar\DAL\TacheGateway($this->connexionBD));
-			
-            $this->listMod = new \IllDoTomorrowCalendar\modeles\ListeTacheModele($tmp, $tmp1);
+            $this->listMod = new \IllDoTomorrowCalendar\modeles\ListeTacheModele(
+                new \IllDoTomorrowCalendar\DAL\ListeTachesGateway($this->connexionBD));
+            $this->tacheMod = new \IllDoTomorrowCalendar\modeles\TacheModele(
+                new \IllDoTomorrowCalendar\DAL\TacheGateway($this->connexionBD));
 			$this->validateur = new \IllDoTomorrowCalendar\config\valideurs\ValidateurGenerique();
 		}
         //passer par modele
@@ -55,11 +56,6 @@
             return $this->listMod->getListPv($numPage);
         }
 
-        public function getListDetail(int $idListe) {
-            $listeTacheAAfficher = $this->listMod->trouverListeTacheParID($idListe);
-            include("vues/listeTachesVue.php");
-        }
-
         public function addListPb(string $nomListe){
             $this->listMod->ajouterListeTache(new \IllDoTomorrowCalendar\modeles\metier\ListeTaches($nomListe));
         }
@@ -70,5 +66,9 @@
 
         public function delListPb(int $idListe) {
             $this->listMod->supprimerListeTache($idListe);
+        }
+
+        public function getContenuListe(int $idListe, int $numPage = 1) : array {
+            return $this->tacheMod->trouverTacheParIdListe10($idListe, $numPage);
         }
     }

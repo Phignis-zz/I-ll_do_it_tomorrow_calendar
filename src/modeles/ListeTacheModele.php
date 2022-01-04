@@ -5,11 +5,9 @@
 	class ListeTacheModele{
 
 		private $listTacheGW;
-		private $tachesMdl;
 
-		public function __construct(\IllDoTomorrowCalendar\DAL\ListeTachesGateway $listTacheGW, TacheModele $tachesMdl) {
+		public function __construct(\IllDoTomorrowCalendar\DAL\ListeTachesGateway $listTacheGW) {
 			$this->listTacheGW = $listTacheGW;
-			$this->tachesMdl = $tachesMdl;
 		}
 
 		public function getListPb(int $numPage) : array {
@@ -30,7 +28,7 @@
 			return $listes;
 		}
 		
-		public function trouverListeTacheParID(int $valeurColonne = 0) : metier\ListeTaches {
+		/*public function trouverListeTacheParID(int $valeurColonne = 0) : metier\ListeTaches {
 			$results = $this->listTacheGW->trouverListeTacheByID($valeurColonne);
 			$listeTrouve = null;
 			// on recupere d'abord les infos de la liste
@@ -43,7 +41,7 @@
 				$listeTrouve->ajoutTache($tache);
 			}
 			return $listeTrouve;
-		}
+		}*/ //Useless, c pas le role de Liste tache Modele, controlleur !
 
 		public function trouverListeTacheParPseudoUtl(string $valeurColonne = "") : array{
 			$results = $listTacheGW->trouverListeTache('pseudo', $valeurColonne);

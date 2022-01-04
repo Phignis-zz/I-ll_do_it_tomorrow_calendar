@@ -1,0 +1,131 @@
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	background-color: #808080;
+	min-height:100vh;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+section div{
+	display: flex;
+	flex-direction: column;
+	margin-top: 1em;
+}
+/*------------TABLEAU-----------*/
+#tableau {
+	display: flex;
+	flex-direction: column;
+	margin:5%;
+}
+
+#titres-colones {
+	display: flex;
+	flex-direction: row;
+}
+
+#titre1 {
+    margin-left: 5%;
+}
+.autresTitres{
+    min-width: 15%;
+}
+#titre4 {
+    min-width: 50%;
+}
+
+.autresContenus{
+    min-width: 15%;
+}
+#contenu4 {
+    min-width: 55%;
+}
+
+#orgaButtonsList {
+	display:flex;
+	flex-direction: row;
+}
+
+.ListeTaches{
+	border: 0px;
+	width: 100%;
+    height: 100%;
+	border: 3px solid #35363A;
+	border-radius: 15px;
+	background-color: #808080;
+	margin-bottom: 1%;
+}
+	
+.ListeTaches:hover {
+	background-color: #505050;
+	border: 3px solid #27282B;
+}
+
+.ListeTaches:hover div p {
+	color: #808080;
+}
+.ListeTaches div{
+	display: flex;
+	flex-direction: row;
+}
+
+#addButton {
+	margin-right: 25%;
+	margin-left: 25%;
+	border-radius: 15px;
+	border: 4px solid #35363A;
+	background-color: #808080;
+}
+
+#addButton:hover {
+	background-color: #505050;
+	border: 4px solid #27282B;
+}
+
+#delete {
+	max-width: 5%;
+	max-height: 80%;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 20px;
+}
+
+#titreFormAdd {
+	margin-left: 5%;
+}
+
+form {
+	border-radius: 15px;
+	border: 2px solid #35363A;
+	margin-right: 5%;
+	margin-left: 5%;
+	padding-bottom: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+form div {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+form div div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+form div div #titre {
+	min-width: 80%;
+	margin-bottom: 10px;
+}
+
+input {
+    background-color: #808080;
+    border: 2px solid #35363A;
+}

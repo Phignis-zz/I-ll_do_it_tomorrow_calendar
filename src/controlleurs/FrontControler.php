@@ -104,16 +104,33 @@
 							break;
 						case 'delTache':
 							break;
-						case 'voirListeTache':
-							// on veut voir le détail d'une liste de tache, identifié par son id unique
-							if(!isset($_GET["idTache"])) { // on ne sait sur quelle tache rediriger
-								$erreurs[] = "La tache a afficher n'est pas connu";
+						case 'goContenuListeTache':
+							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+							else $numPage = 1;
+							if (!isset($_REQUEST['idListe'])){
+								$erreurs[]="La liste sélectionnée n'existe pas";
 								require("vues/vueErreur.php");
-							} else {
-								// on connait la liste de tache a afficher, on la recupère donc
-								(new ControlerList())->getListDetail($_GET["idTache"]);
+								break;
 							}
+							//verif confidencialité (pb/user et si c bien le bon user)
+							$controlList = new ControlerList();
+							$_SESSION['currentList'] = $_REQUEST['idListe'];
+							$contenuPage = $controlList->getContenuListe($_REQUEST['idListe'], $numPage);
+							require("vues/contenuListeTache.php");
 							break;
+						case 'addContenuList':
+							if (!isset($_SESSION['currentList'])){
+								$erreurs[] = "La liste où ajouter la tâche est introuvable";
+								require("vues/vueErreur.php");
+								break;
+							}
+							if (!isset($_SESSION['titre']) || !isset($_SESSION['date'] || !isset($_SESSION['description']))){
+								$erreurs[] = "Champs manquants";
+								require("vues/vueErreur.php");
+								break;
+							}
+							$controlList = new ControlerList();
+							$controlList->ajouterTacheAListe($_SESSION['currentList'], )
 						default:
 							require("vues/vueErreur.php");
 							//appel vue err
