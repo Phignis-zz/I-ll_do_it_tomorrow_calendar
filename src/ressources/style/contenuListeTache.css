@@ -110,10 +110,15 @@ form {
 
 #placeButton {
 	padding-left: 15%;
-
 }
 
-input {
+#termine {
+	transform: scale(2.5);
+	margin-left: 2%;
+	margin-top: 0.5%;
+}
+
+.elargir {
     background-color: #808080;
     border: 2px solid #35363A;
     min-width: 80%;

@@ -11,6 +11,11 @@
                 <p>
                         <?php echo (isset($_SESSION["user"]) && !empty($_SESSION["user"])) ? "-".$_SESSION["user"]."-" : "-Anonymous-"; ?>
                 </p>
+                
+                <button id="easteregg" onclick="window.location.href='index.php?action=easteregg';">
+                        Raccoon !!!
+                </button>
+                
         </div>
         <div id="credits">
                 <p>By:</p>

@@ -1,0 +1,13 @@
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	background-color: #808080;
+	min-height:100vh;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}

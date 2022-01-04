@@ -144,6 +144,9 @@
 							$this->affichTaches();
 							
 							break;
+						case 'easteregg':
+							require("vues/easteregg.php");
+							break;
 						default:
 							require("vues/vueErreur.php");
 							//appel vue err
