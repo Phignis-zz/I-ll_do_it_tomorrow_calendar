@@ -47,14 +47,11 @@
 							break;
 						case 'getListPv':
 							$controlList = new ControlerList();
-							if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
-							else $numPage = 1;
 							if (!isset($_SESSION['user']) || $_SESSION['user'] == null){
 								require("vues/connexion.php");
 								break;
 							}
-							$contenuPage = $controlList->getListPv($numPage);
-							require("vues/listpv.php");
+							$this->affichListPv();
 							break;	
 						case 'getListPb':
 							$controlList = new ControlerList();
@@ -69,8 +66,7 @@
 								break;
 							}
 							$controlList->addListPv($_REQUEST['titre']);
-							$contenuPage = $controlList->getListPv(1);
-							require("vues/listpv.php");
+							$this->affichListPv();
 							break;
 						case 'addListPb':
 							$controlList = new ControlerList();
@@ -80,9 +76,29 @@
 							break;
 						case 'delListPb':
 							$controlList = new ControlerList();
-							$controlList->delListP;
+							$liste = $controlList->getSpeficList($_REQUEST['idTache']);
+							if ($liste->getProprietaire() != NULL){
+								$erreurs[] = "Vous ne pouvez pas supprimer une liste qui ne vous appartient pas !";
+								require("vues/vueErreur.php");
+								break;
+							}
+							$controlList->delListPb($_REQUEST['idTache']);
+							$this->affichListPb();
 							break;
 						case 'delListPv':
+							$controlList = new ControlerList();
+							if (!isset($_SESSION['user']) || $_SESSION['user'] == null){
+								require("vues/connexion.php");
+								break;
+							}
+							$liste = $controlList->getSpeficList($_REQUEST['idTache']);
+							if ($liste->getProprietaire() != $_SESSION['user']){
+								$erreurs[] = "Vous ne pouvez pas supprimer une liste qui ne vous appartient pas !";
+								require("vues/vueErreur.php");
+								break;
+							}
+							$controlList->delListPb($_REQUEST['idTache']);
+							$this->affichListPv();
 							break;
 						case 'addTache':
 							break;
@@ -116,4 +132,18 @@
 			$contenuPage = $controlList->getListPb($numPage);
 			require("vues/listpb.php");
 		}
+
+		/**
+		 * affichListPv
+		 * Affiche la liste des liste de taches de l'utilisateur connecté
+		 * /!\ Vérifier si l'utilisateur est connecté avant appel, sinon comportement indéterminé
+		 */
+		private function affichListPv(){
+			$controlList = new ControlerList();
+			if (isset($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+			else $numPage = 1;
+			$contenuPage = $controlList->getListPv($numPage);
+			require("vues/listpv.php");
+		}
+		
 	}
