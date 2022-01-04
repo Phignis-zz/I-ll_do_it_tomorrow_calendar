@@ -68,6 +68,7 @@
 			$pseudo = $this->validateur->validerStr($pseudo);
 			if ($pseudo == null) $erreurs[] = "pseudo invalide";
 			$email = $this->validateur->validerStr($email);
+			$email = $this->validateur->validerEmail($email);
 			if ($email == null) $erreurs[] = "email invalide";
 			$dateDeNaissance = $this->validateur->validerStr($dateDeNaissance);
 			if ($dateDeNaissance == null) $erreurs[] = "date de naissance invalide";
@@ -83,6 +84,5 @@
 				require("vues/vueErreur.php");
 				exit(5);
 			}
-			
 		} 
 	}

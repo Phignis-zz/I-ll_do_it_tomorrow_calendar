@@ -16,7 +16,7 @@
                 
                 public static function validerStr(string $chaine) : string {
                     if($chaine = filter_var($chaine, FILTER_SANITIZE_STRING)) return $chaine;
-					return "INVALIDE";
+					return "INVALIDATE";
                 }
                 
                 /**
@@ -71,5 +71,10 @@
                     } else {
                         return "01/01/1970";
                     }
+                }
+
+                public static function validerEmail(string $email) : string {
+                    if(filter_var($email, FILTER_VALIDATE_EMAIL)) return $email;
+					return "INVALIDE";
                 }
         }
