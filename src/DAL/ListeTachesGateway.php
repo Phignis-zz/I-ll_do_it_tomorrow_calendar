@@ -16,7 +16,6 @@
                         }
                         // calcul du numéro de tache a partir duquel afficher pour OFFSET qui ne permet pas les calculs
                         $numTache = ($numPage -1) * 10; // 
-                        $listeTacheTrouvees = [];
                         if ($utl == ""){
                                 $query = "SELECT * FROM LISTETACHE WHERE proprietaire IS NULL LIMIT 10 OFFSET :numTache;";
                                 $this->connexionBD->executerQuery($query, [":numTache" => [$numTache, \PDO::PARAM_INT]]);    

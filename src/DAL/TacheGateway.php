@@ -52,13 +52,11 @@
                         return $this->connexionBD->recupererResultatQuery();
                 }
 
-                public function trouverTacheByIdListe(int $valeurColonne = null) : array {
-                        
-                        $query = "SELECT * FROM TACHE WHERE idListe = :valeurColonne;";
-                        $this->connexionBD->executerQuery($query, [":valeurColonne" => [$valeurColonne, \PDO::PARAM_INT]]);
-                        
-                        
-                        // la conversion en Tache doit se faire avec TacheModele
+                public function trouverTacheParIdListe10(int $valeurColonne = null, $numPage = 1) : array {
+                        $numTache = ($numPage -1) * 10;
+                        $query = "SELECT * FROM TACHE WHERE idListe = :valeurColonne LIMIT 10 OFFSET :numPage;";
+                        $this->connexionBD->executerQuery($query, [":valeurColonne" => [$valeurColonne, \PDO::PARAM_INT],
+                                                                        ":numPage" => [$numTache, \PDO::PARAM_INT]]);
                         return $this->connexionBD->recupererResultatQuery();
                 }
                 

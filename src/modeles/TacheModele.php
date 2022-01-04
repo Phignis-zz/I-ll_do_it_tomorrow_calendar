@@ -43,9 +43,9 @@
                         return $tachesTrouvees;
                 }
 
-                public function trouverTacheParIdListe(int $idListe) : array {
+                public function trouverTacheParIdListe10(int $idListe, int $numPage = 1) : array {
                         $tachesTrouvees = [];
-                        $temp = $this->tacheGateway->trouverTacheByIdListe($idListe);
+                        $temp = $this->tacheGateway->trouverTacheParIdListe10($idListe, $numPage);
                         
                         foreach($temp as $row) {
                                 $tachesTrouvees[] = new metier\Tache($row['idTache'], $row['intituleTache'], $row['date'], $row['description']);
