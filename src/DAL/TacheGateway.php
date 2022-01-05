@@ -80,11 +80,12 @@
                 }
 
                 public function setEstTermine(int $idTache, bool $estTermine) {
-                        $query = "UPDATE tache SET estTermine = :estTermine WHERE idTache = 29";
+                        $query = "UPDATE tache SET estTermine = :estTermine WHERE idTache = :idTache";
                         if($estTermine) $estTermineInt = 1;
                         else $estTermineInt = 0;
 
-                        $this->connexionBD->executerQuery($query, [":estTermine" => [$estTermineInt, \PDO::PARAM_INT]]);
+                        $this->connexionBD->executerQuery($query, [":estTermine" => [$estTermineInt, \PDO::PARAM_INT],
+                                                                ":idTache" => [$idTache, \PDO::PARAM_INT]]);
                 }
                 
                 /**

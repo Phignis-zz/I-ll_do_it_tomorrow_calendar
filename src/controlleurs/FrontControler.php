@@ -152,6 +152,11 @@
 
 						case 'updateTermine':
 							(new ControlerList())->updateAllTacheTermine();
+							if(!isset($_SESSION['currentList']) || empty($_SESSION['currentList'])) {
+								$erreurs[] = "On ne connait pas la liste à afficher";
+								require("vues/vueErreur.php");
+							}
+							$this->affichTaches();
 							break;
 						default:
 							require("vues/vueErreur.php");

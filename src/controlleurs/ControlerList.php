@@ -104,9 +104,8 @@
             foreach($liste as $tache) {
                 $this->tacheMod->updateTacheTermine($tache->getIdTache(), $tache->estTacheTermine());
             }
-
             // $link = "index.php?action=goContenuListeTache&idListe=" . $_REQUEST['idListe'];
-            $_GET['action'] = 'goContenuListeTache';
-            require("index.php");
+            // $_GET['action'] = 'goContenuListeTache';
+            // require("index.php");
         }
     }
