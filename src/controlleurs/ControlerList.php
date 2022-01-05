@@ -89,4 +89,22 @@
                 exit(6);
             }
         }
+
+        public function updateAllTacheTermine() {
+            if(!isset($_REQUEST['idListe']) || empty($_REQUEST['idListe'])) {
+                $erreurs[] = "liste de tache a update non spécifiée";
+                require('/vues/vueErreur.php');
+                exit(7);
+            }
+
+            if(isset($_REQUEST['numPage']) && !empty($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
+            else $numPage = 1;
+
+            $this->getContenuListe($_REQUEST['idListe'], $numPage);
+            foreach($liste as $tache) {
+                $this->tacheMod->updateTacheTermine($tache->getIdTache(), $tache->estTacheTermine());
+            }
+            $link = "index.php?action=action=goContenuListeTache&idListe=" . $liste.getIdListe();
+            require($link);
+        }
     }

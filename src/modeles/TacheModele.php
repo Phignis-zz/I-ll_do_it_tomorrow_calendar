@@ -67,5 +67,9 @@
                 public function delTache(int $idTache){
                         $this->tacheGateway->supprimerTache($idTache);
                 }
+
+                public function updateTacheTermine(int $idTache, bool $estTermine) {
+                        $this->tacheGateway->setEstTermine($idTache, $estTermine);
+                }
         
         }

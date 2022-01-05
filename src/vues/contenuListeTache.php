@@ -23,23 +23,33 @@
               <p class="autresTitres">ID :</p>
               <p id="titre4" >Description :</p>
             </div>
-            <?php foreach($contenuPage as $tache) { ?>
-              <div id="orgaButtonsList">
-                <button class="ListeTaches">
-                  <div>
-                    <input type="checkbox" id="termine">
-                    <p class="autresContenus"><?= $tache->getIntituleTache(); ?> </p>
-                    <p class="autresContenus"><?= $tache->getDateTache(); ?></p>
-                    <p class="autresContenus"><?= $tache->getIdTache(); ?></p>
-                    <p id="contenu4"><?= $tache->getDescriptionTache(); ?></p>
-                  </div>
-                </button>
-                <button class="ListeTaches" id="delete"
-                onclick="window.location.href='index.php?action=delContenuList&idTache=<?= $tache->getIdTache(); ?>';">
-                  X
-                </button>
-              </div>
-            <?php } ?>  
+            <div id="tacheSection">
+              <?php foreach($contenuPage as $tache) { ?>
+                <div id="orgaButtonsList">
+                  <button class="ListeTaches">
+                    <div>
+                      <input type="checkbox" id="termine">
+                      <p class="autresContenus"><?= $tache->getIntituleTache(); ?> </p>
+                      <p class="autresContenus"><?= $tache->getDateTache(); ?></p>
+                      <p class="autresContenus"><?= $tache->getIdTache(); ?></p>
+                      <p id="contenu4"><?= $tache->getDescriptionTache(); ?></p>
+                    </div>
+                  </button>
+                  <button class="ListeTaches" id="delete"
+                  onclick="window.location.href='index.php?action=delContenuList&idTache=<?= $tache->getIdTache(); ?>';">
+                    X
+                  </button>
+                </div>
+              <?php } ?>
+              <?php foreach($contenuPage as $tache) { ?>
+                <div id="orgaButtonsList">
+                  <button class="ListeTaches">
+                    <div>
+                      <input type="checkbox" id="termine" NAME="termineTache<?= $tache->getIdTache() ?>">
+                    </div>
+                </div>
+              <?php } ?>
+            </div>
           </div>
         </div>
         <?php if(isset($contenuPage) && count($contenuPage) > 0) { ?>

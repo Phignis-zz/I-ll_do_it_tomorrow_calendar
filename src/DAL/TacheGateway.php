@@ -78,6 +78,14 @@
                                                                         ":estTermine" => [$estTermine, \PDO::PARAM_INT],
                                                                         ":idListe" => [$idListe, \PDO::PARAM_INT]]);
                 }
+
+                public function setEstTermine(int $idTache, bool $estTermine) {
+                        $query = "UPDATE tache SET estTermine = :estTermine WHERE idTache = 29";
+                        if($estTermine) $estTermineInt = 1;
+                        else $estTermineInt = 0;
+
+                        $this->connexionBD->executerQuery($query, [":estTermine" => [$estTermineInt, \PDO::PARAM_INT]]);
+                }
                 
                 /**
                  * description:

@@ -137,3 +137,8 @@ form {
 	background-color: #505050;
 	border: 4px solid #27282B;
 }
+
+.tacheSection {
+	display:flex;
+	flex-direction: column;
+}
