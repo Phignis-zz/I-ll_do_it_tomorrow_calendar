@@ -28,7 +28,7 @@
                 <button class="ListeTaches">
                   <div>
                     <input type="checkbox" id="termine">
-                    <p class="autresContenus"><?= $tache->getIntituleTache(); ?> </p>
+                    <p class="autresContenus" id="contenu1"><?= $tache->getIntituleTache(); ?> </p>
                     <p class="autresContenus"><?= $tache->getDateTache(); ?></p>
                     <p class="autresContenus"><?= $tache->getIdTache(); ?></p>
                     <p id="contenu4"><?= $tache->getDescriptionTache(); ?></p>
