@@ -7,7 +7,7 @@
 
 			global $ROOT_PATH, $erreurs, $listActions;
 
-			session_start();
+			if(session_status() == PHP_SESSION_NONE) session_start();
 
 			if(!isset($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 				$controlList = new ControlerList();
@@ -148,6 +148,10 @@
 							break;
 						case 'easteregg':
 							require("vues/easteregg.php");
+							break;
+
+						case 'updateTermine':
+							(new ControlerList())->updateAllTacheTermine();
 							break;
 						default:
 							require("vues/vueErreur.php");

@@ -41,14 +41,17 @@
                   </button>
                 </div>
               <?php } ?>
-              <?php foreach($contenuPage as $tache) { ?>
-                <div id="orgaButtonsList">
-                  <button class="ListeTaches">
-                    <div>
-                      <input type="checkbox" id="termine" NAME="termineTache<?= $tache->getIdTache() ?>">
-                    </div>
-                </div>
-              <?php } ?>
+              <FORM METHOD="POST" ACTION="index.php?action=updateTermine&idListe=<?= $_REQUEST['idListe'] ?>">
+                <?php foreach($contenuPage as $tache) { ?>
+                  <div id="orgaButtonsList">
+                    <button class="ListeTaches">
+                      <div>
+                        <input type="checkbox" id="termine" NAME="termineTache<?= $tache->getIdTache() ?>">
+                      </div>
+                  </div>
+                <?php } ?>
+                <?php if(count($contenuPage) > 0) { ?> <input type="submit" value="valider les taches terminées"> <?php } ?>
+              </FORM>
             </div>
           </div>
         </div>

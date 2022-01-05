@@ -6,7 +6,7 @@
 
         $listActions=['accueil', 'connexion', 'goConnecter', 'deconnexion', 'inscription', 'goInscription',
          'getListPv', 'getListPb', 'addListPv', 'addListPb', 'delListPv', 'delListPb',
-          'goContenuListeTache', 'goAddListPb', 'addContenuList', 'delContenuList', 'easteregg'];
+          'goContenuListeTache', 'goAddListPb', 'addContenuList', 'delContenuList', 'easteregg', 'updateTermine'];
         
         $base="mysql:host=localhost;dbname=ill_do_it_tomorrow";
         $login="admin";

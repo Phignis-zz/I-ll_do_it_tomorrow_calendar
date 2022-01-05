@@ -100,11 +100,13 @@
             if(isset($_REQUEST['numPage']) && !empty($_REQUEST['numPage'])) $numPage = $_REQUEST['numPage'];
             else $numPage = 1;
 
-            $this->getContenuListe($_REQUEST['idListe'], $numPage);
+            $liste = $this->getContenuListe($_REQUEST['idListe'], $numPage);
             foreach($liste as $tache) {
                 $this->tacheMod->updateTacheTermine($tache->getIdTache(), $tache->estTacheTermine());
             }
-            $link = "index.php?action=action=goContenuListeTache&idListe=" . $liste.getIdListe();
-            require($link);
+
+            // $link = "index.php?action=goContenuListeTache&idListe=" . $_REQUEST['idListe'];
+            $_GET['action'] = 'goContenuListeTache';
+            require("index.php");
         }
     }
