@@ -10,13 +10,13 @@
 
 > Assurez vous d'avoir lancé un serveur pour executer le PHP, et d'avoir une BDD MySQL.
 
-> Le script de création des tables se trouve (ici)[./src/database/ill_do_it_tomorrow.sql].
+> Le script de création des tables se trouve [ici](./src/database/ill_do_it_tomorrow.sql).
 > Cela est à import sur votre serveur même, il créé un utilisateur admin, avec mot de passe admin&63, ainsi qu'une base de donnée nommée 'ill_do_it_tomorrow'.
 > Cet utilisateur possède tout les droits sur la base de donnée créé (y compris GRANT).
 
-> Alternativement, vous avez le fichier (suivant)[./src/database/ill_do_it_tomorrow_only_database_structure_datas.sql]. Celui ci ne génère ni database, ni utilisateur,
+> Alternativement, vous avez le fichier [suivant](./src/database/ill_do_it_tomorrow_only_database_structure_datas.sql). Celui ci ne génère ni database, ni utilisateur,
 > mais uniquement la structure des tables, et les tuples d'exemples. Cependant, il faudra créer soit même la base et l'utilisateur, et potentiellement changer
-> les accréditations présentes dans (config.php)[./src/config/config.php].
+> les accréditations présentes dans [config.php](./src/config/config.php).
 
 ## Consigne encadrant le projet
 > ###### Projet A: ToDo List
@@ -46,6 +46,7 @@
 >> Cela est faisable via CSS pur (i.e. : la page n’a pas besoin d’être actualisée, et l’utilisation de JavaScript n’est pas requise)
 
 ## Membres du groupe
+
 > DUBOIS Mïckael
 >
 > FOUCRAS Baptiste
@@ -58,14 +59,19 @@
 > *   Wamp Server 3.2.3, avec une base de donnée MySQL 5.7.31, PHP 7.3.21 et PHPMyAdmin 5.0.2 a été utilisé lors du développement du projet
 
 ## Arborescence du projet
-> *   doc : dossier contenant toute la documentation du projet (diagramme de conception, sketchs...)
-> *   src : dossier contenant tout le code source du projet du site
-> *   src/config : dossier contenant tout le code php permettant de définir des variables utiles a tout le site (le chemin vers toutes les images, ls CSS...)
-> *   src/controllers : dossier contenant tout les controlers (servant au controle de la validité des données saisies, redirections sur les vues adéquates...)
-> *   src/modeles : dossier contenant tout les modèles du projet (manipulant les données métiers, tel des Gateway)
-> *   src/ressources : dossier contenant tout les ressources de l'application (images, fichiers CSS3, parties html communes tel le header ou le footer)
-> *   src/vues : dossier contenant toutes les vues de l'application (contenu html visible directement par l'utilisateur, généré avec les données demandées aux controllers)
+> *   [doc](./doc) : dossier contenant toute la documentation du projet (diagramme de conception, sketchs...)
+> *   [src](./src) : dossier contenant tout le code source du projet du site
+> *   [src/config](src/config) : dossier contenant tout le code php permettant de définir des variables utiles a tout le site (le chemin vers toutes les images, ls CSS...),
+>     mais aussi les valideurs et l'autoloader
+> *   [src/controlleurs](src/controlleurs) : dossier contenant tout les controlleurs (servant au controle de la validité des données saisies, redirections sur les vues
+>     adéquates...)
+> *   [src/DAL](src/DAL) : dossier contenant la Data Access Layout, donc toutes les Gateways demandant directement à la classe [connexionBD](src/DAL/ConnexionBD.php)
+> *   [src/modeles](src/modeles) : dossier contenant tout les modèles du projet (manipulant les données métiers, tel des Gateway), ainsi que le sous dossier métier
+> *   [src/ressources](src/ressources) : dossier contenant tout les ressources de l'application (images, fichiers CSS3, parties html communes tel le header ou le footer)
+> *   [src/vues](src/vues) : dossier contenant toutes les vues de l'application (contenu html visible directement par l'utilisateur, généré avec les données demandées aux
+>     controllers)
+> *   [src/database](src/database) : dossier contenant les fichiers sql générant la base de donnée de l'application
 
 ## Conventions
 
-veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
+> veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
