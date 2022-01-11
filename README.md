@@ -6,6 +6,13 @@
 >
 > Nous avons choisi de faire une ToDo List.
 
+## Premier lancement
+
+Assurez vous d'avoir lancé un serveur pour executer le PHP, et d'avoir une BDD MySQL.
+Le script de création des tables se trouve (ici)[./src/database/ill_do_it_tomorrow.sql].
+Cela est à import sur votre serveur même, il créé un utilisateur admin, avec mot de passe admin&63, ainsi qu'une base de donnée nommée 'ill_do_it_tomorrow'.
+Cet utilisateur possède tout les droits sur la base de donnée créé (y compris GRANT).
+
 ## Consigne encadrant le projet
 > ###### Projet A: ToDo List
 >>
@@ -57,7 +64,3 @@
 ## Conventions
 
 veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
-
-## Premier lancement
-
-Assurez vous d'avoir lancer un serveur pour executer le PHP, et d'avoir une BDD. Le script de création des tables se trouve (ici)[./doc/ill_do_it_tomorrow.sql]. la BDD doit se nommer ill_do_it_tomorrow, avec un utilisateur pouvant y accéder en lecture et écriture, nommé admin avec mot de passe admin&63.

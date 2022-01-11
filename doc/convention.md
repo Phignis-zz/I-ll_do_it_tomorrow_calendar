@@ -5,10 +5,9 @@ Afin d'assurer le bon développement du projet, quelques conventions sont a suiv
 
 1.  Conventions sur les fichiers
 > *   Chaque fichier PHP de classe ne devra posséder qu'une seule classe, afin de faciliter la recherche
-> *   Chaque fichier PHP de classe métier devra être nommé avec le nom de la classe (case_sensitive), suivi d'un underscore (tiret bas) et de la terminaison classe.php
->     Ainsi un fichier contenant la classe MyClass devra être nommé MyClass_classe.php
-> *   Chaque fichier PHP de classe gateway devra être nommé avec le nom de la classe (case_sensitive), suivi de Gateway.php.
->     Ainsi, un fichier contenant la classe MyGateway devra être nommé MyGatewayGateway.php
+> *   Chaque fichier PHP de classe métier devra être nommé avec le nom de la classe (case_sensitive), suivi de la terminaison .php
+>     Ainsi un fichier contenant la classe MyClass devra être nommé MyClass.php
+>     Cela est nécessaire pour l'autoloader, se référant au namespace qui doivent indiquer la véritable arborescence.
 
 2. Conventions sur le nommage global
 > *   De part la nature du projet, développé en IUT Informatique, la langue française est à préférer pour le nommage de variables, classes ou fichier.

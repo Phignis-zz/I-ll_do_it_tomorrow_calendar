@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 04, 2022 at 10:20 PM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Generation Time: Jan 11, 2022 at 11:01 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ill_do_it_tomorrow`
 --
+CREATE DATABASE IF NOT EXISTS `ill_do_it_tomorrow` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `ill_do_it_tomorrow`;
 
 -- --------------------------------------------------------
 
