@@ -74,4 +74,4 @@
 
 ## Conventions
 
-> veuillez vous référer au fichier (convention.md)[./doc/convention.md] pour connaître les conventions régissant le développement du projet.
+> veuillez vous référer au fichier [convention.md](./doc/convention.md) pour connaître les conventions régissant le développement du projet.
