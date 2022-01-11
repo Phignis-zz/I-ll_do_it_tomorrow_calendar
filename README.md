@@ -8,10 +8,15 @@
 
 ## Premier lancement
 
-Assurez vous d'avoir lancé un serveur pour executer le PHP, et d'avoir une BDD MySQL.
-Le script de création des tables se trouve (ici)[./src/database/ill_do_it_tomorrow.sql].
-Cela est à import sur votre serveur même, il créé un utilisateur admin, avec mot de passe admin&63, ainsi qu'une base de donnée nommée 'ill_do_it_tomorrow'.
-Cet utilisateur possède tout les droits sur la base de donnée créé (y compris GRANT).
+> Assurez vous d'avoir lancé un serveur pour executer le PHP, et d'avoir une BDD MySQL.
+
+> Le script de création des tables se trouve (ici)[./src/database/ill_do_it_tomorrow.sql].
+> Cela est à import sur votre serveur même, il créé un utilisateur admin, avec mot de passe admin&63, ainsi qu'une base de donnée nommée 'ill_do_it_tomorrow'.
+> Cet utilisateur possède tout les droits sur la base de donnée créé (y compris GRANT).
+
+> Alternativement, vous avez le fichier (suivant)[./src/database/ill_do_it_tomorrow_only_database_structure_datas.sql]. Celui ci ne génère ni database, ni utilisateur,
+> mais uniquement la structure des tables, et les tuples d'exemples. Cependant, il faudra créer soit même la base et l'utilisateur, et potentiellement changer
+> les accréditations présentes dans (config.php)[./src/config/config.php].
 
 ## Consigne encadrant le projet
 > ###### Projet A: ToDo List
